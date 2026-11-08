@@ -1,0 +1,1976 @@
+{
+ "fpe": {
+  "enlistment.case_no": {
+   "label": "Patient case number that links all records of the patient"
+  },
+  "enlistment.enlist_transaction_no": {
+   "label": "Transaction number of the enlistment record"
+  },
+  "enlistment.accre_no": {
+   "label": "PhilHealth accreditation number of the primary care facility (9 characters)"
+  },
+  "enlistment.assignment_status": {
+   "label": "Enlistment status; flags a transfer from a previous primary care provider"
+  },
+  "enlistment.patient_type": {
+   "label": "Patient type: member or dependent"
+  },
+  "enlistment.patient_pin": {
+   "label": "PhilHealth Identification Number (PIN) of the patient"
+  },
+  "enlistment.patient_fname": {
+   "label": "First name of the patient"
+  },
+  "enlistment.patient_mname": {
+   "label": "Middle name of the patient"
+  },
+  "enlistment.patient_lname": {
+   "label": "Last name of the patient"
+  },
+  "enlistment.patient_extname": {
+   "label": "Name extension of the patient (for example Jr. or III)"
+  },
+  "enlistment.patient_sex": {
+   "label": "Sex of the patient"
+  },
+  "enlistment.patient_dob": {
+   "label": "Date of birth of the patient"
+  },
+  "enlistment.patient_mobile_no": {
+   "label": "Mobile number of the patient"
+  },
+  "enlistment.patient_alt_mobile_no": {
+   "label": "Alternate mobile number of the patient"
+  },
+  "enlistment.patient_landline_no": {
+   "label": "Landline number of the patient"
+  },
+  "enlistment.assignment_date": {
+   "label": "Date the patient was registered to the primary care provider"
+  },
+  "enlistment.created_by": {
+   "label": "User who created the record"
+  },
+  "enlistment.gender": {
+   "label": "Gender of the patient, distinct from sex"
+  },
+  "enlistment.permanent_address_province_code": {
+   "label": "PSGC province code of the patient's permanent address"
+  },
+  "enlistment.permanent_address_municipality_code": {
+   "label": "PSGC city or municipality code of the patient's permanent address"
+  },
+  "enlistment.permanent_address_barangay_code": {
+   "label": "PSGC barangay code of the patient's permanent address"
+  },
+  "enlistment.permanent_address_other_details": {
+   "label": "House, lot or unit number, street, subdivision, sitio or purok of the permanent address"
+  },
+  "enlistment.religion": {
+   "label": "Religion of the patient"
+  },
+  "enlistment.civil_status": {
+   "label": "Civil status of the patient"
+  },
+  "enlistment.current_address_province_code": {
+   "label": "PSGC province code of the patient's current address"
+  },
+  "enlistment.current_address_municipality_code": {
+   "label": "PSGC city or municipality code of the patient's current address"
+  },
+  "enlistment.current_address_barangay_code": {
+   "label": "PSGC barangay code of the patient's current address"
+  },
+  "enlistment.current_address_other_details": {
+   "label": "House, lot or unit number, street, subdivision, sitio or purok of the current address"
+  },
+  "enlistment.occupation": {
+   "label": "Occupation of the patient, if any"
+  },
+  "enlistment.email_address": {
+   "label": "Email address of the patient, or of the parent or guardian for a minor"
+  },
+  "enlistment.pwd_id_no": {
+   "label": "PWD ID number of the patient, if any"
+  },
+  "guardian.guardian_name": {
+   "label": "Full name of the parent or guardian (surname, first name, middle name, suffix)"
+  },
+  "guardian.guardian_age": {
+   "label": "Age of the parent or guardian, in years"
+  },
+  "guardian.guardian_sex": {
+   "label": "Sex of the parent or guardian"
+  },
+  "guardian.guardian_birthday": {
+   "label": "Date of birth of the parent or guardian"
+  },
+  "guardian.guardian_contact_no": {
+   "label": "Contact number of the parent or guardian"
+  },
+  "guardian.guardian_relationship": {
+   "label": "Relationship of the parent or guardian to the patient"
+  },
+  "guardian.guardian_pin": {
+   "label": "PhilHealth Identification Number (PIN) of the parent or guardian"
+  },
+  "profile.method_of_service_delivery": {
+   "label": "Method of service delivery for the FPE"
+  },
+  "profile.patient_verification_mode": {
+   "label": "Method used to verify the identity of the patient for this encounter: PCU (PCU transaction code), OTP (YAKAP Patient Verification Code) or VALID_ID (valid government-issued ID)"
+  },
+  "profile.pcu_transaction_code": {
+   "label": "PhilHealth Check Utility (PCU) transaction code: the trans_no returned by PCU (Implementation Guide 4.1), at most 20 characters"
+  },
+  "profile.one_time_pin": {
+   "label": "YAKAP Patient Verification Code (one-time PIN) issued by PhilHealth to the patient and validated through Service 07; used when no PCU transaction code is available"
+  },
+  "profile.valid_id_type": {
+   "label": "Type of valid government-issued ID presented to verify the patient when patient_verification_mode = VALID_ID"
+  },
+  "profile.valid_id_image": {
+   "label": "Picture of the valid ID presented, as a base-64 encoded JPEG image"
+  },
+  "profile.mca_flag": {
+   "label": "Indicates whether the Mutual Care Agreement on the YAKAP Empanelment Slip was signed"
+  },
+  "profile.co_payment_flag": {
+   "label": "Indicates whether the patient has a co-payment"
+  },
+  "profile.co_payment_date_payment": {
+   "label": "Date the co-payment was paid"
+  },
+  "profile.co_payment": {
+   "label": "Co-payment amount paid, in PHP"
+  },
+  "profile.co_payment_balance": {
+   "label": "Remaining co-payment balance, in PHP"
+  },
+  "profile.fpe_classification_type": {
+   "label": "Classification of the First Patient Encounter (new or repeat)"
+  },
+  "profile.profile_transaction_no": {
+   "label": "Transaction number of the FPE or health screening record for the effectivity year"
+  },
+  "profile.fpe_date": {
+   "label": "Date of the FPE or health screening"
+  },
+  "profile.fpe_time": {
+   "label": "Time of the FPE (24-hour)"
+  },
+  "profile.patient_age": {
+   "label": "Age of the patient on the FPE date, computed from the date of birth"
+  },
+  "medhist[].mdisease_code": {
+   "label": "Past medical history: disease code"
+  },
+  "medhist[].mhspecific.is_on_dialysis": {
+   "label": "Indicates whether a patient with a kidney disorder is on dialysis"
+  },
+  "medhist[].mhspecific.dialysis_type": {
+   "label": "Type of dialysis"
+  },
+  "medhist[].mhspecific.dialysis_year_started": {
+   "label": "Year dialysis started"
+  },
+  "hosphist[].previous_hospitalization": {
+   "label": "Description of a previous hospitalization"
+  },
+  "hosphist[].date_previous_hospitalization": {
+   "label": "Date of a previous hospitalization"
+  },
+  "accidenthist[].previous_accident_injury": {
+   "label": "Description of a previous accident or injury"
+  },
+  "accidenthist[].date_previous_accident_injury": {
+   "label": "Date of a previous accident or injury"
+  },
+  "medhist[].mhspecific.specific_desc": {
+   "label": "Specific description for the selected disease code (for example the cancer type)"
+  },
+  "surghist[].surg_desc": {
+   "label": "Description of a previous surgery"
+  },
+  "surghist[].surg_date": {
+   "label": "Date of a previous surgery"
+  },
+  "allergy.food_allergy": {
+   "label": "Food allergy of the patient, if any"
+  },
+  "allergy.medication_allergy": {
+   "label": "Medication allergy of the patient, if any"
+  },
+  "allergy.allergy_others": {
+   "label": "Other allergies of the patient"
+  },
+  "currentmed.current_medications": {
+   "label": "Indicates whether the patient takes current medications"
+  },
+  "currentmed.current_medication_pndf": {
+   "label": "Current medications listed in the PNDF (molecule names)"
+  },
+  "currentmed.current_medication_non_pndf": {
+   "label": "Current medications not listed in the PNDF"
+  },
+  "immunizationhist[].immunization_code": {
+   "label": "Immunization history of the patient"
+  },
+  "famhist[].mdisease_code": {
+   "label": "Family medical history: disease code"
+  },
+  "fhspecific[].mdisease_code": {
+   "label": "Family medical history: disease code with a specific description"
+  },
+  "fhspecific[].specific_desc": {
+   "label": "Specific description for the selected family history disease code (for example the cancer type)"
+  },
+  "sochist.is_smoker": {
+   "label": "Smoking status of the patient"
+  },
+  "sochist.no_cigpk": {
+   "label": "Smoking history in pack-years"
+  },
+  "sochist.is_adrinker": {
+   "label": "Alcohol use status of the patient"
+  },
+  "sochist.no_glasses": {
+   "label": "Number of alcoholic drinks (glasses) per day"
+  },
+  "sochist.ill_drug_user": {
+   "label": "Indicates whether the patient uses illicit drugs"
+  },
+  "sochist.secondhand_smoke_exposure": {
+   "label": "Type of secondhand smoke exposure"
+  },
+  "sochist.cigarette_sticks_per_day": {
+   "label": "Number of cigarette sticks smoked per day"
+  },
+  "sochist.smoking_years": {
+   "label": "Number of years the patient has smoked"
+  },
+  "sochist.vape_current_user": {
+   "label": "Indicates whether the patient currently vapes"
+  },
+  "sochist.vape_current_years": {
+   "label": "Number of years of vape use (current user)"
+  },
+  "sochist.vape_former_user": {
+   "label": "Indicates whether the patient formerly vaped"
+  },
+  "sochist.vape_former_years": {
+   "label": "Number of years of vape use (former user)"
+  },
+  "sochist.alcohol_drinker_subtype": {
+   "label": "Sub-classification of the alcohol drinker"
+  },
+  "sochist.alcohol_types": {
+   "label": "Types of alcohol consumed"
+  },
+  "sochist.alcohol_intake_years": {
+   "label": "Number of years of alcohol intake"
+  },
+  "sochist.alcohol_frequency_per_week": {
+   "label": "Number of days per week the patient drinks alcohol"
+  },
+  "sochist.substance_abuse_family_member": {
+   "label": "Substance used by a family member or housemate, for a patient who does not use drugs"
+  },
+  "sochist.dietary_intake_type": {
+   "label": "Dietary intake pattern of the patient"
+  },
+  "sochist.breastfeeding_status": {
+   "label": "Breastfeeding status of a patient aged 0 to 1 year"
+  },
+  "sochist.physical_activity_status": {
+   "label": "Indicates whether the patient meets the recommended physical activity"
+  },
+  "sochist.fluoride_toothpaste_use": {
+   "label": "Indicates whether the patient uses fluoride toothpaste"
+  },
+  "sochist.dental_checkup_status": {
+   "label": "Dental check-up status of the patient"
+  },
+  "sochist.dental_checkup_year": {
+   "label": "Year of the last dental check-up"
+  },
+  "sochist.neighborhood_communicable_disease": {
+   "label": "Communicable diseases prevalent in the patient's neighborhood, if any"
+  },
+  "sochist.mental_health_event_code": {
+   "label": "Mental health or traumatic life event"
+  },
+  "sochist.other_mental_health_event": {
+   "label": "Other mental health or traumatic life event (code 99, Others)"
+  },
+  "gynehist.menarche_flag": {
+   "label": "Indicates whether the patient has had her first menstrual period"
+  },
+  "gynehist.menarche_period": {
+   "label": "Age at first menstrual period (menarche), in years"
+  },
+  "gynehist.last_mens_period_flag": {
+   "label": "Indicates whether the last menstrual period applies"
+  },
+  "gynehist.last_mens_period": {
+   "label": "Date of the last menstrual period"
+  },
+  "gynehist.contraceptive_use_status": {
+   "label": "Contraceptive use status of the patient"
+  },
+  "gynehist.contraceptive_method_desired": {
+   "label": "Contraceptive methods the patient wants to start"
+  },
+  "gynehist.birth_ctrl_method": {
+   "label": "Contraceptive method in use"
+  },
+  "gynehist.is_menopause": {
+   "label": "Indicates whether the patient has reached menopause"
+  },
+  "gynehist.menopause_age": {
+   "label": "Age at menopause, in years"
+  },
+  "gynehist.gynecological_disease_flag": {
+   "label": "Indicates whether the patient has a gynecological disease"
+  },
+  "gynehist.gynecological_disease": {
+   "label": "Gynecological disease of the patient"
+  },
+  "gynehist.gyn_sexually_transmitted_flag": {
+   "label": "Indicates whether the patient has a sexually transmitted disease"
+  },
+  "gynehist.gyn_sexually_transmitted_disease": {
+   "label": "Current sexually transmitted disease of the patient"
+  },
+  "preghist.is_currently_pregnant": {
+   "label": "Indicates whether the patient is currently pregnant"
+  },
+  "preghist.prenatal_checkup_count": {
+   "label": "Number of prenatal check-ups in the current pregnancy"
+  },
+  "preghist.age_of_gestation": {
+   "label": "Age of gestation of the current pregnancy"
+  },
+  "preghist.expected_date_of_delivery": {
+   "label": "Expected date of delivery of the current pregnancy"
+  },
+  "preghist.is_applicable": {
+   "label": "Indicates whether the patient has ever been pregnant"
+  },
+  "preghist.preg_cnt": {
+   "label": "OB score: number of pregnancies (gravidity)"
+  },
+  "preghist.delivery_cnt": {
+   "label": "OB score: number of deliveries (parity)"
+  },
+  "preghist.full_term_cnt": {
+   "label": "OB score: number of full-term deliveries"
+  },
+  "preghist.premature_cnt": {
+   "label": "OB score: number of preterm deliveries"
+  },
+  "preghist.abortion_cnt": {
+   "label": "OB score: number of abortions"
+  },
+  "preghist.liv_children_cnt": {
+   "label": "OB score: number of living children"
+  },
+  "pegensurvey.gen_survey_id": {
+   "label": "General survey findings"
+  },
+  "pegensurvey.gen_survey_rem": {
+   "label": "Remarks on the general survey (code 7, Others)"
+  },
+  "pepert.systolic": {
+   "label": "Systolic blood pressure, in mmHg"
+  },
+  "pepert.diastolic": {
+   "label": "Diastolic blood pressure, in mmHg"
+  },
+  "pepert.heart_rate": {
+   "label": "Heart rate, in beats per minute"
+  },
+  "pepert.respiratory_rate": {
+   "label": "Respiratory rate, in breaths per minute"
+  },
+  "pepert.temperature": {
+   "label": "Body temperature, in degrees Celsius"
+  },
+  "pepert.height": {
+   "label": "Height of the patient, in cm"
+  },
+  "pepert.weight": {
+   "label": "Weight of the patient, in kg"
+  },
+  "pepert.bmi": {
+   "label": "Body mass index: weight (kg) divided by height (m) squared"
+  },
+  "pepert.waist": {
+   "label": "Waist circumference, in cm"
+  },
+  "pepert.mid_upper_arm_circ": {
+   "label": "Mid-upper arm circumference, in cm"
+  },
+  "pepert.length": {
+   "label": "Length of the patient, in cm"
+  },
+  "pepert.head_circ": {
+   "label": "Head circumference, in cm"
+  },
+  "pepert.skinfold_thickness": {
+   "label": "Skinfold thickness, in cm"
+  },
+  "pepert.hip": {
+   "label": "Hip circumference, in cm"
+  },
+  "facilitator.facilitator_type": {
+   "label": "Type of FPE facilitator"
+  },
+  "facilitator.facilitator_name": {
+   "label": "Name of the FPE facilitator"
+  }
+ },
+ "consultation": {
+  "soap.case_no": {
+   "label": "Patient case number that links the consultation to the patient and FPE records"
+  },
+  "soap.soap_transaction_no": {
+   "label": "Transaction number of the consultation record"
+  },
+  "soap.patient_type": {
+   "label": "Patient type: member or dependent"
+  },
+  "soap.patient_pin": {
+   "label": "PhilHealth Identification Number (PIN) of the patient"
+  },
+  "soap.created_by": {
+   "label": "User who created the record"
+  },
+  "soap.patient_age": {
+   "label": "Age of the patient on the consultation date"
+  },
+  "soap.consultation_setting": {
+   "label": "Consultation setting: walk-in or with appointment"
+  },
+  "soap.method_of_service_delivery": {
+   "label": "Method of service delivery for the consultation"
+  },
+  "soap.patient_verification_mode": {
+   "label": "Method used to verify the identity of the patient for this encounter: PCU (PCU transaction code), OTP (YAKAP Patient Verification Code) or VALID_ID (valid government-issued ID)"
+  },
+  "soap.pcu_transaction_code": {
+   "label": "PhilHealth Check Utility (PCU) transaction code: the trans_no returned by PCU (Implementation Guide 4.1), at most 20 characters"
+  },
+  "soap.one_time_pin": {
+   "label": "YAKAP Patient Verification Code (one-time PIN) issued by PhilHealth to the patient and validated through Service 07; used when no PCU transaction code is available"
+  },
+  "soap.valid_id_type": {
+   "label": "Type of valid government-issued ID presented to verify the patient when patient_verification_mode = VALID_ID"
+  },
+  "soap.valid_id_image": {
+   "label": "Picture of the valid ID presented, as a base-64 encoded JPEG image"
+  },
+  "soap.co_payment_flag": {
+   "label": "Indicates whether the patient has a co-payment"
+  },
+  "soap.co_payment_date_payment": {
+   "label": "Date the co-payment was paid"
+  },
+  "soap.co_payment": {
+   "label": "Co-payment amount paid, in PHP"
+  },
+  "soap.co_payment_balance": {
+   "label": "Remaining co-payment balance, in PHP"
+  },
+  "soap.consultation_date": {
+   "label": "Date of the consultation"
+  },
+  "soap.consultation_time": {
+   "label": "Time of the consultation (24-hour)"
+  },
+  "guardian.guardian_name": {
+   "label": "Full name of the parent or guardian (surname, first name, middle name, suffix)"
+  },
+  "guardian.guardian_age": {
+   "label": "Age of the parent or guardian, in years"
+  },
+  "guardian.guardian_sex": {
+   "label": "Sex of the parent or guardian"
+  },
+  "guardian.guardian_birthday": {
+   "label": "Date of birth of the parent or guardian"
+  },
+  "guardian.guardian_contact_no": {
+   "label": "Contact number of the parent or guardian"
+  },
+  "guardian.guardian_relationship": {
+   "label": "Relationship of the parent or guardian to the patient"
+  },
+  "guardian.guardian_pin": {
+   "label": "PhilHealth Identification Number (PIN) of the parent or guardian"
+  },
+  "subjective.consult_reason": {
+   "label": "Reason for consultation"
+  },
+  "subjective.consult_reason_details": {
+   "label": "Details of the consultation reason"
+  },
+  "subjective.illness_history": {
+   "label": "History of present illness"
+  },
+  "medhist[].mdisease_code": {
+   "label": "Past medical history: disease code"
+  },
+  "medhist[].mhspecific.is_on_dialysis": {
+   "label": "Indicates whether a patient with a kidney disorder is on dialysis"
+  },
+  "medhist[].mhspecific.dialysis_type": {
+   "label": "Type of dialysis"
+  },
+  "medhist[].mhspecific.dialysis_year_started": {
+   "label": "Year dialysis started"
+  },
+  "hosphist[].previous_hospitalization": {
+   "label": "Description of a previous hospitalization"
+  },
+  "hosphist[].date_previous_hospitalization": {
+   "label": "Date of a previous hospitalization"
+  },
+  "surghist[].surg_desc": {
+   "label": "Description of a previous surgery"
+  },
+  "surghist[].surg_date": {
+   "label": "Date of a previous surgery"
+  },
+  "accidenthist[].previous_accident_injury": {
+   "label": "Description of a previous accident or injury"
+  },
+  "accidenthist[].date_previous_accident_injury": {
+   "label": "Date of a previous accident or injury"
+  },
+  "medhist[].mhspecific.specific_desc": {
+   "label": "Specific description for the selected disease code (for example the cancer type)"
+  },
+  "allergy.food_allergy": {
+   "label": "Food allergy of the patient, if any"
+  },
+  "allergy.medication_allergy": {
+   "label": "Medication allergy of the patient, if any"
+  },
+  "allergy.allergy_others": {
+   "label": "Other allergies of the patient"
+  },
+  "currentmed.current_medications": {
+   "label": "Indicates whether the patient takes current medications"
+  },
+  "currentmed.current_medication_pndf": {
+   "label": "Current medications listed in the PNDF (molecule names)"
+  },
+  "currentmed.current_medication_non_pndf": {
+   "label": "Current medications not listed in the PNDF"
+  },
+  "immunizationhist[].immunization_code": {
+   "label": "Immunization history of the patient"
+  },
+  "famhist[].mdisease_code": {
+   "label": "Family medical history: disease code"
+  },
+  "fhspecific[].mdisease_code": {
+   "label": "Family medical history: disease code with a specific description"
+  },
+  "fhspecific[].specific_desc": {
+   "label": "Specific description for the selected family history disease code (for example the cancer type)"
+  },
+  "sochist.is_smoker": {
+   "label": "Smoking status of the patient"
+  },
+  "sochist.secondhand_smoke_exposure": {
+   "label": "Type of secondhand smoke exposure"
+  },
+  "sochist.cigarette_sticks_per_day": {
+   "label": "Number of cigarette sticks smoked per day"
+  },
+  "sochist.smoking_years": {
+   "label": "Number of years the patient has smoked"
+  },
+  "sochist.no_cigpk": {
+   "label": "Smoking history in pack-years"
+  },
+  "sochist.vape_current_user": {
+   "label": "Indicates whether the patient currently vapes"
+  },
+  "sochist.vape_current_years": {
+   "label": "Number of years of vape use (current user)"
+  },
+  "sochist.vape_former_user": {
+   "label": "Indicates whether the patient formerly vaped"
+  },
+  "sochist.vape_former_years": {
+   "label": "Number of years of vape use (former user)"
+  },
+  "sochist.is_adrinker": {
+   "label": "Alcohol use status of the patient"
+  },
+  "sochist.alcohol_drinker_subtype": {
+   "label": "Sub-classification of the alcohol drinker"
+  },
+  "sochist.alcohol_types": {
+   "label": "Types of alcohol consumed"
+  },
+  "sochist.alcohol_intake_years": {
+   "label": "Number of years of alcohol intake"
+  },
+  "sochist.no_glasses": {
+   "label": "Number of alcoholic drinks (glasses or bottles) per day"
+  },
+  "sochist.alcohol_frequency_per_week": {
+   "label": "Number of days per week the patient drinks alcohol"
+  },
+  "sochist.ill_drug_user": {
+   "label": "Indicates whether the patient uses illicit drugs"
+  },
+  "sochist.substance_former_user_spec": {
+   "label": "Substance used by a former user (stopped more than 1 year ago)"
+  },
+  "sochist.substance_current_user_spec": {
+   "label": "Substance used by a current user"
+  },
+  "sochist.substance_abuse_family_member": {
+   "label": "Substance used by a family member or housemate, for a patient who does not use drugs"
+  },
+  "sochist.dietary_intake_type": {
+   "label": "Dietary intake pattern of the patient"
+  },
+  "sochist.breastfeeding_status": {
+   "label": "Breastfeeding status of a patient aged 0 to 1 year"
+  },
+  "sochist.physical_activity_status": {
+   "label": "Indicates whether the patient meets the recommended physical activity"
+  },
+  "sochist.fluoride_toothpaste_use": {
+   "label": "Indicates whether the patient uses fluoride toothpaste"
+  },
+  "sochist.dental_checkup_status": {
+   "label": "Dental check-up status of the patient"
+  },
+  "sochist.dental_checkup_year": {
+   "label": "Year of the last dental check-up"
+  },
+  "sochist.neighborhood_communicable_disease": {
+   "label": "Communicable diseases prevalent in the patient's neighborhood"
+  },
+  "sochist.mental_health_event_code": {
+   "label": "Mental health or traumatic life events"
+  },
+  "sochist.other_mental_health_event": {
+   "label": "Other mental health or traumatic life event (code 99, Others)"
+  },
+  "sexhist.sexual_hist_consent_status": {
+   "label": "Assent and consent status before the sexual history interview"
+  },
+  "sexhist.have_you_ever_had_sex": {
+   "label": "Indicates whether the patient has ever had sex"
+  },
+  "sexhist.age_at_first_sexual_contact": {
+   "label": "Age of the patient at first sexual contact, in years"
+  },
+  "sexhist.sexually_active": {
+   "label": "Indicates whether the patient is sexually active"
+  },
+  "sexhist.male_partner_sexual_activity": {
+   "label": "Indicates any oral, anal or vaginal sex with a male partner"
+  },
+  "sexhist.male_partner_recent_anal_neovag": {
+   "label": "Date of the most recent anal or neovaginal sex with a male partner"
+  },
+  "sexhist.male_partner_recent_condomless": {
+   "label": "Date of the most recent condomless anal or neovaginal sex with a male partner"
+  },
+  "sexhist.female_partner_sexual_activity": {
+   "label": "Indicates any oral, anal or vaginal sex with a female partner"
+  },
+  "sexhist.female_partner_recent_anal_neovag": {
+   "label": "Date of the most recent anal or neovaginal sex with a female partner"
+  },
+  "sexhist.female_partner_recent_condomless": {
+   "label": "Date of the most recent condomless anal or neovaginal sex with a female partner"
+  },
+  "sexhist.sexual_risk_behaviors": {
+   "label": "Sexual risk behaviors of the patient"
+  },
+  "sexhist.sexual_risk_recent_risk_date": {
+   "label": "Date of the most recent risk, per selected risk category"
+  },
+  "sexhist.sexual_risk_other_concerns_spec": {
+   "label": "Other sexual risk concerns"
+  },
+  "sexhist.sti_hist": {
+   "label": "Indicates any history of sexually transmitted infections"
+  },
+  "sexhist.sti_spec": {
+   "label": "Sexually transmitted infections in the patient's history"
+  },
+  "ros.general_ros_id": {
+   "label": "Review of systems: general signs and symptoms"
+  },
+  "ros.skin_ros_id": {
+   "label": "Review of systems: skin signs and symptoms"
+  },
+  "ros.heent_ros_id": {
+   "label": "Review of systems: HEENT signs and symptoms"
+  },
+  "ros.cardiorespiratory_ros_id": {
+   "label": "Review of systems: cardiorespiratory signs and symptoms"
+  },
+  "ros.gastrointestinal_ros_id": {
+   "label": "Review of systems: gastrointestinal signs and symptoms"
+  },
+  "ros.genitourinary_ros_id": {
+   "label": "Review of systems: genitourinary signs and symptoms"
+  },
+  "ros.musculoskeletal_ros_id": {
+   "label": "Review of systems: musculoskeletal signs and symptoms"
+  },
+  "ros.neuro_ros_id": {
+   "label": "Review of systems: neurological signs and symptoms"
+  },
+  "ros.psych_neurodev_ros_id": {
+   "label": "Review of systems: psychiatric and neurodevelopmental signs and symptoms"
+  },
+  "ros.ros_other_spec": {
+   "label": "Other review of systems findings"
+  },
+  "pegensurvey.gen_survey_id": {
+   "label": "General survey findings"
+  },
+  "pegensurvey.gen_survey_rem": {
+   "label": "Remarks on the general survey (Others)"
+  },
+  "pepert.systolic": {
+   "label": "Systolic blood pressure, in mmHg",
+   "unit": "mmHg"
+  },
+  "pepert.diastolic": {
+   "label": "Diastolic blood pressure, in mmHg",
+   "unit": "mmHg"
+  },
+  "pepert.heart_rate": {
+   "label": "Heart rate, in beats per minute",
+   "unit": "per min"
+  },
+  "pepert.respiratory_rate": {
+   "label": "Respiratory rate, in breaths per minute",
+   "unit": "per min"
+  },
+  "pepert.temperature": {
+   "label": "Body temperature, in degrees Celsius",
+   "unit": "°C"
+  },
+  "pepert.weight": {
+   "label": "Weight of the adult patient, in kg",
+   "unit": "kg"
+  },
+  "pepert.height": {
+   "label": "Height of the patient, in cm",
+   "unit": "cm"
+  },
+  "pepert.bmi": {
+   "label": "Body mass index: weight (kg) divided by height (m) squared; system-computed",
+   "unit": "kg/m²"
+  },
+  "pepert.waist_circ": {
+   "label": "Waist circumference of the adult patient, in cm",
+   "unit": "cm"
+  },
+  "pepert.mid_upper_arm_circ": {
+   "label": "Mid-upper arm circumference of the adult patient, in cm",
+   "unit": "cm"
+  },
+  "pepert.length": {
+   "label": "Length of the patient, in cm",
+   "unit": "cm"
+  },
+  "pepert.head_circ": {
+   "label": "Head circumference of a patient aged 0 to 2 years, in cm",
+   "unit": "cm"
+  },
+  "pepert.skinfold_thickness": {
+   "label": "Skinfold thickness of a patient aged 6 months to 5 years, in mm",
+   "unit": "mm"
+  },
+  "pepert.waist": {
+   "label": "Waist circumference of a patient aged 3 to 18 years, in cm",
+   "unit": "cm"
+  },
+  "pepert.hip": {
+   "label": "Hip circumference of a patient aged 3 to 18 years, in cm",
+   "unit": "cm"
+  },
+  "pepert.sam_form": {
+   "label": "Indicates whether to open the Severe Acute Malnutrition (SAM) form"
+  },
+  "pepert.vision_chart_type": {
+   "label": "Visual acuity chart used"
+  },
+  "pepert.vision_right_eye": {
+   "label": "Visual acuity of the right eye (OD)"
+  },
+  "pepert.vision_left_eye": {
+   "label": "Visual acuity of the left eye (OS)"
+  },
+  "pepert.vision_both_eyes": {
+   "label": "Visual acuity of both eyes (OU)"
+  },
+  "pepert.vision_right_eye_corrected": {
+   "label": "Visual acuity of the right eye with corrective lenses"
+  },
+  "pepert.vision_left_eye_corrected": {
+   "label": "Visual acuity of the left eye with corrective lenses"
+  },
+  "pepert.vision_both_eyes_corrected": {
+   "label": "Visual acuity of both eyes with corrective lenses"
+  },
+  "pemisc.heent": {
+   "label": "Physical examination findings: HEENT"
+  },
+  "pemisc.chest_breast_lungs": {
+   "label": "Physical examination findings: chest, breast and lungs"
+  },
+  "pemisc.cbe": {
+   "label": "Clinical breast examination findings"
+  },
+  "pemisc.heart": {
+   "label": "Physical examination findings: heart"
+  },
+  "pemisc.abdomen": {
+   "label": "Physical examination findings: abdomen"
+  },
+  "pemisc.skin_extremities": {
+   "label": "Physical examination findings: skin and extremities"
+  },
+  "pemisc.genitourinary": {
+   "label": "Physical examination findings: genitourinary"
+  },
+  "pemisc.digital_rectal_exam": {
+   "label": "Digital rectal examination findings"
+  },
+  "pemisc.neuro_exam": {
+   "label": "Physical examination findings: neurological"
+  },
+  "physiciansignoff.physician_name": {
+   "label": "Printed name of the physician who conducted the consultation"
+  },
+  "physiciansignoff.physician_designation": {
+   "label": "Designation of the physician"
+  },
+  "physiciansignoff.physician_license_no": {
+   "label": "Professional license number of the physician"
+  },
+  "physiciansignoff.physician_accre_no": {
+   "label": "PhilHealth accreditation number of the physician"
+  },
+  "diagnosis.primary_diagnosis": {
+   "label": "Primary diagnosis (narrative)"
+  },
+  "diagnosis.primary_diagnosis_icd_code": {
+   "label": "ICD-10 code of the primary diagnosis"
+  },
+  "diagnosis.other_diagnosis": {
+   "label": "Other diagnoses (narrative)"
+  },
+  "diagnosis.other_diagnosis_icd_code": {
+   "label": "ICD-10 codes of the other diagnoses"
+  },
+  "diagnosis.specific_diagnosis": {
+   "label": "Specific diagnoses that open a follow-up form or program"
+  },
+  "management.counseling_health_education": {
+   "label": "Counseling and health education given"
+  },
+  "management.routine_vaccine_name": {
+   "label": "Name of the routine vaccine given"
+  },
+  "management.routine_vaccine_date": {
+   "label": "Date the routine vaccine was given"
+  },
+  "management.adults_routine_screening": {
+   "label": "Routine screening plan for adults"
+  },
+  "management.pediatric_routine_screening": {
+   "label": "Routine screening plan for pediatric patients"
+  },
+  "management.prenatal_screening_services": {
+   "label": "Prenatal screening services"
+  },
+  "management.cancer_screening_flag": {
+   "label": "Indicates whether cancer screening tests are planned"
+  },
+  "management.cancer_screening_selected": {
+   "label": "Cancer screening tests selected"
+  },
+  "management.diagnostic_services_flag": {
+   "label": "Indicates whether diagnostic services are requested, and with or without results"
+  },
+  "management.medication_prescription_flag": {
+   "label": "Indicates whether medicines are prescribed"
+  },
+  "management.referral_flag": {
+   "label": "Indicates whether the patient is referred"
+  },
+  "management.other_medical_advice_spec": {
+   "label": "Other medical advice"
+  },
+  "management.follow_up_flag": {
+   "label": "Indicates whether a follow-up is scheduled"
+  },
+  "management.follow_up_on": {
+   "label": "Date of the follow-up"
+  },
+  "management.follow_up_reason": {
+   "label": "Reason for the follow-up"
+  },
+  "management.follow_up_vaccine_name": {
+   "label": "Vaccine scheduled for the follow-up"
+  },
+  "management.follow_up_next_vaccine_date": {
+   "label": "Date of the next scheduled vaccination"
+  },
+  "sf_obgyne_menshist.menarche_flag": {
+   "label": "Indicates whether the patient has had her first menstrual period"
+  },
+  "sf_obgyne_menshist.menarche_period": {
+   "label": "Age at first menstrual period (menarche), in years"
+  },
+  "sf_obgyne_menshist.last_mens_period_flag": {
+   "label": "Indicates whether the last menstrual period applies"
+  },
+  "sf_obgyne_menshist.last_mens_period": {
+   "label": "Date of the last menstrual period"
+  },
+  "sf_obgyne_menshist.is_menopause": {
+   "label": "Indicates whether the patient has reached menopause"
+  },
+  "sf_obgyne_menshist.menopause_age": {
+   "label": "Age at menopause, in years"
+  },
+  "sf_obgyne_menshist.contraceptive_use_status": {
+   "label": "Contraceptive use status of the patient"
+  },
+  "sf_obgyne_menshist.contraceptive_method_desired": {
+   "label": "Contraceptive methods the patient wants to start"
+  },
+  "sf_obgyne_menshist.birth_ctrl_method": {
+   "label": "Contraceptive method in use"
+  },
+  "sf_obgyne_menshist.gynecological_disease_flag": {
+   "label": "Indicates whether the patient has a gynecological disease"
+  },
+  "sf_obgyne_menshist.gynecological_disease": {
+   "label": "Gynecological disease of the patient"
+  },
+  "sexhist.sti_hist (sent once; see General Consultation row)": {
+   "label": "Indicates any history of sexually transmitted diseases"
+  },
+  "sexhist.sti_spec (sent once; see General Consultation row)": {
+   "label": "Sexually transmitted diseases in the patient's history"
+  },
+  "sf_obgyne_preghist.is_applicable": {
+   "label": "Indicates whether the patient has ever been pregnant"
+  },
+  "sf_obgyne_preghist.is_currently_pregnant": {
+   "label": "Indicates whether the patient is currently pregnant"
+  },
+  "sf_obgyne_preghist.prenatal_checkup_count": {
+   "label": "Number of prenatal check-ups in the current pregnancy"
+  },
+  "sf_obgyne_preghist.preg_cnt": {
+   "label": "OB score: number of pregnancies (gravidity)"
+  },
+  "sf_obgyne_preghist.delivery_cnt": {
+   "label": "OB score: number of deliveries (parity)"
+  },
+  "sf_obgyne_preghist.full_term_cnt": {
+   "label": "OB score: number of full-term deliveries"
+  },
+  "sf_obgyne_preghist.premature_cnt": {
+   "label": "OB score: number of preterm deliveries"
+  },
+  "sf_obgyne_preghist.abortion_cnt": {
+   "label": "OB score: number of abortions"
+  },
+  "sf_obgyne_preghist.liv_children_cnt": {
+   "label": "OB score: number of living children"
+  },
+  "sf_obgyne_preghist.age_of_gestation": {
+   "label": "Age of gestation of the current pregnancy"
+  },
+  "sf_obgyne_preghist.expected_date_of_delivery": {
+   "label": "Expected date of delivery of the current pregnancy"
+  },
+  "sf_obgyne_pe.fundic_height": {
+   "label": "Fundic height, in cm",
+   "unit": "cm"
+  },
+  "sf_obgyne_pe.fetal_heart_tone": {
+   "label": "Fetal heart tone, in beats per minute",
+   "unit": "bpm"
+  },
+  "sf_obgyne_pe.estimated_fetal_weight": {
+   "label": "Estimated fetal weight, in grams",
+   "unit": "grams"
+  },
+  "sf_obgyne_pe.leopold_l1": {
+   "label": "Leopold's maneuver L1 findings"
+  },
+  "sf_obgyne_pe.leopold_l2": {
+   "label": "Leopold's maneuver L2 findings"
+  },
+  "sf_obgyne_pe.leopold_l3": {
+   "label": "Leopold's maneuver L3 findings"
+  },
+  "sf_obgyne_pe.leopold_l4": {
+   "label": "Leopold's maneuver L4 findings"
+  },
+  "sf_obgyne_pe.perineal_inspection": {
+   "label": "Perineal inspection findings"
+  },
+  "sf_obgyne_pe.speculum_exam": {
+   "label": "Speculum examination findings"
+  },
+  "sf_obgyne_pe.internal_exam": {
+   "label": "Internal examination findings"
+  },
+  "sf_obgyne_pe.bimanual_exam": {
+   "label": "Bimanual examination findings"
+  },
+  "sf_obgyne_pe.rectovaginal_exam": {
+   "label": "Rectovaginal examination findings"
+  },
+  "sf_pedia_immunization.routine_immunization_status": {
+   "label": "Overall routine childhood immunization status (DOH-EPI)"
+  },
+  "sf_pedia_vaccine[].vaccine_code": {
+   "label": "Vaccine given or recorded; one record per vaccine"
+  },
+  "sf_pedia_vaccine[].vaccine_other_spec": {
+   "label": "Name of a vaccine not in the list"
+  },
+  "sf_pedia_vaccine[].vaccination_status": {
+   "label": "Vaccination status of the vaccine"
+  },
+  "sf_pedia_devmilestone[].milestone_visit_age": {
+   "label": "Visit age row assessed for developmental milestones"
+  },
+  "sf_pedia_devmilestone[].milestone_at_par_flag": {
+   "label": "Indicates whether milestones are at par with age for the visit age row"
+  },
+  "sf_pedia_devmilestone[].gross_motor_danger_signs": {
+   "label": "Gross motor danger signs observed"
+  },
+  "sf_pedia_devmilestone[].fine_motor_danger_signs": {
+   "label": "Fine motor danger signs observed"
+  },
+  "sf_pedia_devmilestone[].language_danger_signs": {
+   "label": "Language danger signs observed"
+  },
+  "sf_pedia_devmilestone[].cognitive_danger_signs": {
+   "label": "Cognitive danger signs observed"
+  },
+  "sf_pedia_devmilestone[].psychosocial_danger_signs": {
+   "label": "Psychosocial danger signs observed"
+  },
+  "sf_adol_immunization.routine_immunization_status": {
+   "label": "Overall routine childhood immunization status (DOH-EPI)"
+  },
+  "sf_adol_vaccine[].vaccine_code": {
+   "label": "Vaccine given or recorded; one record per vaccine"
+  },
+  "sf_adol_vaccine[].vaccine_other_spec": {
+   "label": "Name of a vaccine not in the list"
+  },
+  "sf_adol_vaccine[].vaccination_status": {
+   "label": "Vaccination status of the vaccine"
+  },
+  "sf_adol_smr.smr_assessment_status": {
+   "label": "Indicates whether the Sexual Maturity Rating was assessed"
+  },
+  "sf_adol_smr.smr_pubic_hair_stage": {
+   "label": "Tanner stage of pubic hair"
+  },
+  "sf_adol_smr.smr_breast_stage": {
+   "label": "Tanner stage of breast development (female)"
+  },
+  "sf_adol_smr.smr_genital_stage": {
+   "label": "Tanner stage of external genitalia (male)"
+  },
+  "sf_adol_smr.smr_assessment_result": {
+   "label": "Interpretation of pubertal development"
+  },
+  "sf_adol_rapidheadsss.rh_assent_consent_status": {
+   "label": "Indicates that assent and consent were obtained before the Rapid HEADSSS interview"
+  },
+  "sf_adol_rapidheadsss.rh_education_employment_status": {
+   "label": "Rapid HEADSSS: school or work status (Katayuan)"
+  },
+  "sf_adol_rapidheadsss.rh_relationship_status": {
+   "label": "Rapid HEADSSS: relationship status (Katayuan)"
+  },
+  "sf_adol_rapidheadsss.rh_living_arrangement": {
+   "label": "Rapid HEADSSS: living arrangement (Katayuan)"
+  },
+  "sf_adol_rapidheadsss.rh_living_arrangement_other_spec": {
+   "label": "Other household members besides the parents"
+  },
+  "sf_adol_rapidheadsss.rh_q01_home_violence": {
+   "label": "Rapid HEADSSS Q1: experiences harm or threats at home"
+  },
+  "sf_adol_rapidheadsss.rh_q02_runaway_thoughts": {
+   "label": "Rapid HEADSSS Q2: has thought of running away from home"
+  },
+  "sf_adol_rapidheadsss.rh_q03_bullying": {
+   "label": "Rapid HEADSSS Q3: has experienced physical or cyber bullying at school or work"
+  },
+  "sf_adol_rapidheadsss.rh_q04_suicidal_ideation": {
+   "label": "Rapid HEADSSS Q4: has seriously thought of ending own life"
+  },
+  "sf_adol_rapidheadsss.rh_q05_smoking": {
+   "label": "Rapid HEADSSS Q5: smokes"
+  },
+  "sf_adol_rapidheadsss.rh_q06_alcohol": {
+   "label": "Rapid HEADSSS Q6: drinks alcohol"
+  },
+  "sf_adol_rapidheadsss.rh_q07_drug_exposure": {
+   "label": "Rapid HEADSSS Q7: has seen prohibited drugs"
+  },
+  "sf_adol_rapidheadsss.rh_q08_romantic_relationship": {
+   "label": "Rapid HEADSSS Q8: has had a romantic relationship"
+  },
+  "sf_adol_rapidheadsss.rh_q09_sexual_intercourse": {
+   "label": "Rapid HEADSSS Q9: has had sexual intercourse"
+  },
+  "sf_adol_rapidheadsss.rh_q10_forced_sex": {
+   "label": "Rapid HEADSSS Q10: has been forced to have sex"
+  },
+  "sf_adol_rapidheadsss.rh_q11_pregnancy": {
+   "label": "Rapid HEADSSS Q11: has been pregnant or gotten someone pregnant"
+  },
+  "sf_adol_rapidheadsss.rh_q12_counseling_request": {
+   "label": "Rapid HEADSSS Q12: wants counseling or consultation"
+  },
+  "sf_adol_rapidheadsss.rh_full_headsss_flag": {
+   "label": "Indicates whether to proceed to the Full HEADSSS questionnaire"
+  },
+  "sf_headsss.headsss_assent_consent_status": {
+   "label": "Indicates that assent and consent were obtained before the Full HEADSSS interview"
+  },
+  "sf_headsss.headsss_home_questions": {
+   "label": "Full HEADSSS Home: guide questions asked"
+  },
+  "sf_headsss.headsss_home_answer": {
+   "label": "Full HEADSSS Home: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_home_red_flags": {
+   "label": "Full HEADSSS Home: red flags present"
+  },
+  "sf_headsss.headsss_education_questions": {
+   "label": "Full HEADSSS Education and Employment: guide questions asked"
+  },
+  "sf_headsss.headsss_education_answer": {
+   "label": "Full HEADSSS Education and Employment: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_education_red_flags": {
+   "label": "Full HEADSSS Education and Employment: red flags present"
+  },
+  "sf_headsss.headsss_eating_questions": {
+   "label": "Full HEADSSS Eating: guide questions asked"
+  },
+  "sf_headsss.headsss_eating_answer": {
+   "label": "Full HEADSSS Eating: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_eating_red_flags": {
+   "label": "Full HEADSSS Eating: red flags present"
+  },
+  "sf_headsss.headsss_activities_questions": {
+   "label": "Full HEADSSS Activities: guide questions asked"
+  },
+  "sf_headsss.headsss_activities_answer": {
+   "label": "Full HEADSSS Activities: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_activities_red_flags": {
+   "label": "Full HEADSSS Activities: red flags present"
+  },
+  "sf_headsss.headsss_drugs_questions": {
+   "label": "Full HEADSSS Drugs, Smoking and Alcohol: guide questions asked"
+  },
+  "sf_headsss.headsss_drugs_answer": {
+   "label": "Full HEADSSS Drugs, Smoking and Alcohol: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_drugs_red_flags": {
+   "label": "Full HEADSSS Drugs, Smoking and Alcohol: red flags present"
+  },
+  "sf_headsss.headsss_sexuality_questions": {
+   "label": "Full HEADSSS Sexuality: guide questions asked"
+  },
+  "sf_headsss.headsss_sexuality_answer": {
+   "label": "Full HEADSSS Sexuality: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_sexuality_red_flags": {
+   "label": "Full HEADSSS Sexuality: red flags present"
+  },
+  "sf_headsss.headsss_suicide_depression_questions": {
+   "label": "Full HEADSSS Suicide and Depression: guide questions asked"
+  },
+  "sf_headsss.headsss_suicide_depression_answer": {
+   "label": "Full HEADSSS Suicide and Depression: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_suicide_depression_red_flags": {
+   "label": "Full HEADSSS Suicide and Depression: red flags present"
+  },
+  "sf_headsss.headsss_urgent_referral_flag": {
+   "label": "Indicates an urgent referral for thoughts of self-harm or ending one's life"
+  },
+  "sf_headsss.headsss_safety_questions": {
+   "label": "Full HEADSSS Safety: guide questions asked"
+  },
+  "sf_headsss.headsss_safety_answer": {
+   "label": "Full HEADSSS Safety: patient's answers, written by the provider"
+  },
+  "sf_headsss.headsss_safety_red_flags": {
+   "label": "Full HEADSSS Safety: red flags present"
+  },
+  "sf_bpmon.bpmon_start_date": {
+   "label": "Start date of the one-week BP monitoring"
+  },
+  "sf_bpmon.bpmon_end_date": {
+   "label": "End date of the one-week BP monitoring"
+  },
+  "sf_bpmon_day[].bpmon_day_no": {
+   "label": "BP monitoring day number (1 to 7)"
+  },
+  "sf_bpmon_day[].bpmon_location": {
+   "label": "Where the BP was measured (clinic or home)"
+  },
+  "sf_bpmon_day[].bpmon_after_medication": {
+   "label": "Indicates whether the BP was measured after medication"
+  },
+  "sf_bpmon_day[].bpmon_am_systolic": {
+   "label": "Morning systolic blood pressure, in mmHg",
+   "unit": "mmHg"
+  },
+  "sf_bpmon_day[].bpmon_am_diastolic": {
+   "label": "Morning diastolic blood pressure, in mmHg",
+   "unit": "mmHg"
+  },
+  "sf_bpmon_day[].bpmon_pm_systolic": {
+   "label": "Evening systolic blood pressure, in mmHg",
+   "unit": "mmHg"
+  },
+  "sf_bpmon_day[].bpmon_pm_diastolic": {
+   "label": "Evening diastolic blood pressure, in mmHg",
+   "unit": "mmHg"
+  }
+ },
+ "diagnostic_request": {
+  "diagrequest[].case_no": {
+   "label": "Patient case number that links the request to the patient, FPE and consultation records"
+  },
+  "diagrequest[].soap_transaction_no": {
+   "label": "Transaction number of the consultation that ordered the request"
+  },
+  "diagrequest[].request_transaction_no": {
+   "label": "Transaction number of the diagnostic request"
+  },
+  "diagrequest[].diagnostic_code": {
+   "label": "Requested laboratory or imaging test; one row per test"
+  },
+  "diagrequest[].doctor_recommendation": {
+   "label": "Doctor's recommendation for the requested test"
+  },
+  "diagrequest[].client_consent": {
+   "label": "Client consent for the requested test"
+  },
+  "diagrequest[].not_listed_specify": {
+   "label": "Name of a test not on the listed services"
+  }
+ },
+ "diagnostic_results": {
+  "diagnosticresult.case_no": {
+   "label": "Patient case number that links the results to the patient, FPE and consultation records"
+  },
+  "diagnosticresult.soap_transaction_no": {
+   "label": "Transaction number of the consultation that ordered the tests"
+  },
+  "diagnosticresult.request_transaction_no": {
+   "label": "Transaction number of the diagnostic request; links each result to its request"
+  },
+  "diagresult_item[].result_transaction_no": {
+   "label": "Transaction number of this result entry, generated by the EMR"
+  },
+  "diagresult_item[].diagnostic_code": {
+   "label": "Test this result answers; one row per requested test"
+  },
+  "diagresult_item[].test_status": {
+   "label": "Status of the requested test"
+  },
+  "diagresult_item[].test_lab_loc": {
+   "label": "Where the test was done"
+  },
+  "diagresult_item[].test_exam_date": {
+   "label": "Date the test was done"
+  },
+  "diagresult_item[].test_remarks": {
+   "label": "Remarks on the test result"
+  },
+  "diagresult_item[].cbc.cbc_hemoglobin_g_dl": {
+   "label": "CBC: hemoglobin, in g/dL",
+   "unit": "g/dL"
+  },
+  "diagresult_item[].cbc.cbc_hemoglobin_g_l": {
+   "label": "CBC: hemoglobin, in g/L",
+   "unit": "g/L"
+  },
+  "diagresult_item[].cbc.cbc_hematocrit": {
+   "label": "CBC: hematocrit, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_mch_pg": {
+   "label": "CBC: mean corpuscular hemoglobin (MCH), in pg",
+   "unit": "pg"
+  },
+  "diagresult_item[].cbc.cbc_mchc_g_dl": {
+   "label": "CBC: mean corpuscular hemoglobin concentration (MCHC), in g/dL",
+   "unit": "g/dL"
+  },
+  "diagresult_item[].cbc.cbc_mchc_g_l": {
+   "label": "CBC: mean corpuscular hemoglobin concentration (MCHC), in g/L",
+   "unit": "g/L"
+  },
+  "diagresult_item[].cbc.cbc_mcv_fl": {
+   "label": "CBC: mean corpuscular volume (MCV), in fL",
+   "unit": "fL"
+  },
+  "diagresult_item[].cbc.cbc_mcv_um3": {
+   "label": "CBC: mean corpuscular volume (MCV), in μm³",
+   "unit": "μm³"
+  },
+  "diagresult_item[].cbc.cbc_platelet_count": {
+   "label": "CBC: platelet count",
+   "unit": "x10⁹/L"
+  },
+  "diagresult_item[].cbc.cbc_wbc_x10_9_l": {
+   "label": "CBC: white blood cell (WBC) count, in x10⁹/L",
+   "unit": "x10⁹/L"
+  },
+  "diagresult_item[].cbc.cbc_wbc_cells_ul": {
+   "label": "CBC: white blood cell (WBC) count, in cells/μL",
+   "unit": "cells/μL"
+  },
+  "diagresult_item[].cbc.cbc_rbc_x10_12_l": {
+   "label": "CBC: red blood cell (RBC) count, in x10¹²/L",
+   "unit": "x10¹²/L"
+  },
+  "diagresult_item[].cbc.cbc_rbc_x10_6_ul": {
+   "label": "CBC: red blood cell (RBC) count, in x10⁶/μL",
+   "unit": "x10⁶/μL"
+  },
+  "diagresult_item[].cbc.cbc_diff_granulocytes": {
+   "label": "CBC differential: granulocytes, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_diff_neutrophils_band": {
+   "label": "CBC differential: band neutrophils, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_diff_neutrophils_seg": {
+   "label": "CBC differential: segmented neutrophils, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_diff_lymphocytes": {
+   "label": "CBC differential: lymphocytes, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_diff_monocytes": {
+   "label": "CBC differential: monocytes, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_diff_eosinophils": {
+   "label": "CBC differential: eosinophils, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].cbc.cbc_diff_basophils": {
+   "label": "CBC differential: basophils, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].pregtest.urine_hcg_results": {
+   "label": "Urine HCG pregnancy test result"
+  },
+  "diagresult_item[].urinalysis.urinalysis_color": {
+   "label": "Urinalysis: color"
+  },
+  "diagresult_item[].urinalysis.urinalysis_appearance": {
+   "label": "Urinalysis: appearance"
+  },
+  "diagresult_item[].urinalysis.urinalysis_specific_gravity": {
+   "label": "Urinalysis: specific gravity"
+  },
+  "diagresult_item[].urinalysis.urinalysis_ph": {
+   "label": "Urinalysis: pH"
+  },
+  "diagresult_item[].urinalysis.urinalysis_protein_albumin": {
+   "label": "Urinalysis: protein (albumin)"
+  },
+  "diagresult_item[].urinalysis.urinalysis_glucose": {
+   "label": "Urinalysis: glucose"
+  },
+  "diagresult_item[].urinalysis.urinalysis_bilirubin": {
+   "label": "Urinalysis, chemical: bilirubin"
+  },
+  "diagresult_item[].urinalysis.urinalysis_blood": {
+   "label": "Urinalysis, chemical: blood"
+  },
+  "diagresult_item[].urinalysis.urinalysis_leukocytes": {
+   "label": "Urinalysis, chemical: leukocytes"
+  },
+  "diagresult_item[].urinalysis.urinalysis_nitrite": {
+   "label": "Urinalysis, chemical: nitrite"
+  },
+  "diagresult_item[].urinalysis.urinalysis_urobilinogen": {
+   "label": "Urinalysis, chemical: urobilinogen"
+  },
+  "diagresult_item[].urinalysis.urinalysis_ketones": {
+   "label": "Urinalysis, chemical: ketones"
+  },
+  "diagresult_item[].urinalysis.urinalysis_epithelial_cells": {
+   "label": "Urinalysis, microscopic: epithelial cells"
+  },
+  "diagresult_item[].urinalysis.urinalysis_mucus_threads": {
+   "label": "Urinalysis, microscopic: mucus threads"
+  },
+  "diagresult_item[].urinalysis.urinalysis_bacteria": {
+   "label": "Urinalysis, microscopic: bacteria"
+  },
+  "diagresult_item[].urinalysis.urinalysis_pus_cells": {
+   "label": "Urinalysis, microscopic: pus cells"
+  },
+  "diagresult_item[].urinalysis.urinalysis_red_blood_cells": {
+   "label": "Urinalysis, microscopic: red blood cells, per high-power field",
+   "unit": "/hpf"
+  },
+  "diagresult_item[].urinalysis.urinalysis_white_blood_cells": {
+   "label": "Urinalysis, microscopic: white blood cells, per high-power field",
+   "unit": "/hpf"
+  },
+  "diagresult_item[].uacr.uacr_albumin": {
+   "label": "Urinary albumin, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].uacr.uacr_creatinine": {
+   "label": "Urinary creatinine, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].uacr.uacr_ratio": {
+   "label": "Urinary albumin-creatinine ratio, in mg/g",
+   "unit": "mg/g"
+  },
+  "diagresult_item[].uacr.uacr_interp": {
+   "label": "Interpretation of the urinary albumin-creatinine ratio"
+  },
+  "diagresult_item[].hbsag.hbsag_test_results": {
+   "label": "HBsAg test result"
+  },
+  "diagresult_item[].hivrdt.hiv_rdt_results": {
+   "label": "HIV rapid diagnostic test result"
+  },
+  "diagresult_item[].rpr.rpr_results": {
+   "label": "RPR test result"
+  },
+  "diagresult_item[].vdrl.vdrl_results": {
+   "label": "VDRL test result"
+  },
+  "diagresult_item[].malariasmear.malaria_smear_results": {
+   "label": "Blood smear microscopy for malaria: result"
+  },
+  "diagresult_item[].filariasissmear.filariasis_smear_results": {
+   "label": "Blood smear microscopy for filariasis: result"
+  },
+  "diagresult_item[].filariasissmear.filariasis_smear_findings_spec": {
+   "label": "Findings of blood smear microscopy for filariasis"
+  },
+  "diagresult_item[].fbs.fbs_results_mg_dl": {
+   "label": "Fasting blood sugar result, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].fbs.fbs_results_mmol_l": {
+   "label": "Fasting blood sugar result, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].fbs.fbs_interp": {
+   "label": "Interpretation of the fasting blood sugar result"
+  },
+  "diagresult_item[].hba1c.hba1c_results": {
+   "label": "HbA1c result, in %",
+   "unit": "%"
+  },
+  "diagresult_item[].hba1c.hba1c_interp": {
+   "label": "Interpretation of the HbA1c result"
+  },
+  "diagresult_item[].ogtt.ogtt_fasting_mg_dl": {
+   "label": "OGTT: fasting blood glucose, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].ogtt.ogtt_fasting_mmol_l": {
+   "label": "OGTT: fasting blood glucose, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].ogtt.ogtt_1_hour_mg_dl": {
+   "label": "OGTT: blood glucose at 1 hour, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].ogtt.ogtt_1_hour_mmol_l": {
+   "label": "OGTT: blood glucose at 1 hour, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].ogtt.ogtt_2_hours_mg_dl": {
+   "label": "OGTT: blood glucose at 2 hours, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].ogtt.ogtt_2_hours_mmol_l": {
+   "label": "OGTT: blood glucose at 2 hours, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].ogtt.ogtt_interp": {
+   "label": "Interpretation of the OGTT result"
+  },
+  "diagresult_item[].fecalysis.fecalysis_color": {
+   "label": "Fecalysis: color"
+  },
+  "diagresult_item[].fecalysis.fecalysis_consistency": {
+   "label": "Fecalysis: consistency"
+  },
+  "diagresult_item[].fecalysis.fecalysis_rbc": {
+   "label": "Fecalysis: red blood cells, per high-power field",
+   "unit": "/hpf"
+  },
+  "diagresult_item[].fecalysis.fecalysis_pus_cells": {
+   "label": "Fecalysis: pus cells, per high-power field",
+   "unit": "/hpf"
+  },
+  "diagresult_item[].fecalysis.fecalysis_ova_parasite": {
+   "label": "Fecalysis: ova or parasites seen"
+  },
+  "diagresult_item[].fecalysis.fecalysis_fat_globules": {
+   "label": "Fecalysis: fat globules, per low-power field",
+   "unit": "/lpf"
+  },
+  "diagresult_item[].fecalysis.fecalysis_bacteria": {
+   "label": "Fecalysis: bacteria, per high-power field",
+   "unit": "/hpf"
+  },
+  "diagresult_item[].fecalysis.fecalysis_other": {
+   "label": "Fecalysis: other findings"
+  },
+  "diagresult_item[].fecalysiskk.fecalysis_kato_katz_results": {
+   "label": "Kato-Katz fecalysis result (parasite species found)"
+  },
+  "diagresult_item[].fecalysiskk.fecalysis_kato_katz_epg_value": {
+   "label": "Kato-Katz eggs per gram (EPG) value",
+   "unit": "EPG"
+  },
+  "diagresult_item[].fecalysiskk.fecalysis_kato_katz_intensity": {
+   "label": "Kato-Katz intensity of infection"
+  },
+  "diagresult_item[].fobt.gfobt_results": {
+   "label": "Guaiac fecal occult blood test (gFOBT) result"
+  },
+  "diagresult_item[].lipidprofile.lipid_total_chol_mg_dl": {
+   "label": "Lipid profile: total cholesterol, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].lipidprofile.lipid_total_chol_mmol_l": {
+   "label": "Lipid profile: total cholesterol, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].lipidprofile.lipid_trig_mg_dl": {
+   "label": "Lipid profile: triglycerides, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].lipidprofile.lipid_trig_mmol_l": {
+   "label": "Lipid profile: triglycerides, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].lipidprofile.lipid_hdl_mg_dl": {
+   "label": "Lipid profile: HDL cholesterol, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].lipidprofile.lipid_hdl_mmol_l": {
+   "label": "Lipid profile: HDL cholesterol, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].lipidprofile.lipid_ldl_mg_dl": {
+   "label": "Lipid profile: LDL cholesterol, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].lipidprofile.lipid_ldl_mmol_l": {
+   "label": "Lipid profile: LDL cholesterol, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].lipidprofile.lipid_vldl_mg_dl": {
+   "label": "Lipid profile: VLDL cholesterol, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].lipidprofile.lipid_vldl_mmol_l": {
+   "label": "Lipid profile: VLDL cholesterol, in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].afp.afp_results": {
+   "label": "Alpha fetoprotein (AFP) result, in ng/mL",
+   "unit": "ng/mL"
+  },
+  "diagresult_item[].alt.alt_sgpt_results": {
+   "label": "ALT (SGPT) result, in U/L",
+   "unit": "U/L"
+  },
+  "diagresult_item[].ast.ast_sgot_results": {
+   "label": "AST (SGOT) result, in U/L",
+   "unit": "U/L"
+  },
+  "diagresult_item[].creatinine.serum_creatinine_results_mg_dl": {
+   "label": "Serum creatinine result, in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].creatinine.serum_creatinine_results_umol_l": {
+   "label": "Serum creatinine result, in µmol/L",
+   "unit": "µmol/L"
+  },
+  "diagresult_item[].papsmear.pap_smear_findings": {
+   "label": "Pap smear cytology findings"
+  },
+  "diagresult_item[].via.via_test_results_findings": {
+   "label": "VIA test result and findings"
+  },
+  "diagresult_item[].via.via_impression": {
+   "label": "VIA impression"
+  },
+  "diagresult_item[].via.via_recommendation": {
+   "label": "Recommendation after VIA"
+  },
+  "diagresult_item[].sputum.sputum_smear_results": {
+   "label": "Sputum smear microscopy result"
+  },
+  "diagresult_item[].sputum.sputum_smear_findings_spec": {
+   "label": "Findings of sputum smear microscopy"
+  },
+  "diagresult_item[].alp.alp_results_u_l": {
+   "label": "Alkaline phosphatase (ALP) result, in U/L",
+   "unit": "U/L"
+  },
+  "diagresult_item[].alp.alp_results_iu_l": {
+   "label": "Alkaline phosphatase (ALP) result, in IU/L",
+   "unit": "IU/L"
+  },
+  "diagresult_item[].serumalbumin.serum_albumin_results_g_dl": {
+   "label": "Serum albumin result, in g/dL",
+   "unit": "g/dL"
+  },
+  "diagresult_item[].serumalbumin.serum_albumin_results_g_l": {
+   "label": "Serum albumin result, in g/L",
+   "unit": "g/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_sodium_meq_l": {
+   "label": "Serum electrolytes: sodium (Na+), in mEq/L",
+   "unit": "mEq/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_sodium_mmol_l": {
+   "label": "Serum electrolytes: sodium (Na+), in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_potassium_meq_l": {
+   "label": "Serum electrolytes: potassium (K+), in mEq/L",
+   "unit": "mEq/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_potassium_mmol_l": {
+   "label": "Serum electrolytes: potassium (K+), in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_chloride_meq_l": {
+   "label": "Serum electrolytes: chloride (Cl-), in mEq/L",
+   "unit": "mEq/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_chloride_mmol_l": {
+   "label": "Serum electrolytes: chloride (Cl-), in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_calcium_mg_dl": {
+   "label": "Serum electrolytes: calcium (Ca2+), in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_calcium_mmol_l": {
+   "label": "Serum electrolytes: calcium (Ca2+), in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_phosphorus_mg_dl": {
+   "label": "Serum electrolytes: phosphorus (PO4), in mg/dL",
+   "unit": "mg/dL"
+  },
+  "diagresult_item[].electrolytes.serum_electrolytes_phosphorus_mmol_l": {
+   "label": "Serum electrolytes: phosphorus (PO4), in mmol/L",
+   "unit": "mmol/L"
+  },
+  "diagresult_item[].chestxray.chest_xray_impression": {
+   "label": "Chest X-ray impression"
+  },
+  "diagresult_item[].chestct.ldct_impression": {
+   "label": "Low-dose chest CT impression"
+  },
+  "diagresult_item[].ecg.ecg_atrial_r_min": {
+   "label": "12-lead ECG: atrial rate, per minute",
+   "unit": "R/min"
+  },
+  "diagresult_item[].ecg.ecg_ventricular_r_min": {
+   "label": "12-lead ECG: ventricular rate, per minute",
+   "unit": "R/min"
+  },
+  "diagresult_item[].ecg.ecg_pr_interval_sec": {
+   "label": "12-lead ECG: PR interval, in seconds",
+   "unit": "sec"
+  },
+  "diagresult_item[].ecg.ecg_qrs_interval_sec": {
+   "label": "12-lead ECG: QRS interval, in seconds",
+   "unit": "sec"
+  },
+  "diagresult_item[].ecg.ecg_qtc_sec": {
+   "label": "12-lead ECG: corrected QT interval (QTc), in seconds",
+   "unit": "sec"
+  },
+  "diagresult_item[].ecg.ecg_qta_sec": {
+   "label": "12-lead ECG: QT interval (QTa), in seconds",
+   "unit": "sec"
+  },
+  "diagresult_item[].ecg.ecg_axis": {
+   "label": "12-lead ECG: electrical axis"
+  },
+  "diagresult_item[].colonoscopy.colonoscopy_findings": {
+   "label": "Colonoscopy findings"
+  },
+  "diagresult_item[].colonoscopy.colonoscopy_recos": {
+   "label": "Recommendations after colonoscopy"
+  },
+  "diagresult_item[].spirometry.spirometry_findings": {
+   "label": "Spirometry findings"
+  },
+  "diagresult_item[].spirometry.spirometry_interp_recos": {
+   "label": "Spirometry interpretation and recommendations"
+  },
+  "diagresult_item[].otherdiagexam.other_name_lab_image_exam": {
+   "label": "Name of the other laboratory or imaging test (code 99)"
+  },
+  "diagresult_item[].otherdiagexam.other_findings": {
+   "label": "Findings of the other laboratory or imaging test"
+  },
+  "physiciansignoff.physician_name": {
+   "label": "Printed name of the physician who signed the results"
+  },
+  "physiciansignoff.physician_designation": {
+   "label": "Designation of the physician"
+  },
+  "physiciansignoff.physician_license_no": {
+   "label": "Professional license number of the physician"
+  },
+  "physiciansignoff.physician_accre_no": {
+   "label": "PhilHealth accreditation number of the physician"
+  }
+ },
+ "medicine": {
+  "medicine[].case_no": {
+   "label": "Patient case number that links the prescription to the patient, FPE and consultation records"
+  },
+  "medicine[].soap_transaction_no": {
+   "label": "Transaction number of the consultation that ordered the prescription"
+  },
+  "medicine[].meds_transaction_no": {
+   "label": "Transaction number of the medicine prescription"
+  },
+  "medicine[].drug_code": {
+   "label": "Medicine prescribed (Konsulta drug library code)"
+  },
+  "medicine[].medicine_category": {
+   "label": "Medicine category"
+  },
+  "medicine[].generic_code": {
+   "label": "Generic name code of the medicine"
+  },
+  "medicine[].salt_code": {
+   "label": "Salt code of the medicine"
+  },
+  "medicine[].strength_code": {
+   "label": "Strength or dosage code of the medicine"
+  },
+  "medicine[].form_code": {
+   "label": "Dosage form code (for example tablet or capsule)"
+  },
+  "medicine[].unit_code": {
+   "label": "Unit code of the medicine"
+  },
+  "medicine[].package_code": {
+   "label": "Package or volume code of the medicine"
+  },
+  "medicine[].other_medicine": {
+   "label": "Full description of a medicine not in the drug library"
+  },
+  "medicine[].oth_med_drug_grouping": {
+   "label": "Drug grouping of a medicine not in the drug library"
+  },
+  "medicine[].route": {
+   "label": "Route of administration"
+  },
+  "medicine[].instruction_quantity": {
+   "label": "Quantity per intake (for example 1 tablet or 5 mL)"
+  },
+  "medicine[].instruction_strength": {
+   "label": "Strength per intake"
+  },
+  "medicine[].instruction_frequency": {
+   "label": "Frequency of intake (for example once daily)"
+  },
+  "medicine[].medicine_ext.instruction_duration": {
+   "label": "Duration of treatment (for example 7 days)"
+  },
+  "medicine[].quantity": {
+   "label": "Total quantity prescribed"
+  },
+  "medicine[].prescription_date": {
+   "label": "Date of the prescription"
+  },
+  "medicine[].advice.special_instructions": {
+   "label": "Special instructions or advice (for example take with meals)"
+  },
+  "medicine[].actual_unit_price": {
+   "label": "Actual unit price of the medicine"
+  },
+  "medicine[].total_amount_price": {
+   "label": "Total price of the medicine issued"
+  },
+  "medicine[].is_dispensed": {
+   "label": "Indicates whether the medicine was dispensed"
+  },
+  "medicine[].date_dispensed": {
+   "label": "Date the medicine was dispensed"
+  },
+  "medicine[].dispensing_personnel": {
+   "label": "Name of the pharmacist or dispensing personnel"
+  },
+  "medicine[].is_applicable": {
+   "label": "Indicates whether the medicine record applies"
+  },
+  "physiciansignoff.physician_name": {
+   "label": "Printed name of the prescribing physician who signs the prescription"
+  },
+  "physiciansignoff.physician_designation": {
+   "label": "Designation of the physician"
+  },
+  "physiciansignoff.physician_license_no": {
+   "label": "Professional license number of the physician"
+  },
+  "physiciansignoff.physician_accre_no": {
+   "label": "PhilHealth accreditation number of the prescribing physician"
+  }
+ },
+ "referral": {
+  "soap.case_no": {
+   "label": "Patient case number that links the referral to the patient, FPE and consultation records"
+  },
+  "soap.soap_transaction_no": {
+   "label": "Transaction number of the consultation that made the referral"
+  },
+  "soap.patient_type": {
+   "label": "Patient type: member or dependent"
+  },
+  "soap.patient_pin": {
+   "label": "PhilHealth Identification Number (PIN) of the patient"
+  },
+  "soap.patient_age": {
+   "label": "Age of the patient on the consultation date"
+  },
+  "guardian.guardian_name": {
+   "label": "Full name of the parent or guardian (surname, first name, middle name, suffix)"
+  },
+  "guardian.guardian_age": {
+   "label": "Age of the parent or guardian, in years"
+  },
+  "guardian.guardian_sex": {
+   "label": "Sex of the parent or guardian"
+  },
+  "guardian.guardian_birthday": {
+   "label": "Date of birth of the parent or guardian"
+  },
+  "guardian.guardian_contact_no": {
+   "label": "Contact number of the parent or guardian"
+  },
+  "guardian.guardian_relationship": {
+   "label": "Relationship of the parent or guardian to the patient"
+  },
+  "guardian.guardian_pin": {
+   "label": "PhilHealth Identification Number (PIN) of the parent or guardian"
+  },
+  "soap.method_of_service_delivery": {
+   "label": "Method of service delivery for the consultation"
+  },
+  "soap.pcu_transaction_code": {
+   "label": "PhilHealth Check Utility (PCU) transaction code"
+  },
+  "soap.co_payment_flag": {
+   "label": "Indicates whether the patient has a co-payment"
+  },
+  "soap.co_payment_date_payment": {
+   "label": "Date the co-payment was paid"
+  },
+  "soap.co_payment": {
+   "label": "Co-payment amount paid, in PHP"
+  },
+  "soap.co_payment_balance": {
+   "label": "Remaining co-payment balance, in PHP"
+  },
+  "soap.consultation_date": {
+   "label": "Date of the consultation"
+  },
+  "soap.consultation_time": {
+   "label": "Time of the consultation (24-hour)"
+  },
+  "referral.referral_transaction_no": {
+   "label": "Transaction number of the referral request"
+  },
+  "referral.referral_type": {
+   "label": "Referral destination types"
+  },
+  "referral.referral_specialist": {
+   "label": "Specialty referred to"
+  },
+  "referral.referral_specialist_other_spec": {
+   "label": "Specialty not in the list"
+  },
+  "referral.referral_reason": {
+   "label": "Reason for referral"
+  },
+  "referral.referral_primary_care_services": {
+   "label": "Other primary care services referred to"
+  },
+  "referral.referral_facility_service": {
+   "label": "Facilities or services referred to"
+  },
+  "referral.referral_others_spec": {
+   "label": "Other referral destination"
+  },
+  "physiciansignoff.physician_name": {
+   "label": "Printed name of the referring physician"
+  },
+  "physiciansignoff.physician_designation": {
+   "label": "Designation of the physician"
+  },
+  "physiciansignoff.physician_license_no": {
+   "label": "Professional license number of the physician"
+  },
+  "physiciansignoff.physician_accre_no": {
+   "label": "PhilHealth accreditation number of the referring physician"
+  }
+ }
+}

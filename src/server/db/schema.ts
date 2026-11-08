@@ -187,6 +187,10 @@ export const submissions = pgTable(
     recordNumbers: jsonb("record_numbers").notNull(),
     payloadEncrypted: text("payload_encrypted").notNull(),
     errors: jsonb("errors").notNull().default([]),
+    /** The primary record number, which stays the same across corrections. */
+    recordKey: varchar("record_key", { length: 200 }).notNull(),
+    /** Set when a corrected resubmission replaces this rejected one. */
+    supersededAt: timestamp("superseded_at", { withTimezone: true }),
     requestId: uuid("request_id"),
     receivedAt: timestamp("received_at", { withTimezone: true }),
     processedAt: timestamp("processed_at", { withTimezone: true }),
@@ -199,6 +203,20 @@ export const submissions = pgTable(
     index("submissions_status_poll").on(t.processingStatus, t.nextPollAt),
     index("submissions_facility_form").on(t.facilityId, t.form),
   ],
+);
+
+// case_no is issued once per patient and reused by every later submission (guide 4.6.1).
+export const patientCases = pgTable(
+  "patient_cases",
+  {
+    facilityId: uuid("facility_id")
+      .notNull()
+      .references(() => facilities.id),
+    patientPinHmac: char("patient_pin_hmac", { length: 64 }).notNull(),
+    caseNo: varchar("case_no", { length: 23 }).notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [primaryKey({ columns: [t.facilityId, t.patientPinHmac] })],
 );
 
 // Daily series for the EMR-generated record numbers (guide 3.9).

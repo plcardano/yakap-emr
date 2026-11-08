@@ -10,6 +10,7 @@ import {
   encryptEnvelope,
   EnvelopeError,
 } from "../../src/server/pcapi/envelope";
+import { ageText, computeBmi } from "../../src/lib/fpe/derived";
 import {
   LOOKUP_MULTIPLE,
   LOOKUP_NOT_FOUND,
@@ -733,6 +734,18 @@ export function createMockPcapi({ processDelayMs = 1500 }: MockOptions = {}) {
     }
   }
 
+  // The backend recomputes these and rejects a mismatch (guide 4.6.1).
+  function checkFpeComputedValues(body: Json) {
+    const age = ageText(body.enlistment.patient_dob, body.profile.fpe_date);
+    if (body.profile.patient_age !== age) {
+      throw reject(400, "Invalid request payload", "profile.patient_age", "validation_error");
+    }
+    const bmi = computeBmi(body.pepert.weight, body.pepert.height ?? body.pepert.length);
+    if (body.pepert.bmi !== bmi) {
+      throw reject(400, "Invalid request payload", "pepert.bmi", "validation_error");
+    }
+  }
+
   function livenessPage(url: URL, res: ServerResponse) {
     if (url.pathname === "/liveness/sdk.js") {
       res.writeHead(200, { "Content-Type": "text/javascript" });
@@ -815,6 +828,7 @@ export function createMockPcapi({ processDelayMs = 1500 }: MockOptions = {}) {
       const form = UPLOAD_ROUTES[path.split("/").at(-1) ?? ""];
       if (!form) return respondError(res, 404, "Not found", [{ field: "path", issue: "not_found" }]);
       checkRequest(form, body, accreNo);
+      if (form === "fpe") checkFpeComputedValues(body);
       const result = handleUpload(form, body, accreNo);
       return reply(result.status, "Upload received", result.data);
     }

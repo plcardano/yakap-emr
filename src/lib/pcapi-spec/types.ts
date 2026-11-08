@@ -26,6 +26,8 @@ export type FieldRule = {
   jpegMaxMb?: number;
   recordPrefix?: string;
   library?: string;
+  /** Several library codes, separated by a comma. */
+  multiple?: boolean;
   external?: string;
   notWith?: string;
   /** May be left out as well as sent as "". */
@@ -37,6 +39,8 @@ export type FieldRule = {
   /** A conditional rule that needs form-level logic, kept as its original text. */
   manual?: string;
 };
+
+export type FieldLabel = { label: string; unit?: string };
 
 export type LibraryCode = { code: string; description: string };
 

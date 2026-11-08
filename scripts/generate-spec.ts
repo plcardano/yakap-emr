@@ -6,6 +6,7 @@ import ExcelJS from "exceljs";
 import type {
   Condition,
   DateFormat,
+  FieldLabel,
   FieldRule,
   LibraryCode,
   SpecId,
@@ -115,6 +116,7 @@ function parseRule(row: Record<string, string>): FieldRule {
     rule.max = Number(range[2]);
   }
 
+  if (/several codes separated by a comma/.test(checks)) rule.multiple = true;
   if (/Whole number only/.test(checks)) rule.whole = true;
   if (/"Y" or "N"\./.test(checks)) rule.yesNo = true;
   if (/"N", or "Y - "/.test(checks)) rule.allergy = true;
@@ -206,6 +208,53 @@ async function generateRules() {
   return { total, specs };
 }
 
+const ANNEX_SHEETS: Record<string, string> = {
+  fpe: "Annex A - FPE",
+  consultation: "Annex B - Consultation",
+  diagnostic_request: "Annex C - Diagnostic Request",
+  diagnostic_results: "Annex D - Diagnostic Results",
+  medicine: "Annex E - Medicine",
+  referral: "Annex F - Referral Request",
+};
+
+// The first sentence, ignoring periods inside parentheses such as "(Jr., Sr.)".
+function firstSentence(text: string) {
+  let depth = 0;
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === "(") depth++;
+    if (text[i] === ")") depth--;
+    if (depth === 0 && text[i] === "." && (i === text.length - 1 || text[i + 1] === " ")) {
+      return text.slice(0, i);
+    }
+  }
+  return text;
+}
+
+async function generateLabels() {
+  const book = new ExcelJS.Workbook();
+  await book.xlsx.readFile(DICTIONARY);
+  const labels: Record<string, Record<string, FieldLabel>> = {};
+  for (const [spec, sheetName] of Object.entries(ANNEX_SHEETS)) {
+    const rows = rowsOf(book.getWorksheet(sheetName)!);
+    const headerIndex = rows.findIndex((row) => row[0] === "DATA GROUP");
+    const header = rows[headerIndex].map((cell) => cell.replace(/\s+/g, " "));
+    const column = (name: string) => header.findIndex((cell) => cell.startsWith(name));
+    const [description, format, jsonPath] = ["DESCRIPTION", "FORMAT", "JSON PATH"].map(column);
+
+    labels[spec] = {};
+    for (const row of rows.slice(headerIndex + 1)) {
+      const path = row[jsonPath];
+      if (!path) continue;
+      const unit = row[format]?.match(/^Unit: (.+?)\.?$/)?.[1];
+      labels[spec][path] = {
+        label: firstSentence(row[description]),
+        ...(unit && { unit }),
+      };
+    }
+  }
+  writeFileSync(`${OUT}/pcapi-labels.json`, `${JSON.stringify(labels, null, 1)}\n`);
+}
+
 async function generateLibraries() {
   const book = new ExcelJS.Workbook();
   await book.xlsx.readFile(LIBRARY);
@@ -236,6 +285,7 @@ async function main() {
   mkdirSync(OUT, { recursive: true });
   const { total, specs } = await generateRules();
   const libraries = await generateLibraries();
+  await generateLabels();
 
   const all = Object.values(specs).flat();
   const conditional = all.filter((rule) => rule.required === "conditional");

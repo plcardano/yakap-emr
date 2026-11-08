@@ -1,16 +1,16 @@
 import type { Condition, FieldRule, LibraryCode, ValidationIssue } from "./types";
 
-type Node = {
+export type SpecNode = {
   isArray: boolean;
   rule?: FieldRule;
-  children: Map<string, Node>;
+  children: Map<string, SpecNode>;
 };
 
 type Json = Record<string, unknown>;
 type Libraries = Record<string, LibraryCode[]>;
 
 export function buildTree(rules: FieldRule[]) {
-  const root: Node = { isArray: false, children: new Map() };
+  const root: SpecNode = { isArray: false, children: new Map() };
   for (const rule of rules) {
     let node = root;
     for (const segment of rule.path.split(".")) {
@@ -62,7 +62,7 @@ function holds(condition: Condition, scopes: Json[]) {
   return condition.values.some((code) => selected.includes(code));
 }
 
-function isActive(rule: FieldRule, scopes: Json[]) {
+export function isActive(rule: FieldRule, scopes: Json[]) {
   return rule.when?.every((condition) => holds(condition, scopes)) ?? false;
 }
 
@@ -75,8 +75,8 @@ function isBlank(value: unknown) {
  * numbers and booleans are left out, null is never sent, and groups the form
  * did not supply are left out (guide 3.3).
  */
-export function serialize(root: Node, input: Json): Json {
-  const write = (node: Node, value: Json, scopes: Json[]): Json => {
+export function serialize(root: SpecNode, input: Json): Json {
+  const write = (node: SpecNode, value: Json, scopes: Json[]): Json => {
     const output: Json = {};
     for (const [key, child] of node.children) {
       const current = value[key];
@@ -88,7 +88,9 @@ export function serialize(root: Node, input: Json): Json {
           rule.absentWhenInactive &&
           !isActive(rule, scopes);
         if (skip) continue;
-        if (isBlank(current)) {
+        // A value left behind after its condition stopped applying is not sent.
+        const stale = rule.required === "conditional" && rule.when && !isActive(rule, scopes);
+        if (isBlank(current) || stale) {
           if (rule.type === "string" && !rule.mayOmit) output[key] = "";
           continue;
         }
@@ -108,7 +110,7 @@ export function serialize(root: Node, input: Json): Json {
             write(child, item, [...scopes, item]),
           );
         }
-      } else if (isObject(current) && Object.keys(current).length > 0) {
+      } else if (isObject(current)) {
         output[key] = write(child, current, [...scopes, current]);
       }
     }
@@ -197,7 +199,7 @@ function checkValue(
 
 /** Applies the Data Dictionary checks. Returns one entry per failing field. */
 export function validate(
-  root: Node,
+  root: SpecNode,
   body: Json,
   libraries: Libraries,
   options: { accreNo?: string } = {},
@@ -234,7 +236,7 @@ export function validate(
     if (reason) fail(field, reason);
   };
 
-  const missingGroup = (node: Node, field: string, scopes: Json[]) => {
+  const missingGroup = (node: SpecNode, field: string, scopes: Json[]) => {
     for (const [key, child] of node.children) {
       const { rule } = child;
       if (rule?.absentWhenInactive && isActive(rule, scopes)) {
@@ -243,7 +245,7 @@ export function validate(
     }
   };
 
-  const walk = (node: Node, value: Json, prefix: string, scopes: Json[]) => {
+  const walk = (node: SpecNode, value: Json, prefix: string, scopes: Json[]) => {
     for (const [key, child] of node.children) {
       const field = prefix ? `${prefix}.${key}` : key;
       const current = value[key];
@@ -278,9 +280,9 @@ export function validate(
 }
 
 /** Lists request fields the Data Dictionary does not define. */
-export function unknownFields(root: Node, body: Json) {
+export function unknownFields(root: SpecNode, body: Json) {
   const unknown: string[] = [];
-  const walk = (node: Node, value: Json, prefix: string) => {
+  const walk = (node: SpecNode, value: Json, prefix: string) => {
     for (const [key, current] of Object.entries(value)) {
       const field = prefix ? `${prefix}.${key}` : key;
       const child = node.children.get(key);

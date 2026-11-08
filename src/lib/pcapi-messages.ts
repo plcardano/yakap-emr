@@ -32,6 +32,17 @@ export const ISSUE_COPY: Record<string, Copy> = {
   invalid_upstream_response: { title: "The identity service returned an unexpected response", body: SUPPORT },
   service_unavailable: { title: "PhilHealth Check is unavailable", body: "Contact PhilHealth support." },
   gateway_timeout: { title: "PhilHealth Check took too long to respond", body: NEW_CHECK },
+  // Selection and Empanelment
+  selection_already_exists: { title: "Already assigned to your clinic", body: "No new selection is needed." },
+  selected_other_facility: { title: "The beneficiary is not assigned in this facility", body: "They are assigned to another YAKAP Clinic or were transferred." },
+  pcu_transaction_not_found: { title: "The PhilHealth Check was not found", body: "Run a new PhilHealth Check." },
+  pcu_not_verified: { title: "The PhilHealth Check has no verified date", body: "Run a new PhilHealth Check." },
+  pcu_pin_mismatch: { title: "The PIN differs from the PhilHealth Check", body: "Confirm the patient's identity and run a new check." },
+  pcu_result_not_accepted: { title: "This PhilHealth Check did not verify the patient", body: "Run a new PhilHealth Check or use another verification mode." },
+  pcu_not_same_day: { title: "The PhilHealth Check was not done today", body: "Run a new PhilHealth Check." },
+  // Uploads and Masterlist
+  transaction_already_exists: { title: "This record already exists with different content", body: "It cannot be changed while it is queued or accepted." },
+  assignment_not_found: { title: "Not assigned to your clinic", body: "Complete the Selection for this beneficiary first." },
   // Verification code
   code_invalid: { title: "The verification code is not valid", body: "Ask the patient for the current code. Do not retry the same code." },
   code_not_found: { title: "No verification code exists for this PIN" },

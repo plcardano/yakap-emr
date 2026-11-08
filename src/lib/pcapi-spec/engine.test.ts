@@ -197,9 +197,19 @@ describe("serialization", () => {
     expect("gynehist" in output).toBe(false);
   });
 
-  it("round-trips every guide sample unchanged", () => {
+  it("keeps every sample valid and is stable when applied twice", () => {
     for (const id of SAMPLES) {
-      expect(serializeRequest(id, guideSample(id))).toEqual(guideSample(id));
+      const once = serializeRequest(id, fixture(id));
+      expect(validateRequest(id, once)).toEqual([]);
+      expect(serializeRequest(id, once)).toEqual(once);
     }
+  });
+
+  it("sends a conditional value as empty when its rule does not apply", () => {
+    const sample = fixture("fpe");
+    expect(sample.sochist.dental_checkup_status).not.toBe("Y");
+    sample.sochist.dental_checkup_year = "2025";
+    const output = serializeRequest("fpe", sample) as typeof sample;
+    expect(output.sochist.dental_checkup_year).toBe("");
   });
 });

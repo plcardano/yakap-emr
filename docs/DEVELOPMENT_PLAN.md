@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 4 (Selection and FPE), not started
-**Next action:** Build the Selection flow, using today's stored verification evidence
+**Current phase:** Phase 5 (Empanelment), not started
+**Next action:** Build the Empanelment tracker and submission
 
 ## 1. What we are building
 
@@ -29,7 +29,7 @@ Spec files are in `docs/spec/`. Figma: https://www.figma.com/design/JKxp7GHI8EjR
 | Layer | Choice |
 |---|---|
 | App | Next.js (App Router) with TypeScript, self-hosted on Node, not serverless |
-| Forms and validation | React Hook Form and Zod, generated from the Data Dictionary where possible |
+| Forms and validation | A data-driven form and rule engine generated from the Data Dictionary; Zod for login |
 | UI | Tailwind CSS, components built from the Figma component list |
 | Database | PostgreSQL (Docker for development) |
 | Background worker | Separate Node process that polls Upload Status |
@@ -45,8 +45,8 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 | 1 | Foundation | Done (CI has not run yet; no Git remote) |
 | 2 | PCAPI core | Done (tested against the mock only) |
 | 3 | Verification | Done (tested against the mock only) |
-| 4 | Selection and FPE | Up next |
-| 5 | Empanelment | Not started |
+| 4 | Selection and FPE | Done (tested against the mock only) |
+| 5 | Empanelment | Up next |
 | 6 | Clinical uploads | Not started |
 | 7 | Clinic records | Not started |
 | 8 | Certification and go-live | Not started |
@@ -101,16 +101,16 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 - [x] OTP validation (Service 07)
 - [x] Valid ID: type selection and JPEG upload, at most 2 MB before encoding
 
-### Phase 4: Selection and FPE
+### Phase 4: Selection and FPE (done)
 
 **Done when:** an FPE reaches `accepted`.
 
-- [ ] Selection with all outcomes from guide 4.4
-- [ ] FPE wizard across 143 fields, with show/hide rules from the Dictionary
-- [ ] Server-side drafts
-- [ ] Upload queue and worker polling at 2, 4, 8 seconds, capped at 60
-- [ ] Field errors mapped back to the right wizard step, for both 400 responses and rejected uploads
-- [ ] Correct and resubmit a rejected record with the same number
+- [x] Selection with all outcomes from guide 4.4
+- [x] FPE wizard across 143 fields, with show/hide rules from the Dictionary
+- [x] Server-side drafts
+- [x] Upload queue and worker polling at 2, 4, 8 seconds, capped at 60
+- [x] Field errors mapped back to the right wizard step, for both 400 responses and rejected uploads
+- [x] Correct and resubmit a rejected record with the same number
 
 ### Phase 5: Empanelment
 
@@ -160,6 +160,13 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | Medical, immunization and family history always need an entry; a patient with no history picks "None" (`999` for disease, `01` for immunization) | Guide 4.6.1 Payload structure marks these groups Required, and the Library Reference defines the None codes |
+| 2026-11-08 | Keep the current month-end age calculation and adjust later if the API differs | Project owner is not yet sure how the API computes it |
+| 2026-11-08 | Patient age counts days from the last whole month, clamped to that month's length (01/31 to 03/01 is 1 month, 1 day) | The guide requires the backend's value but does not define month-end cases. Confirm against the API |
+| 2026-11-08 | The FPE and later forms are rendered from the Dictionary rules, labels and libraries, with plain React state instead of React Hook Form | 143 to 272 fields per form, nested repeating groups and cross-field rules are simpler from one data source, and Phase 6 reuses it |
+| 2026-11-08 | FPE fields from the Masterlist are read-only; age and BMI are computed | The guide says Masterlist values copy directly, and the backend rejects a wrong age or BMI |
+| 2026-11-08 | One `case_no` per patient per facility, stored in `patient_cases`; E and P numbers are saved with the draft before upload | Guide 4.6.1 reuses `case_no`, and a lost response must not create a second number |
+| 2026-11-08 | Upload status is polled by a separate worker (`npm run worker`) | Polling must continue with no browser open |
 | 2026-11-08 | Valid ID images are saved encrypted at capture and sent later with Selection, FPE or Empanelment | The guide has no endpoint to check a Valid ID on its own |
 | 2026-11-08 | One "Patient verification" page holds PhilHealth Check, Verification code and Valid ID | They are the three modes of `patient_verification_mode` in guide 3.10, and later services read the same evidence |
 | 2026-11-08 | The Validator shows Consultation as a stage, although the Figma status card removed it | The guide returns it, and the guide outranks Figma |
@@ -220,6 +227,7 @@ These request samples set a flag to `Y` but leave out the field the Dictionary t
 
 | Item | Needed by | Owner |
 |---|---|---|
+| Compare the patient age calculation for month-end dates with the API once it is reachable, and adjust if needed | Phase 8 | Development |
 | Push to a GitHub remote so CI can run | When convenient | Project owner |
 | Admin screen to manage staff accounts (only the seed script creates accounts today) | Before Phase 8 | Development |
 | Real PSGC, ICD-10 and Konsulta Drug data | Phase 4 (placeholders until then) | Project owner |

@@ -8,14 +8,18 @@ const ITEMS: { label: string; href?: string }[] = [
   { label: "Home", href: "/" },
   { label: "Primary Care Validator", href: "/validator" },
   { label: "Patient verification", href: "/verification" },
-  { label: "Selection" },
-  { label: "First Patient Encounter" },
+  { label: "Selection", href: "/selection" },
+  { label: "First Patient Encounter", href: "/fpe" },
   { label: "Empanelment" },
   { label: "Clinical uploads" },
   { label: "Upload status" },
   { label: "Selection masterlist" },
   { label: "Availment slip" },
 ];
+
+function isCurrent(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
 
 export function SideNav() {
   const pathname = usePathname();
@@ -32,9 +36,9 @@ export function SideNav() {
             {href ? (
               <Link
                 href={href}
-                aria-current={pathname === href ? "page" : undefined}
+                aria-current={isCurrent(pathname, href) ? "page" : undefined}
                 className={`block rounded-md px-2 py-2 text-sm ${
-                  pathname === href
+                  isCurrent(pathname, href)
                     ? "bg-primary-soft font-semibold text-navy"
                     : "text-ink hover:bg-surface"
                 }`}

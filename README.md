@@ -27,6 +27,12 @@ Requires Node 22 or newer and Docker Desktop.
    npm run dev
    ```
 
+Uploads need the status worker in a third terminal:
+
+   ```bash
+   npm run worker
+   ```
+
 `mock/pcapi/config.ts` lists the mock's test PINs and scenarios.
 
 ## Regenerating from the specification

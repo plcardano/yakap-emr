@@ -29,9 +29,9 @@ export default async function HomePage() {
           <p className="flex-1 text-sm text-muted">
             Assign a beneficiary to your clinic after verification.
           </p>
-          <Button variant="outline" disabledReason="Not available yet.">
+          <ButtonLink variant="outline" href="/selection">
             Start Selection
-          </Button>
+          </ButtonLink>
         </article>
         <article className="flex flex-col items-start gap-3 rounded-xl border border-line bg-card p-5">
           <h2 className="text-lg font-semibold text-navy">Empanelment</h2>

@@ -720,6 +720,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 100,
+   "multiple": true,
    "library": "Alcohol Type"
   },
   {
@@ -874,6 +875,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "Contraceptive Method",
    "when": [
     {
@@ -1703,6 +1705,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 100,
+   "multiple": true,
    "library": "Alcohol Type",
    "when": [
     {
@@ -1917,6 +1920,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Sexual Risk Behavior"
   },
   {
@@ -1958,6 +1962,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -1965,6 +1970,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -1972,6 +1978,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -1979,6 +1986,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -1986,6 +1994,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -1993,6 +2002,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -2000,6 +2010,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -2007,6 +2018,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -2014,6 +2026,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Signs and Symptoms"
   },
   {
@@ -2185,6 +2198,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE HEENT"
   },
   {
@@ -2192,6 +2206,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Chest Breast Lungs"
   },
   {
@@ -2199,6 +2214,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Chest Breast Lungs"
   },
   {
@@ -2206,6 +2222,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Heart"
   },
   {
@@ -2213,6 +2230,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Abdomen"
   },
   {
@@ -2220,6 +2238,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Skin Extremities"
   },
   {
@@ -2227,6 +2246,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Genitourinary"
   },
   {
@@ -2234,6 +2254,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Digital Rectal Exam"
   },
   {
@@ -2241,6 +2262,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "PE Neurological"
   },
   {
@@ -2298,6 +2320,7 @@
    "type": "string",
    "required": "no",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Specific Diagnosis"
   },
   {
@@ -2305,6 +2328,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Counseling Health Education"
   },
   {
@@ -2333,6 +2357,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Diagnostic Examination"
   },
   {
@@ -2340,6 +2365,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Diagnostic Examination"
   },
   {
@@ -2347,6 +2373,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Diagnostic Examination"
   },
   {
@@ -2361,6 +2388,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Diagnostic Examination",
    "when": [
     {
@@ -2524,6 +2552,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "Contraceptive Method",
    "when": [
     {
@@ -2821,6 +2850,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Developmental Danger Sign",
    "when": [
     {
@@ -2837,6 +2867,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Developmental Danger Sign",
    "when": [
     {
@@ -2853,6 +2884,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Developmental Danger Sign",
    "when": [
     {
@@ -2869,6 +2901,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Developmental Danger Sign",
    "when": [
     {
@@ -2885,6 +2918,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Developmental Danger Sign",
    "when": [
     {
@@ -3296,6 +3330,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3327,6 +3362,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3343,6 +3379,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3374,6 +3411,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3390,6 +3428,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3421,6 +3460,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3437,6 +3477,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3468,6 +3509,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3484,6 +3526,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3515,6 +3558,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3531,6 +3575,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3562,6 +3607,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3578,6 +3624,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3609,6 +3656,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -3633,6 +3681,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "HEADSSS Guide Question",
    "when": [
     {
@@ -3664,6 +3713,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "HEADSSS Red Flag",
    "when": [
     {
@@ -5270,6 +5320,7 @@
    "type": "string",
    "required": "yes",
    "maxBytes": 1000,
+   "multiple": true,
    "library": "Referral Type"
   },
   {
@@ -5322,6 +5373,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 250,
+   "multiple": true,
    "library": "Referral Primary Care Service",
    "when": [
     {
@@ -5338,6 +5390,7 @@
    "type": "string",
    "required": "conditional",
    "maxBytes": 500,
+   "multiple": true,
    "library": "Referral Facility Service",
    "when": [
     {

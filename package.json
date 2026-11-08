@@ -15,7 +15,8 @@
     "db:seed": "tsx --env-file=.env.local scripts/seed.ts",
     "spec:generate": "tsx scripts/generate-spec.ts",
     "mock": "tsx --env-file=.env.local mock/pcapi/main.ts",
-    "codes:import": "tsx --env-file=.env.local scripts/import-codes.ts"
+    "codes:import": "tsx --env-file=.env.local scripts/import-codes.ts",
+    "worker": "tsx --conditions=react-server --env-file=.env.local worker/main.ts"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.4",
