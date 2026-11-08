@@ -1,26 +1,6 @@
-import { Button } from "@/components/ui/button";
+import { Button, ButtonLink } from "@/components/ui/button";
 import { requireUser } from "@/server/auth/session";
-import { BeneficiarySearch } from "./beneficiary-search";
-
-const NOT_YET = "Not available yet.";
-
-const tasks = [
-  {
-    title: "Primary Care Validator",
-    body: "See where a beneficiary is in the YAKAP journey.",
-    action: "Check status",
-  },
-  {
-    title: "YAKAP Selection",
-    body: "Assign a beneficiary to your clinic after verification.",
-    action: "Start Selection",
-  },
-  {
-    title: "Empanelment",
-    body: "Record the Mutual Care Agreement after an accepted FPE.",
-    action: "Open Empanelment",
-  },
-];
+import { BeneficiaryLookup } from "./validator/beneficiary-lookup";
 
 export default async function HomePage() {
   await requireUser();
@@ -32,21 +12,36 @@ export default async function HomePage() {
         <p className="mt-1 text-muted">Find a beneficiary, then pick the task.</p>
       </header>
 
-      <BeneficiarySearch />
+      <BeneficiaryLookup />
 
       <section className="grid gap-4 md:grid-cols-3" aria-label="Tasks">
-        {tasks.map((task) => (
-          <article
-            key={task.title}
-            className="flex flex-col items-start gap-3 rounded-xl border border-line bg-card p-5"
-          >
-            <h2 className="text-lg font-semibold text-navy">{task.title}</h2>
-            <p className="flex-1 text-sm text-muted">{task.body}</p>
-            <Button variant="outline" disabledReason={NOT_YET}>
-              {task.action}
-            </Button>
-          </article>
-        ))}
+        <article className="flex flex-col items-start gap-3 rounded-xl border border-line bg-card p-5">
+          <h2 className="text-lg font-semibold text-navy">Patient verification</h2>
+          <p className="flex-1 text-sm text-muted">
+            Verify a patient with PhilHealth Check, a verification code or a valid ID.
+          </p>
+          <ButtonLink variant="outline" href="/verification">
+            Verify patient
+          </ButtonLink>
+        </article>
+        <article className="flex flex-col items-start gap-3 rounded-xl border border-line bg-card p-5">
+          <h2 className="text-lg font-semibold text-navy">YAKAP Selection</h2>
+          <p className="flex-1 text-sm text-muted">
+            Assign a beneficiary to your clinic after verification.
+          </p>
+          <Button variant="outline" disabledReason="Not available yet.">
+            Start Selection
+          </Button>
+        </article>
+        <article className="flex flex-col items-start gap-3 rounded-xl border border-line bg-card p-5">
+          <h2 className="text-lg font-semibold text-navy">Empanelment</h2>
+          <p className="flex-1 text-sm text-muted">
+            Record the Mutual Care Agreement after an accepted FPE.
+          </p>
+          <Button variant="outline" disabledReason="Not available yet.">
+            Open Empanelment
+          </Button>
+        </article>
       </section>
     </div>
   );

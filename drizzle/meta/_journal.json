@@ -15,6 +15,20 @@
       "when": 1794138706762,
       "tag": "0001_oval_wendell_vaughn",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794139794217,
+      "tag": "0002_crazy_hellcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1794139795850,
+      "tag": "0003_tiny_white_queen",
+      "breakpoints": true
     }
   ]
 }

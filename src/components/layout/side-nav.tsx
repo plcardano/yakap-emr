@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 // Items without an href are built in later phases.
 const ITEMS: { label: string; href?: string }[] = [
   { label: "Home", href: "/" },
-  { label: "Primary Care Validator" },
-  { label: "PhilHealth Check" },
+  { label: "Primary Care Validator", href: "/validator" },
+  { label: "Patient verification", href: "/verification" },
   { label: "Selection" },
   { label: "First Patient Encounter" },
   { label: "Empanelment" },

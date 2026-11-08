@@ -154,6 +154,35 @@ export function AutoField({
   );
 }
 
+/** Consent must be recorded before patient data is sent (guide 3.5). */
+export function ConsentField({
+  checked,
+  onChange,
+  error,
+}: {
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  error?: string;
+}) {
+  return (
+    <div className="flex flex-col gap-1">
+      <label className="flex items-start gap-2 text-sm text-ink">
+        <input
+          type="checkbox"
+          className="mt-0.5"
+          checked={checked}
+          onChange={(event) => onChange(event.target.checked)}
+        />
+        <span>
+          The patient gave explicit consent to process their personal and health information
+          under the Data Privacy Act of 2012.
+        </span>
+      </label>
+      {error && <p className="text-xs text-danger">{error}</p>}
+    </div>
+  );
+}
+
 export type YesNoValue = "Y" | "N" | null;
 
 /** Yes or No fields are sent as "Y" and "N" (Data Dictionary note 4). */

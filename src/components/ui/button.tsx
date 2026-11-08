@@ -1,4 +1,5 @@
-import type { ButtonHTMLAttributes } from "react";
+import Link from "next/link";
+import type { ButtonHTMLAttributes, ComponentProps } from "react";
 
 type Variant = "primary" | "secondary" | "outline" | "danger" | "link";
 
@@ -16,6 +17,17 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   disabledReason?: string;
 };
 
+const BASE =
+  "whitespace-nowrap rounded-md px-4 py-2 text-sm font-semibold transition-colors";
+
+export function ButtonLink({
+  variant = "primary",
+  className = "",
+  ...props
+}: ComponentProps<typeof Link> & { variant?: Variant }) {
+  return <Link className={`inline-block ${BASE} ${VARIANTS[variant]} ${className}`} {...props} />;
+}
+
 export function Button({
   variant = "primary",
   disabledReason,
@@ -28,7 +40,7 @@ export function Button({
     <button
       type={type}
       disabled={disabled || Boolean(disabledReason)}
-      className={`whitespace-nowrap rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[variant]} ${className}`}
+      className={`${BASE} disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[variant]} ${className}`}
       {...props}
     />
   );

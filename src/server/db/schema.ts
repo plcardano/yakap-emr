@@ -85,7 +85,8 @@ export const sessions = pgTable("sessions", {
   createdAt: createdAt(),
 });
 
-// Patient PINs are stored encrypted. The HMAC allows lookup without decrypting.
+// Identifiers are stored encrypted. The HMAC allows lookup by PIN without decrypting.
+// A consent can precede the PIN, as in a name lookup, so the subject is kept as well.
 export const consentRecords = pgTable(
   "consent_records",
   {
@@ -93,8 +94,9 @@ export const consentRecords = pgTable(
     facilityId: uuid("facility_id")
       .notNull()
       .references(() => facilities.id),
-    patientPinHmac: char("patient_pin_hmac", { length: 64 }).notNull(),
-    patientPinEncrypted: text("patient_pin_encrypted").notNull(),
+    patientPinHmac: char("patient_pin_hmac", { length: 64 }),
+    subjectEncrypted: text("subject_encrypted").notNull(),
+    purpose: varchar("purpose", { length: 30 }).notNull(),
     recordedBy: uuid("recorded_by")
       .notNull()
       .references(() => users.id),
@@ -103,6 +105,47 @@ export const consentRecords = pgTable(
       .defaultNow(),
   },
   (t) => [index("consent_facility_pin").on(t.facilityId, t.patientPinHmac)],
+);
+
+export const verificationMode = pgEnum("verification_mode", ["PCU", "OTP", "VALID_ID"]);
+
+export const verificationStatus = pgEnum("verification_status", [
+  "pending",
+  "submitted",
+  "verified",
+  "failed",
+  "captured",
+  "error",
+]);
+
+// Evidence for patient_verification_mode (guide 3.10), read by later services.
+export const patientVerifications = pgTable(
+  "patient_verifications",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    facilityId: uuid("facility_id")
+      .notNull()
+      .references(() => facilities.id),
+    createdBy: uuid("created_by")
+      .notNull()
+      .references(() => users.id),
+    mode: verificationMode("mode").notNull(),
+    status: verificationStatus("status").notNull(),
+    patientPinHmac: char("patient_pin_hmac", { length: 64 }),
+    verificationDate: date("verification_date").notNull(),
+    livenessAuthorizationId: varchar("liveness_authorization_id", { length: 100 }).unique(),
+    resultCode: varchar("result_code", { length: 10 }),
+    pcuTransNo: varchar("pcu_trans_no", { length: 20 }),
+    oneTimePinEncrypted: text("one_time_pin_encrypted"),
+    validIdType: varchar("valid_id_type", { length: 2 }),
+    validIdImageEncrypted: text("valid_id_image_encrypted"),
+    requestId: uuid("request_id"),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (t) => [
+    index("verifications_lookup").on(t.facilityId, t.patientPinHmac, t.verificationDate),
+  ],
 );
 
 export const drafts = pgTable(

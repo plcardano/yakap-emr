@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 3 (Verification), not started
-**Next action:** Build consent capture and the Primary Care Validator screen
+**Current phase:** Phase 4 (Selection and FPE), not started
+**Next action:** Build the Selection flow, using today's stored verification evidence
 
 ## 1. What we are building
 
@@ -44,8 +44,8 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 | 0 | Alignment | Done |
 | 1 | Foundation | Done (CI has not run yet; no Git remote) |
 | 2 | PCAPI core | Done (tested against the mock only) |
-| 3 | Verification | Up next |
-| 4 | Selection and FPE | Not started |
+| 3 | Verification | Done (tested against the mock only) |
+| 4 | Selection and FPE | Up next |
 | 5 | Empanelment | Not started |
 | 6 | Clinical uploads | Not started |
 | 7 | Clinic records | Not started |
@@ -90,16 +90,16 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 - [x] Import step for PSGC, ICD-10 and Konsulta Drug codes, with a placeholder set
 - [x] Mock PCAPI built from the guide, using real encryption and every documented error
 
-### Phase 3: Verification
+### Phase 3: Verification (done)
 
 **Done when:** all three verification modes work against the mock, then staging.
 
-- [ ] Consent capture and record, before any patient-data call
-- [ ] Primary Care Validator: lookup by PIN or name and birth date, both assigned and not-assigned results, optional fields treated as omitted
-- [ ] PhilHealth Check: start, same-tab LIVENESS redirect, return check (status, authorization ID, state, path, expiry), verify
-- [ ] Result handling by `data.status` and `result_code`; store `trans_no`
-- [ ] OTP validation (Service 07)
-- [ ] Valid ID: type selection and JPEG upload, at most 2 MB before encoding
+- [x] Consent capture and record, before any patient-data call
+- [x] Primary Care Validator: lookup by PIN or name and birth date, both assigned and not-assigned results, optional fields treated as omitted
+- [x] PhilHealth Check: start, same-tab LIVENESS redirect, return check (status, authorization ID, state, path, expiry), verify
+- [x] Result handling by `data.status` and `result_code`; store `trans_no`
+- [x] OTP validation (Service 07)
+- [x] Valid ID: type selection and JPEG upload, at most 2 MB before encoding
 
 ### Phase 4: Selection and FPE
 
@@ -160,6 +160,10 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | Valid ID images are saved encrypted at capture and sent later with Selection, FPE or Empanelment | The guide has no endpoint to check a Valid ID on its own |
+| 2026-11-08 | One "Patient verification" page holds PhilHealth Check, Verification code and Valid ID | They are the three modes of `patient_verification_mode` in guide 3.10, and later services read the same evidence |
+| 2026-11-08 | The Validator shows Consultation as a stage, although the Figma status card removed it | The guide returns it, and the guide outranks Figma |
+| 2026-11-08 | A consent record is written before every PCAPI call that handles patient data, and the screen requires a consent tick each time | Guide 3.5 and 3.6: send `consent: true` only after consent is recorded |
 | 2026-11-08 | The app enforces the conditional fields that the guide's FPE and Consultation samples omit | Project owner: follow the guide, and guide 1.4 says the Data Dictionary prevails |
 | 2026-11-08 | Selection and Empanelment are not retried automatically | A repeat after a lost response would return 409 and look like a failure |
 | 2026-11-08 | The mock PCAPI is a separate Node server on port 4010, using the real encryption and Dictionary checks | The app talks to it exactly as it will to the real API |
