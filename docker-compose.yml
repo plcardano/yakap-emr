@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: yakap
+      POSTGRES_PASSWORD: yakap_dev
+      POSTGRES_DB: yakap
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - yakap-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yakap -d yakap"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  yakap-db:
