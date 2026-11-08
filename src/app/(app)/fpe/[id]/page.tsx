@@ -4,6 +4,8 @@ import { requireUser } from "@/server/auth/session";
 import { draftEvidence, loadFpeDraft } from "@/server/fpe/service";
 import { UploadWizard } from "@/components/spec-form/upload-wizard";
 
+export const metadata = { title: "First Patient Encounter form" };
+
 export default async function FpeDraftPage({ params }: PageProps<"/fpe/[id]">) {
   const user = await requireUser();
   const { id } = await params;

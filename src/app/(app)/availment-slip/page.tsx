@@ -2,6 +2,8 @@ import { requireUser } from "@/server/auth/session";
 import { manilaDate } from "@/server/pcapi/record-number-format";
 import { SlipForm } from "./slip-form";
 
+export const metadata = { title: "YAKAP Availment Slip" };
+
 export default async function AvailmentSlipPage() {
   await requireUser();
 

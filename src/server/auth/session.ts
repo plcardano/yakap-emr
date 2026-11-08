@@ -1,8 +1,8 @@
 import "server-only";
 import { createHash, randomBytes } from "node:crypto";
-import { and, eq, gt } from "drizzle-orm";
+import { and, eq, gt, lt } from "drizzle-orm";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { cache } from "react";
 import { db } from "@/server/db";
 import { facilities, sessions, users } from "@/server/db/schema";
@@ -17,6 +17,7 @@ function hashToken(token: string) {
 export async function createSession(userId: string) {
   const token = randomBytes(32).toString("base64url");
   const expiresAt = new Date(Date.now() + SESSION_MS);
+  await db.delete(sessions).where(and(eq(sessions.userId, userId), lt(sessions.expiresAt, new Date())));
   await db
     .insert(sessions)
     .values({ tokenHash: hashToken(token), userId, expiresAt });
@@ -71,5 +72,12 @@ export const getCurrentUser = cache(async () => {
 export async function requireUser() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
+  return user;
+}
+
+/** For administrator screens. Other users see the page as not existing. */
+export async function requireAdmin() {
+  const user = await requireUser();
+  if (user.role !== "admin") notFound();
   return user;
 }

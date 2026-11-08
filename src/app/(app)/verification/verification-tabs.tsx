@@ -24,13 +24,12 @@ export function VerificationTabs({
 
   return (
     <section className="rounded-xl border border-line bg-card p-5">
-      <div className="mb-5 flex flex-wrap gap-2" role="tablist">
+      <div className="mb-5 flex flex-wrap gap-2">
         {MODES.map(({ id, label }) => (
           <button
             key={id}
             type="button"
-            role="tab"
-            aria-selected={mode === id}
+            aria-pressed={mode === id}
             onClick={() => setMode(id)}
             className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
               mode === id ? "bg-primary-soft text-navy" : "text-muted hover:text-navy"

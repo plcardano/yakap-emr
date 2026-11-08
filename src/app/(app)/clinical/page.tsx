@@ -3,6 +3,8 @@ import { listUploads } from "@/server/uploads/service";
 import { ClinicalList } from "./clinical-list";
 import { NewConsultationForm } from "./new-consultation-form";
 
+export const metadata = { title: "Clinical uploads" };
+
 export default async function ClinicalPage() {
   const user = await requireUser();
   const items = await listUploads(user, [

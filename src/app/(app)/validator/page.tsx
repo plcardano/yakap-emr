@@ -1,6 +1,8 @@
 import { requireUser } from "@/server/auth/session";
 import { BeneficiaryLookup } from "./beneficiary-lookup";
 
+export const metadata = { title: "Primary Care Validator" };
+
 export default async function ValidatorPage() {
   await requireUser();
 

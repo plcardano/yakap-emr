@@ -13,6 +13,7 @@ import { encryptAtRest, hmacPin } from "@/server/crypto/at-rest";
 import { db } from "@/server/db";
 import { consentRecords, patientVerifications } from "@/server/db/schema";
 import { pcapiFor } from "@/server/pcapi";
+import { PcapiNetworkError } from "@/server/pcapi/errors";
 import { manilaDate } from "@/server/pcapi/record-number-format";
 import type {
   PcuStartData,
@@ -144,6 +145,10 @@ export async function startPcuCheck(
   await recordConsent(actor, { ...details, patient_pin: details.pin }, "philhealth_check");
   try {
     const result = await pcapiFor(actor.accreNo).pcuStart(details);
+    // Guide 3.6: the LIVENESS host is also reached over HTTPS only.
+    if (process.env.NODE_ENV === "production" && !result.data.sdk_url.startsWith("https://")) {
+      throw new PcapiNetworkError("The LIVENESS address is not HTTPS");
+    }
     await db.insert(patientVerifications).values({
       facilityId: actor.facilityId,
       createdBy: actor.id,

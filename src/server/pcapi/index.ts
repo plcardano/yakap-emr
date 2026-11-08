@@ -27,9 +27,17 @@ async function cipherKeyFor(accreNo: string) {
 // Tokens are cached per facility, so one client serves the whole process.
 const globalForPcapi = globalThis as unknown as { yakapPcapi?: PcapiClient };
 
+function baseUrl() {
+  const url = requireEnv("PCAPI_BASE_URL");
+  if (process.env.NODE_ENV === "production" && !url.startsWith("https://")) {
+    throw new Error("PCAPI_BASE_URL must use HTTPS in production");
+  }
+  return url;
+}
+
 function client() {
   globalForPcapi.yakapPcapi ??= new PcapiClient({
-    baseUrl: requireEnv("PCAPI_BASE_URL"),
+    baseUrl: baseUrl(),
     softwareCertId: requireEnv("PCAPI_SOFTWARE_CERT_ID"),
     secretKey: requireEnv("PCAPI_SECRET_KEY"),
     cipherKeyFor,

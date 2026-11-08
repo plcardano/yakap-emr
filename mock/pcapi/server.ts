@@ -917,6 +917,10 @@ export function createMockPcapi({ processDelayMs = 1500 }: MockOptions = {}) {
     revokeAllTokens() {
       tokens.clear();
     },
+    /** Test helper: makes every issued token past its expiry. */
+    expireAllTokens() {
+      for (const session of tokens.values()) session.expiresAt = 0;
+    },
     /** Test helper: marks a capture finished without the browser step. */
     completeLiveness(authorizationId: string) {
       liveness.get(authorizationId)!.completed = true;

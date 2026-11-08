@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 8 (Certification and go-live), not started
-**Next action:** Complete the work that does not need the API: security checklist, failure-path tests, accessibility review and the admin screen
+**Current phase:** Phase 8 (Certification and go-live), offline work done, waiting on the API
+**Next action:** Blocked until the real PCAPI is reachable: work through section 8
 
 ## 1. What we are building
 
@@ -49,7 +49,7 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 | 5 | Empanelment | Done (tested against the mock only) |
 | 6 | Clinical uploads | Done (tested against the mock only) |
 | 7 | Clinic records | Done (tested against the mock only) |
-| 8 | Certification and go-live | Up next |
+| 8 | Certification and go-live | In progress: offline work done, waiting on the API |
 
 ## 4. Phases
 
@@ -146,10 +146,12 @@ Figma has no screens for these; they extend the Figma style.
 
 **Done when:** PhilHealth certifies the software and production is live.
 
-- [ ] Switch from the mock to the real PCAPI
-- [ ] Guide 3.6 security and production readiness checklist
-- [ ] Failure paths: expired token, missing consent, validation errors, duplicates, rejected uploads, decryption errors
-- [ ] Accessibility review
+- [x] Administration screen: staff accounts and the facility cipher key
+- [x] Security review of the code; status against guide 3.6 is in section 9
+- [x] Failure paths against the mock: expired token, missing consent, validation errors, duplicates, rejected uploads, decryption errors
+- [x] Accessibility review: WCAG A and AA automated scan and manual fixes
+- [ ] Switch from the mock to the real PCAPI (section 8)
+- [ ] Repeat the failure paths against the real PCAPI
 - [ ] Rotate test credentials
 - [ ] Choose hosting and deploy
 - [ ] PhilHealth certification
@@ -160,6 +162,8 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | Administrators manage their own facility only; a new facility and its first administrator come from `npm run db:seed` with that facility's values | A cross-facility super-admin role has no basis in the guide and was not requested |
+| 2026-11-08 | The Content-Security-Policy restricts framing, base URLs and plugins, but not scripts | The LIVENESS SDK loads from an address returned at run time, so a fixed script list would break it. Revisit once the real host is known |
 | 2026-11-08 | The Masterlist can be exported as CSV in the browser; cells that a spreadsheet would read as a formula are neutralized | Staff need to download the list, and the data comes from an external source |
 | 2026-11-08 | The batch Masterlist consent tick covers the beneficiaries in the list as a group | The guide requires `consent: true` on the batch call, which has no single patient |
 | 2026-11-08 | Medicine `quantity` and `total_amount_price` are computed when the entries can be read (leading number x doses per day x days); PRN and unreadable entries are typed by staff | Guide 4.6.5 says the EMR computes them, but quantity and duration are free text |
@@ -236,7 +240,6 @@ These request samples set a flag to `Y` but leave out the field the Dictionary t
 |---|---|---|
 | Compare the patient age calculation for month-end dates with the API once it is reachable, and adjust if needed | Phase 8 | Development |
 | Push to a GitHub remote so CI can run | When convenient | Project owner |
-| Admin screen to manage staff accounts (only the seed script creates accounts today) | Before Phase 8 | Development |
 | Real PSGC, ICD-10 and Konsulta Drug data | Phase 4 (placeholders until then) | Project owner |
 | Reachable PCAPI staging host | Phase 8 at the latest | Project owner |
 | PhilHealth software certificate and cipher keys for staging | Phase 8 at the latest; stored only in a local environment file | Project owner |
@@ -248,7 +251,7 @@ Everything so far has been tested only against the mock in `mock/pcapi/`, which 
 ### Connect
 
 - [ ] Set `PCAPI_BASE_URL` (including `/primary-care`), `PCAPI_SOFTWARE_CERT_ID` and `PCAPI_SECRET_KEY` in the server environment
-- [ ] Store each facility's real accreditation number and cipher key (`facilities.cipher_key_encrypted`; today only `npm run db:seed` writes these)
+- [ ] Store each facility's real accreditation number and cipher key (`npm run db:seed` creates a facility; Administration replaces its key)
 - [ ] Confirm TLS works from the server; if PCAPI uses a private certificate authority, set `NODE_EXTRA_CA_CERTS`
 - [ ] Get a token, then confirm one encrypted call and its response decrypt with the real cipher key
 - [ ] Confirm token expiry and revocation recover without staff noticing
@@ -293,3 +296,22 @@ Everything so far has been tested only against the mock in `mock/pcapi/`, which 
 - [ ] Run the whole journey: verification, Selection, FPE, Empanelment, Consultation and its child records, Masterlist, Availment Slip
 - [ ] Run the failure paths listed in Phase 8
 - [ ] Compare the mock with the API's real behavior, and fix the mock wherever it differs so tests stay meaningful
+
+## 9. Guide 3.6 security and production readiness
+
+| Requirement | Status |
+|---|---|
+| Call PCAPI only from a protected backend; no secrets in the browser | Done. All calls are server-side; the production browser bundle was searched for secrets |
+| HTTPS with certificate and hostname verification | Partly done. PCAPI and LIVENESS must be HTTPS in production, and verification is never disabled. The app's own HTTPS depends on hosting |
+| Secrets in a secrets manager or protected configuration | Partly done. Certificate and secret are server environment variables; cipher keys are encrypted in the database. Choose the production store with hosting |
+| Use the cipher key of the facility in the token | Done |
+| New token at expiry; never reuse an expired one | Done |
+| Load the LIVENESS SDK only from `sdk_url` | Done |
+| `consent: true` only after consent is recorded | Done |
+| Timeouts, controlled retry, correlation by `request_id` | Done |
+| 23-character record numbers, never reused for different content | Done |
+| Poll Upload Status until accepted or rejected; correct rejected records | Done |
+| Rotate test credentials before production | Not started; needs real credentials |
+| Test failure paths | Done against the mock; repeat against the API |
+
+Also in place: masked audit log, encrypted drafts, submissions, consent records and ID images, hashed passwords and session tokens, account lockout, role checks on administration, anti-framing and related security headers, and HSTS in production.

@@ -4,6 +4,8 @@ import { labelsFor, librariesFor, rulesFor } from "@/lib/pcapi-spec";
 import { requireUser } from "@/server/auth/session";
 import { draftEvidence, loadDraft } from "@/server/uploads/service";
 
+export const metadata = { title: "Clinical form" };
+
 export default async function ClinicalDraftPage({ params }: PageProps<"/clinical/[id]">) {
   const user = await requireUser();
   const { id } = await params;

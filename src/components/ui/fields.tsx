@@ -198,7 +198,7 @@ export function YesNo({
 }) {
   const name = useId();
   return (
-    <fieldset className="flex flex-col gap-1">
+    <fieldset className="flex flex-col gap-1" aria-describedby={error ? `${name}-error` : undefined}>
       <legend className="text-sm font-semibold text-ink">{question}</legend>
       <div className="mt-1 flex gap-4">
         {(["Y", "N"] as const).map((option) => (
@@ -213,7 +213,11 @@ export function YesNo({
           </label>
         ))}
       </div>
-      {error && <p className="text-xs text-danger">{error}</p>}
+      {error && (
+        <p id={`${name}-error`} className="text-xs text-danger">
+          {error}
+        </p>
+      )}
     </fieldset>
   );
 }

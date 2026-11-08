@@ -2,6 +2,8 @@ import { requireUser } from "@/server/auth/session";
 import { todayUs } from "@/server/pcapi/today";
 import { SelectionForm } from "./selection-form";
 
+export const metadata = { title: "YAKAP Selection" };
+
 export default async function SelectionPage() {
   await requireUser();
 

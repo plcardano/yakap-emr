@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const ITEMS: { label: string; href?: string }[] = [
+const ITEMS: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "Primary Care Validator", href: "/validator" },
   { label: "Patient verification", href: "/verification" },
@@ -20,7 +20,7 @@ function isCurrent(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
-export function SideNav() {
+export function SideNav({ isAdmin }: { isAdmin: boolean }) {
   const pathname = usePathname();
 
   return (
@@ -30,9 +30,9 @@ export function SideNav() {
     >
       <p className="px-2 pb-2 text-xs font-semibold tracking-wide text-muted">YAKAP</p>
       <ul className="flex flex-col gap-0.5">
-        {ITEMS.map(({ label, href }) => (
-          <li key={label}>
-            {href ? (
+        {[...ITEMS, ...(isAdmin ? [{ label: "Administration", href: "/admin" }] : [])].map(
+          ({ label, href }) => (
+            <li key={label}>
               <Link
                 href={href}
                 aria-current={isCurrent(pathname, href) ? "page" : undefined}
@@ -44,13 +44,9 @@ export function SideNav() {
               >
                 {label}
               </Link>
-            ) : (
-              <span aria-disabled className="block px-2 py-2 text-sm text-muted/60">
-                {label}
-              </span>
-            )}
-          </li>
-        ))}
+            </li>
+          ),
+        )}
       </ul>
     </nav>
   );

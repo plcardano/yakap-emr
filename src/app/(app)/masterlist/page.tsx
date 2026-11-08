@@ -10,6 +10,8 @@ function sixDaysAgo() {
   return `${pad(start.getUTCMonth() + 1)}/${pad(start.getUTCDate())}/${start.getUTCFullYear()}`;
 }
 
+export const metadata = { title: "Selection masterlist" };
+
 export default async function MasterlistPage() {
   await requireUser();
 

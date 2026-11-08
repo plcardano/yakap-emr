@@ -96,6 +96,13 @@ export function UploadWizard({
     onChange,
   };
 
+  // Moves keyboard and screen-reader users to what just changed.
+  function focusAfterRender(selector: string) {
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => document.querySelector<HTMLElement>(selector)?.focus()),
+    );
+  }
+
   function errorsByField(issues: { field: string; reason: string }[]) {
     return Object.fromEntries(
       issues.map(({ field, reason }) => [field, REASON_COPY[reason] ?? FALLBACK_REASON]),
@@ -108,6 +115,7 @@ export function UploadWizard({
     setStep(next);
     setVisited((current) => Math.max(current, next));
     top.current?.scrollIntoView();
+    focusAfterRender("#step-heading");
     startTransition(async () => {
       await saveDraftAction(draftId, values, next);
     });
@@ -131,7 +139,7 @@ export function UploadWizard({
     if (issues.length) {
       setErrors(errorsByField(issues));
       setFailedSteps((current) => new Set(current).add(step));
-      top.current?.scrollIntoView();
+      focusAfterRender('[aria-invalid="true"], fieldset[aria-describedby] input');
       return;
     }
     setFailedSteps((current) => {
@@ -153,7 +161,7 @@ export function UploadWizard({
     setErrors(fields);
     setFailedSteps(failed);
     if (failed.size) setStep(Math.min(...failed));
-    top.current?.scrollIntoView();
+    focusAfterRender('[role="alert"], [aria-invalid="true"], fieldset[aria-describedby] input');
   }
 
   function submit() {
@@ -215,7 +223,9 @@ export function UploadWizard({
         </aside>
 
         <section className="flex min-w-0 flex-1 flex-col gap-6 rounded-xl border border-line bg-card p-5">
-          <h2 className="text-xl font-bold text-navy">{current.title}</h2>
+          <h2 id="step-heading" tabIndex={-1} className="text-xl font-bold text-navy outline-none">
+            {current.title}
+          </h2>
 
           {showSummary && (
             <ErrorSummary

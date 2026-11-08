@@ -1,6 +1,8 @@
 import { requireUser } from "@/server/auth/session";
 import { EmpanelmentSearch } from "./empanelment-search";
 
+export const metadata = { title: "YAKAP Empanelment" };
+
 export default async function EmpanelmentPage() {
   await requireUser();
 

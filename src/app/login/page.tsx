@@ -3,6 +3,8 @@ import { Logo } from "@/components/layout/app-header";
 import { getCurrentUser } from "@/server/auth/session";
 import { LoginForm } from "./login-form";
 
+export const metadata = { title: "Log in" };
+
 export default async function LoginPage() {
   if (await getCurrentUser()) redirect("/");
 

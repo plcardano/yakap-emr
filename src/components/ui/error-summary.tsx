@@ -17,7 +17,7 @@ type ErrorSummaryProps = {
 
 export function ErrorSummary({ title, body, requestId, errors = [] }: ErrorSummaryProps) {
   return (
-    <div role="alert" className="rounded-lg border border-danger bg-danger-soft p-4">
+    <div role="alert" tabIndex={-1} className="rounded-lg border border-danger bg-danger-soft p-4">
       <h2 className="font-semibold text-danger">{title}</h2>
       {body && <p className="mt-1 text-sm text-ink">{body}</p>}
       {errors.length > 0 && (

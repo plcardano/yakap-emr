@@ -109,6 +109,12 @@ describe("authentication and transport", () => {
     await expect(api.validator(validSample("validator"))).resolves.toBeDefined();
   });
 
+  it("recovers on its own when the server treats the token as expired", async () => {
+    await api.validator(validSample("validator"));
+    mock.expireAllTokens();
+    await expect(api.validator(validSample("validator"))).resolves.toBeDefined();
+  });
+
   it("is refused when the wrong cipher key is used", async () => {
     const bad = pcapiServices(clientFor({ cipherKeyFor: async () => "wrong-key" }), ACCRE);
     expect(await issueOf(bad.validator(validSample("validator")))).toMatchObject({

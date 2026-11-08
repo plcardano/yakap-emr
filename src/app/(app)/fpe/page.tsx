@@ -3,6 +3,8 @@ import { listFpe } from "@/server/fpe/service";
 import { FpeList } from "./fpe-list";
 import { NewFpeForm } from "./new-fpe-form";
 
+export const metadata = { title: "First Patient Encounter" };
+
 export default async function FpePage() {
   const user = await requireUser();
   const items = await listFpe(user);

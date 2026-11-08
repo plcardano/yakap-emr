@@ -8,7 +8,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "YAKAP 2.0",
+  title: { default: "YAKAP 2.0", template: "%s · YAKAP 2.0" },
   description: "YAKAP 2.0 Primary Care API portal",
 };
 

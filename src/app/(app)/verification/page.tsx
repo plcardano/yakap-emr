@@ -8,6 +8,8 @@ function todayUs() {
   return `${month}/${day}/${year}`;
 }
 
+export const metadata = { title: "Patient verification" };
+
 export default async function VerificationPage() {
   await requireUser();
 

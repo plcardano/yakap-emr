@@ -2,6 +2,8 @@ import { ButtonLink } from "@/components/ui/button";
 import { requireUser } from "@/server/auth/session";
 import { BeneficiaryLookup } from "./validator/beneficiary-lookup";
 
+export const metadata = { title: "Home" };
+
 export default async function HomePage() {
   await requireUser();
 

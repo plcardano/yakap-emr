@@ -16,6 +16,8 @@ function labelOf(form: UploadForm, field: string) {
   return labelsFor(form)[field.replace(/\[\d+\]/g, "[]")]?.label ?? field;
 }
 
+export const metadata = { title: "Upload status" };
+
 export default async function UploadsPage() {
   const user = await requireUser();
   const items = await listUploads(user, FORMS);

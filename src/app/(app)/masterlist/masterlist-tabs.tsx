@@ -141,8 +141,7 @@ export function MasterlistTabs({
   const tab = (id: Mode, label: string) => (
     <button
       type="button"
-      role="tab"
-      aria-selected={mode === id}
+      aria-pressed={mode === id}
       onClick={() => choose(id)}
       className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
         mode === id ? "bg-primary-soft text-navy" : "text-muted hover:text-navy"
@@ -159,7 +158,7 @@ export function MasterlistTabs({
         noValidate
         className="flex max-w-xl flex-col gap-4 rounded-xl border border-line bg-card p-5"
       >
-        <div className="flex flex-wrap gap-2" role="tablist">
+        <div className="flex flex-wrap gap-2">
           {tab("individual", "By PIN")}
           {tab("batch", "By assignment date")}
         </div>
