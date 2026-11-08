@@ -1,0 +1,34 @@
+{
+  "consent": true,
+  "soap": {
+    "case_no": "TH123456782026102300001",
+    "soap_transaction_no": "SH123456782026102300001",
+    "patient_type": "MM",
+    "patient_pin": "123456789012",
+    "patient_age": "36 YR(S), 3 MO(S), 19 DAY(S)",
+    "method_of_service_delivery": "F",
+    "pcu_transaction_code": "PCU-LOG-TRANS-NO",
+    "co_payment_flag": "Y",
+    "co_payment_date_payment": "10/23/2026",
+    "co_payment": 300,
+    "co_payment_balance": 600,
+    "consultation_date": "10/23/2026",
+    "consultation_time": "10:15"
+  },
+  "referral": {
+    "referral_transaction_no": "RH123456782026102300001",
+    "referral_type": "01,02",
+    "referral_specialist": "Pulmonology",
+    "referral_specialist_other_spec": "",
+    "referral_reason": "Persistent wheezing; for pulmonary evaluation.",
+    "referral_primary_care_services": "01,02",
+    "referral_facility_service": "01,02",
+    "referral_others_spec": ""
+  },
+  "physiciansignoff": {
+    "physician_name": "MARIA L. SANTOS, MD",
+    "physician_designation": "Attending Physician",
+    "physician_license_no": "0123456",
+    "physician_accre_no": "1234-5678901-2"
+  }
+}

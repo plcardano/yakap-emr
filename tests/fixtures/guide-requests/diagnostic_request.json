@@ -1,0 +1,32 @@
+{
+  "consent": true,
+  "diagrequest": [
+    {
+      "case_no": "TH123456782026102300001",
+      "soap_transaction_no": "SH123456782026102300001",
+      "request_transaction_no": "DH123456782026102300001",
+      "diagnostic_code": "1",
+      "doctor_recommendation": "Y",
+      "client_consent": "Y",
+      "not_listed_specify": ""
+    },
+    {
+      "case_no": "TH123456782026102300001",
+      "soap_transaction_no": "SH123456782026102300001",
+      "request_transaction_no": "DH123456782026102300001",
+      "diagnostic_code": "7",
+      "doctor_recommendation": "Y",
+      "client_consent": "Y",
+      "not_listed_specify": ""
+    },
+    {
+      "case_no": "TH123456782026102300001",
+      "soap_transaction_no": "SH123456782026102300001",
+      "request_transaction_no": "DH123456782026102300001",
+      "diagnostic_code": "4",
+      "doctor_recommendation": "Y",
+      "client_consent": "Y",
+      "not_listed_specify": ""
+    }
+  ]
+}

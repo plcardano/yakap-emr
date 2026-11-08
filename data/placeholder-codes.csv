@@ -1,0 +1,15 @@
+library,code,description,parent_code
+psgc_province,PH0001,[Placeholder] Province A,
+psgc_province,PH0002,[Placeholder] Province B,
+psgc_municipality,PH0001001,[Placeholder] City A1,PH0001
+psgc_municipality,PH0001002,[Placeholder] Municipality A2,PH0001
+psgc_municipality,PH0002001,[Placeholder] City B1,PH0002
+psgc_barangay,PH000100,[Placeholder] Barangay A1-1,PH0001001
+psgc_barangay,PH000101,[Placeholder] Barangay A1-2,PH0001001
+psgc_barangay,PH000200,[Placeholder] Barangay A2-1,PH0001002
+psgc_barangay,PH000300,[Placeholder] Barangay B1-1,PH0002001
+icd10,A09,[Placeholder] Diarrhoea and gastroenteritis,
+icd10,I10,[Placeholder] Essential hypertension,
+icd10,J06.9,[Placeholder] Acute upper respiratory infection,
+lib_medicine,DRUG0001,[Placeholder] Paracetamol 500 mg tablet,
+lib_medicine,DRUG0002,[Placeholder] Amoxicillin 500 mg capsule,

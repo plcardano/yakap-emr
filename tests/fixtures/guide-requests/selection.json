@@ -1,0 +1,10 @@
+{
+  "patient_pin": "123456789012",
+  "selection_date": "10/25/2026",
+  "consent": true,
+  "patient_verification_mode": "OTP",
+  "pcu_transaction_code": "",
+  "one_time_pin": "<code issued to the patient>",
+  "valid_id_type": "",
+  "valid_id_image": ""
+}

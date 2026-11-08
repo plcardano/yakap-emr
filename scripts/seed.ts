@@ -1,6 +1,7 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { hashPassword } from "../src/server/auth/password";
+import { encryptAtRest } from "../src/server/crypto/at-rest";
 import { facilities, users } from "../src/server/db/schema";
 
 function required(name: string) {
@@ -16,13 +17,14 @@ async function main() {
   const sql = postgres(required("DATABASE_URL"), { max: 1 });
   const db = drizzle({ client: sql });
 
+  const details = {
+    name: required("SEED_FACILITY_NAME"),
+    cipherKeyEncrypted: encryptAtRest(required("SEED_FACILITY_CIPHER_KEY")),
+  };
   const [facility] = await db
     .insert(facilities)
-    .values({ accreNo, name: required("SEED_FACILITY_NAME") })
-    .onConflictDoUpdate({
-      target: facilities.accreNo,
-      set: { name: required("SEED_FACILITY_NAME") },
-    })
+    .values({ accreNo, ...details })
+    .onConflictDoUpdate({ target: facilities.accreNo, set: details })
     .returning();
 
   const passwordHash = await hashPassword(required("SEED_ADMIN_PASSWORD"));

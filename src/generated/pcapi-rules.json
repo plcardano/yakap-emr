@@ -1,0 +1,5760 @@
+{
+ "fpe": [
+  {
+   "path": "enlistment.case_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "T"
+  },
+  {
+   "path": "enlistment.enlist_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "E"
+  },
+  {
+   "path": "enlistment.accre_no",
+   "type": "string",
+   "required": "yes",
+   "exactChars": 9
+  },
+  {
+   "path": "enlistment.assignment_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Enlistment Status"
+  },
+  {
+   "path": "enlistment.patient_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Patient Type"
+  },
+  {
+   "path": "enlistment.patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 12,
+   "digits": 12
+  },
+  {
+   "path": "enlistment.patient_fname",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 30
+  },
+  {
+   "path": "enlistment.patient_mname",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 30
+  },
+  {
+   "path": "enlistment.patient_lname",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 30
+  },
+  {
+   "path": "enlistment.patient_extname",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 30
+  },
+  {
+   "path": "enlistment.patient_sex",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Sex"
+  },
+  {
+   "path": "enlistment.patient_dob",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "enlistment.patient_mobile_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 15
+  },
+  {
+   "path": "enlistment.patient_alt_mobile_no",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 15
+  },
+  {
+   "path": "enlistment.patient_landline_no",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 15
+  },
+  {
+   "path": "enlistment.assignment_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "enlistment.created_by",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "enlistment.gender",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 30,
+   "library": "Gender"
+  },
+  {
+   "path": "enlistment.permanent_address_province_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10
+  },
+  {
+   "path": "enlistment.permanent_address_municipality_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10
+  },
+  {
+   "path": "enlistment.permanent_address_barangay_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10
+  },
+  {
+   "path": "enlistment.permanent_address_other_details",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "enlistment.religion",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 50,
+   "library": "Religion"
+  },
+  {
+   "path": "enlistment.civil_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "library": "Civil Status"
+  },
+  {
+   "path": "enlistment.current_address_province_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10
+  },
+  {
+   "path": "enlistment.current_address_municipality_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10
+  },
+  {
+   "path": "enlistment.current_address_barangay_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10
+  },
+  {
+   "path": "enlistment.current_address_other_details",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "enlistment.occupation",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "enlistment.email_address",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "enlistment.pwd_id_no",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20
+  },
+  {
+   "path": "guardian.guardian_name",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 150,
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_age",
+   "type": "number",
+   "required": "conditional",
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_sex",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "absentWhenInactive": true,
+   "library": "Sex",
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_birthday",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_contact_no",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 15,
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_relationship",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 100,
+   "absentWhenInactive": true,
+   "library": "Guardian Relationship",
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_pin",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 12
+  },
+  {
+   "path": "profile.method_of_service_delivery",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Service Delivery Method"
+  },
+  {
+   "path": "profile.patient_verification_mode",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10,
+   "library": "Patient Verification Mode"
+  },
+  {
+   "path": "profile.pcu_transaction_code",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "PCU"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "profile.one_time_pin",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "OTP"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "profile.valid_id_type",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "Valid ID Type",
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "VALID_ID"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "profile.valid_id_image",
+   "type": "string",
+   "required": "conditional",
+   "jpegMaxMb": 2,
+   "manual": "Required on the first request with patient_verification_mode = VALID_ID for the same patient, facility and fpe_date; may be sent as an empty string on later requests for that date. JPEG only; at most 2 MB before base-64 encoding."
+  },
+  {
+   "path": "profile.mca_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "profile.co_payment_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "profile.co_payment_date_payment",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "when": [
+    {
+     "field": "co_payment_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "profile.co_payment",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "co_payment_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "profile.co_payment_balance",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "co_payment_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "profile.fpe_classification_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "FPE Classification"
+  },
+  {
+   "path": "profile.profile_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "P"
+  },
+  {
+   "path": "profile.fpe_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "profile.fpe_time",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 5,
+   "dateFormat": "HH:MM"
+  },
+  {
+   "path": "profile.patient_age",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 30
+  },
+  {
+   "path": "medhist[].mdisease_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 3,
+   "library": "Medical Disease"
+  },
+  {
+   "path": "medhist[].mhspecific.is_on_dialysis",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "medhist[].mhspecific.dialysis_type",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 50,
+   "when": [
+    {
+     "field": "is_on_dialysis",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "medhist[].mhspecific.dialysis_year_started",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 4
+  },
+  {
+   "path": "hosphist[].previous_hospitalization",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "hosphist[].date_previous_hospitalization",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "accidenthist[].previous_accident_injury",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "accidenthist[].date_previous_accident_injury",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "medhist[].mhspecific.specific_desc",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "surghist[].surg_desc",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "surghist[].surg_date",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "allergy.food_allergy",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 500,
+   "allergy": true
+  },
+  {
+   "path": "allergy.medication_allergy",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 500,
+   "allergy": true
+  },
+  {
+   "path": "allergy.allergy_others",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "currentmed.current_medications",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2000,
+   "yesNo": true
+  },
+  {
+   "path": "currentmed.current_medication_pndf",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "currentmed.current_medication_non_pndf",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "immunizationhist[].immunization_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 3,
+   "library": "Immunization History"
+  },
+  {
+   "path": "famhist[].mdisease_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 3,
+   "library": "Medical Disease"
+  },
+  {
+   "path": "fhspecific[].mdisease_code",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 3,
+   "library": "Medical Disease"
+  },
+  {
+   "path": "fhspecific[].specific_desc",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "sochist.is_smoker",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Smoking Status"
+  },
+  {
+   "path": "sochist.no_cigpk",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_smoker",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.is_adrinker",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Alcohol Use Status"
+  },
+  {
+   "path": "sochist.no_glasses",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_adrinker",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.ill_drug_user",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.secondhand_smoke_exposure",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "library": "Secondhand Smoke Exposure"
+  },
+  {
+   "path": "sochist.cigarette_sticks_per_day",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.smoking_years",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.vape_current_user",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.vape_current_years",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "vape_current_user",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.vape_former_user",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.vape_former_years",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "vape_former_user",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.alcohol_drinker_subtype",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "library": "Alcohol Drinker Type"
+  },
+  {
+   "path": "sochist.alcohol_types",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100,
+   "library": "Alcohol Type"
+  },
+  {
+   "path": "sochist.alcohol_intake_years",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.alcohol_frequency_per_week",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.substance_abuse_family_member",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sochist.dietary_intake_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Dietary Intake"
+  },
+  {
+   "path": "sochist.breastfeeding_status",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "library": "Breastfeeding Status"
+  },
+  {
+   "path": "sochist.physical_activity_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.fluoride_toothpaste_use",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.dental_checkup_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Dental Check-up Status"
+  },
+  {
+   "path": "sochist.dental_checkup_year",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 4,
+   "dateFormat": "YYYY",
+   "when": [
+    {
+     "field": "dental_checkup_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.neighborhood_communicable_disease",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sochist.mental_health_event_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Mental Health Event"
+  },
+  {
+   "path": "sochist.other_mental_health_event",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "when": [
+    {
+     "field": "mental_health_event_code",
+     "op": "eq",
+     "values": [
+      "99"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "gynehist.menarche_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "gynehist.menarche_period",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "menarche_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "gynehist.last_mens_period_flag",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "gynehist.last_mens_period",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "when": [
+    {
+     "field": "last_mens_period_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "gynehist.contraceptive_use_status",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Contraceptive Use Status"
+  },
+  {
+   "path": "gynehist.contraceptive_method_desired",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "Contraceptive Method",
+   "when": [
+    {
+     "field": "contraceptive_use_status",
+     "op": "eq",
+     "values": [
+      "03"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "gynehist.birth_ctrl_method",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 21,
+   "library": "Contraceptive Method"
+  },
+  {
+   "path": "gynehist.is_menopause",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "gynehist.menopause_age",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_menopause",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "gynehist.gynecological_disease_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "gynehist.gynecological_disease",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "when": [
+    {
+     "field": "gynecological_disease_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "gynehist.gyn_sexually_transmitted_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "gynehist.gyn_sexually_transmitted_disease",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "when": [
+    {
+     "field": "gyn_sexually_transmitted_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "preghist.is_currently_pregnant",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "preghist.prenatal_checkup_count",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "library": "Prenatal Check-up Count"
+  },
+  {
+   "path": "preghist.age_of_gestation",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20
+  },
+  {
+   "path": "preghist.expected_date_of_delivery",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "preghist.is_applicable",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "preghist.preg_cnt",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "preghist.delivery_cnt",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "preghist.full_term_cnt",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "preghist.premature_cnt",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "preghist.abortion_cnt",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "preghist.liv_children_cnt",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pegensurvey.gen_survey_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "General Survey"
+  },
+  {
+   "path": "pegensurvey.gen_survey_rem",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2000,
+   "when": [
+    {
+     "field": "gen_survey_id",
+     "op": "eq",
+     "values": [
+      "7"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "pepert.systolic",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 4 years old and above on fpe_date."
+  },
+  {
+   "path": "pepert.diastolic",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 4 years old and above on fpe_date."
+  },
+  {
+   "path": "pepert.heart_rate",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.respiratory_rate",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.temperature",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.height",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 2 years old and above on fpe_date."
+  },
+  {
+   "path": "pepert.weight",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.bmi",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.waist",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.mid_upper_arm_circ",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required for patients aged 6 months to 5 years."
+  },
+  {
+   "path": "pepert.length",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 0 to 24 months old on fpe_date."
+  },
+  {
+   "path": "pepert.head_circ",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.skinfold_thickness",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.hip",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "facilitator.facilitator_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Facilitator Type"
+  },
+  {
+   "path": "facilitator.facilitator_name",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "consultation": [
+  {
+   "path": "soap.case_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "T"
+  },
+  {
+   "path": "soap.soap_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "S"
+  },
+  {
+   "path": "soap.patient_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Patient Type"
+  },
+  {
+   "path": "soap.patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 12,
+   "digits": 12
+  },
+  {
+   "path": "soap.created_by",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "soap.patient_age",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 30
+  },
+  {
+   "path": "soap.consultation_setting",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "soap.method_of_service_delivery",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Service Delivery Method"
+  },
+  {
+   "path": "soap.patient_verification_mode",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10,
+   "library": "Patient Verification Mode"
+  },
+  {
+   "path": "soap.pcu_transaction_code",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "PCU"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "soap.one_time_pin",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "OTP"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "soap.valid_id_type",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "Valid ID Type",
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "VALID_ID"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "soap.valid_id_image",
+   "type": "string",
+   "required": "conditional",
+   "jpegMaxMb": 2,
+   "manual": "Required on the first request with patient_verification_mode = VALID_ID for the same patient, facility and consultation_date; may be sent as an empty string on later requests for that date. JPEG only; at most 2 MB before base-64 encoding."
+  },
+  {
+   "path": "soap.co_payment_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "soap.co_payment_date_payment",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "soap.co_payment",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "soap.co_payment_balance",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "soap.consultation_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "soap.consultation_time",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 5,
+   "dateFormat": "HH:MM"
+  },
+  {
+   "path": "guardian.guardian_name",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 150,
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_age",
+   "type": "number",
+   "required": "conditional",
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_sex",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "absentWhenInactive": true,
+   "library": "Sex",
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_birthday",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_contact_no",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 15,
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_relationship",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 100,
+   "absentWhenInactive": true,
+   "library": "Guardian Relationship",
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_pin",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 12
+  },
+  {
+   "path": "subjective.consult_reason",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Consultation Reason"
+  },
+  {
+   "path": "subjective.consult_reason_details",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "consult_reason",
+     "op": "eq",
+     "values": [
+      "04"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "subjective.illness_history",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 250
+  },
+  {
+   "path": "medhist[].mdisease_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 3,
+   "library": "Medical Disease"
+  },
+  {
+   "path": "medhist[].mhspecific.is_on_dialysis",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "medhist[].mhspecific.dialysis_type",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 50,
+   "when": [
+    {
+     "field": "is_on_dialysis",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "medhist[].mhspecific.dialysis_year_started",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 4
+  },
+  {
+   "path": "hosphist[].previous_hospitalization",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "hosphist[].date_previous_hospitalization",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "surghist[].surg_desc",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "surghist[].surg_date",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "accidenthist[].previous_accident_injury",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "accidenthist[].date_previous_accident_injury",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "medhist[].mhspecific.specific_desc",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "allergy.food_allergy",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 500,
+   "allergy": true
+  },
+  {
+   "path": "allergy.medication_allergy",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 500,
+   "allergy": true
+  },
+  {
+   "path": "allergy.allergy_others",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "currentmed.current_medications",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2000,
+   "yesNo": true
+  },
+  {
+   "path": "currentmed.current_medication_pndf",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "currentmed.current_medication_non_pndf",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "immunizationhist[].immunization_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 3,
+   "library": "Immunization History"
+  },
+  {
+   "path": "famhist[].mdisease_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 3,
+   "library": "Medical Disease"
+  },
+  {
+   "path": "fhspecific[].mdisease_code",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 3,
+   "library": "Medical Disease"
+  },
+  {
+   "path": "fhspecific[].specific_desc",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2000
+  },
+  {
+   "path": "sochist.is_smoker",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Smoking Status"
+  },
+  {
+   "path": "sochist.secondhand_smoke_exposure",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "library": "Secondhand Smoke Exposure"
+  },
+  {
+   "path": "sochist.cigarette_sticks_per_day",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_smoker",
+     "op": "eq",
+     "values": [
+      "Y",
+      "X"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.smoking_years",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_smoker",
+     "op": "eq",
+     "values": [
+      "Y",
+      "X"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.no_cigpk",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_smoker",
+     "op": "eq",
+     "values": [
+      "Y",
+      "X"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.vape_current_user",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.vape_current_years",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "vape_current_user",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.vape_former_user",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.vape_former_years",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "vape_former_user",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.is_adrinker",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Alcohol Use Status"
+  },
+  {
+   "path": "sochist.alcohol_drinker_subtype",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "library": "Alcohol Drinker Type",
+   "when": [
+    {
+     "field": "is_adrinker",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.alcohol_types",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 100,
+   "library": "Alcohol Type",
+   "when": [
+    {
+     "field": "is_adrinker",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.alcohol_intake_years",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.no_glasses",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.alcohol_frequency_per_week",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sochist.ill_drug_user",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.substance_former_user_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "manual": "Required if history of recreational drug intake is selected."
+  },
+  {
+   "path": "sochist.substance_current_user_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "ill_drug_user",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.substance_abuse_family_member",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sochist.dietary_intake_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Dietary Intake"
+  },
+  {
+   "path": "sochist.breastfeeding_status",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "library": "Breastfeeding Status",
+   "manual": "Required if the patient is 0 to 1 year old."
+  },
+  {
+   "path": "sochist.physical_activity_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.fluoride_toothpaste_use",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sochist.dental_checkup_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Dental Check-up Status"
+  },
+  {
+   "path": "sochist.dental_checkup_year",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 4,
+   "dateFormat": "YYYY",
+   "when": [
+    {
+     "field": "dental_checkup_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sochist.neighborhood_communicable_disease",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sochist.mental_health_event_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Mental Health Event"
+  },
+  {
+   "path": "sochist.other_mental_health_event",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "when": [
+    {
+     "field": "mental_health_event_code",
+     "op": "eq",
+     "values": [
+      "99"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sexhist.sexual_hist_consent_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Sexual History Consent"
+  },
+  {
+   "path": "sexhist.have_you_ever_had_sex",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sexhist.age_at_first_sexual_contact",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sexhist.sexually_active",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sexhist.male_partner_sexual_activity",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sexhist.male_partner_recent_anal_neovag",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/YYYY"
+  },
+  {
+   "path": "sexhist.male_partner_recent_condomless",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/YYYY"
+  },
+  {
+   "path": "sexhist.female_partner_sexual_activity",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sexhist.female_partner_recent_anal_neovag",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/YYYY"
+  },
+  {
+   "path": "sexhist.female_partner_recent_condomless",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/YYYY"
+  },
+  {
+   "path": "sexhist.sexual_risk_behaviors",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "library": "Sexual Risk Behavior"
+  },
+  {
+   "path": "sexhist.sexual_risk_recent_risk_date",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/YYYY"
+  },
+  {
+   "path": "sexhist.sexual_risk_other_concerns_spec",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "sexhist.sti_hist",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sexhist.sti_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "sti_hist",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "ros.general_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.skin_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.heent_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.cardiorespiratory_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.gastrointestinal_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.genitourinary_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.musculoskeletal_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.neuro_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.psych_neurodev_ros_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Signs and Symptoms"
+  },
+  {
+   "path": "ros.ros_other_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "manual": "Required if code X (Others) is selected in any review of systems field (general_ros_id to psych_neurodev_ros_id)."
+  },
+  {
+   "path": "pegensurvey.gen_survey_id",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "General Survey"
+  },
+  {
+   "path": "pegensurvey.gen_survey_rem",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2000,
+   "when": [
+    {
+     "field": "gen_survey_id",
+     "op": "eq",
+     "values": [
+      "7"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "pepert.systolic",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 4 years old and above on consultation_date."
+  },
+  {
+   "path": "pepert.diastolic",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 4 years old and above on consultation_date."
+  },
+  {
+   "path": "pepert.heart_rate",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.respiratory_rate",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.temperature",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.weight",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.height",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 2 years old and above on consultation_date."
+  },
+  {
+   "path": "pepert.bmi",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "pepert.waist_circ",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.mid_upper_arm_circ",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.length",
+   "type": "number",
+   "required": "conditional",
+   "manual": "Required if the patient is 0 to 24 months old on consultation_date."
+  },
+  {
+   "path": "pepert.head_circ",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.skinfold_thickness",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.waist",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.hip",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "pepert.sam_form",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "pepert.vision_chart_type",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Visual Acuity Chart"
+  },
+  {
+   "path": "pepert.vision_right_eye",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "pepert.vision_left_eye",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "pepert.vision_both_eyes",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "pepert.vision_right_eye_corrected",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "pepert.vision_left_eye_corrected",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "pepert.vision_both_eyes_corrected",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "pemisc.heent",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "PE HEENT"
+  },
+  {
+   "path": "pemisc.chest_breast_lungs",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "PE Chest Breast Lungs"
+  },
+  {
+   "path": "pemisc.cbe",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "library": "PE Chest Breast Lungs"
+  },
+  {
+   "path": "pemisc.heart",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "PE Heart"
+  },
+  {
+   "path": "pemisc.abdomen",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "PE Abdomen"
+  },
+  {
+   "path": "pemisc.skin_extremities",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "PE Skin Extremities"
+  },
+  {
+   "path": "pemisc.genitourinary",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "library": "PE Genitourinary"
+  },
+  {
+   "path": "pemisc.digital_rectal_exam",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "library": "PE Digital Rectal Exam"
+  },
+  {
+   "path": "pemisc.neuro_exam",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "library": "PE Neurological"
+  },
+  {
+   "path": "physiciansignoff.physician_name",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_designation",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_license_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "physiciansignoff.physician_accre_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagnosis.primary_diagnosis",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagnosis.primary_diagnosis_icd_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10,
+   "external": "ICD-10"
+  },
+  {
+   "path": "diagnosis.other_diagnosis",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000
+  },
+  {
+   "path": "diagnosis.other_diagnosis_icd_code",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "external": "ICD-10"
+  },
+  {
+   "path": "diagnosis.specific_diagnosis",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1000,
+   "library": "Specific Diagnosis"
+  },
+  {
+   "path": "management.counseling_health_education",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Counseling Health Education"
+  },
+  {
+   "path": "management.routine_vaccine_name",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 150,
+   "when": [
+    {
+     "field": "counseling_health_education",
+     "op": "includes",
+     "values": [
+      "16"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "management.routine_vaccine_date",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "management.adults_routine_screening",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Diagnostic Examination"
+  },
+  {
+   "path": "management.pediatric_routine_screening",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Diagnostic Examination"
+  },
+  {
+   "path": "management.prenatal_screening_services",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Diagnostic Examination"
+  },
+  {
+   "path": "management.cancer_screening_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "management.cancer_screening_selected",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "Diagnostic Examination",
+   "when": [
+    {
+     "field": "cancer_screening_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "management.diagnostic_services_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Diagnostic Services Option"
+  },
+  {
+   "path": "management.medication_prescription_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "management.referral_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "management.other_medical_advice_spec",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "management.follow_up_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "management.follow_up_on",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 100,
+   "when": [
+    {
+     "field": "follow_up_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "management.follow_up_reason",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "follow_up_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "management.follow_up_vaccine_name",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 150
+  },
+  {
+   "path": "management.follow_up_next_vaccine_date",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "sf_obgyne_menshist.menarche_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_obgyne_menshist.menarche_period",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "menarche_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_menshist.last_mens_period_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_obgyne_menshist.last_mens_period",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "when": [
+    {
+     "field": "last_mens_period_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_menshist.is_menopause",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_obgyne_menshist.menopause_age",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_menopause",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_menshist.contraceptive_use_status",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Contraceptive Use Status"
+  },
+  {
+   "path": "sf_obgyne_menshist.contraceptive_method_desired",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "Contraceptive Method",
+   "when": [
+    {
+     "field": "contraceptive_use_status",
+     "op": "eq",
+     "values": [
+      "03"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_menshist.birth_ctrl_method",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 21,
+   "library": "Contraceptive Method"
+  },
+  {
+   "path": "sf_obgyne_menshist.gynecological_disease_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_obgyne_menshist.gynecological_disease",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "when": [
+    {
+     "field": "gynecological_disease_flag",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.is_applicable",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_obgyne_preghist.is_currently_pregnant",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_obgyne_preghist.prenatal_checkup_count",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "library": "Prenatal Check-up Count",
+   "when": [
+    {
+     "field": "is_currently_pregnant",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.preg_cnt",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_applicable",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.delivery_cnt",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_applicable",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.full_term_cnt",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_applicable",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.premature_cnt",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_applicable",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.abortion_cnt",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_applicable",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.liv_children_cnt",
+   "type": "number",
+   "required": "conditional",
+   "when": [
+    {
+     "field": "is_applicable",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_obgyne_preghist.age_of_gestation",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20
+  },
+  {
+   "path": "sf_obgyne_preghist.expected_date_of_delivery",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "sf_obgyne_pe.fundic_height",
+   "type": "number",
+   "required": "no",
+   "decimals": 1,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sf_obgyne_pe.fetal_heart_tone",
+   "type": "number",
+   "required": "no",
+   "decimals": 0,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sf_obgyne_pe.estimated_fetal_weight",
+   "type": "number",
+   "required": "no",
+   "decimals": 0,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "sf_obgyne_pe.leopold_l1",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "sf_obgyne_pe.leopold_l2",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "sf_obgyne_pe.leopold_l3",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "sf_obgyne_pe.leopold_l4",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "sf_obgyne_pe.perineal_inspection",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sf_obgyne_pe.speculum_exam",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sf_obgyne_pe.internal_exam",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sf_obgyne_pe.bimanual_exam",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sf_obgyne_pe.rectovaginal_exam",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "sf_pedia_immunization.routine_immunization_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Routine Immunization Status"
+  },
+  {
+   "path": "sf_pedia_vaccine[].vaccine_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10,
+   "library": "Vaccine"
+  },
+  {
+   "path": "sf_pedia_vaccine[].vaccine_other_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "vaccine_code",
+     "op": "eq",
+     "values": [
+      "99"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_pedia_vaccine[].vaccination_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Vaccination Status"
+  },
+  {
+   "path": "sf_pedia_devmilestone[].milestone_visit_age",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Milestone Visit Age"
+  },
+  {
+   "path": "sf_pedia_devmilestone[].milestone_at_par_flag",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "manual": "Required if no danger sign is selected for the visit age row."
+  },
+  {
+   "path": "sf_pedia_devmilestone[].gross_motor_danger_signs",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "Developmental Danger Sign",
+   "when": [
+    {
+     "field": "milestone_at_par_flag",
+     "op": "eq",
+     "values": [
+      "N"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_pedia_devmilestone[].fine_motor_danger_signs",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "Developmental Danger Sign",
+   "when": [
+    {
+     "field": "milestone_at_par_flag",
+     "op": "eq",
+     "values": [
+      "N"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_pedia_devmilestone[].language_danger_signs",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "Developmental Danger Sign",
+   "when": [
+    {
+     "field": "milestone_at_par_flag",
+     "op": "eq",
+     "values": [
+      "N"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_pedia_devmilestone[].cognitive_danger_signs",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "Developmental Danger Sign",
+   "when": [
+    {
+     "field": "milestone_at_par_flag",
+     "op": "eq",
+     "values": [
+      "N"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_pedia_devmilestone[].psychosocial_danger_signs",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "Developmental Danger Sign",
+   "when": [
+    {
+     "field": "milestone_at_par_flag",
+     "op": "eq",
+     "values": [
+      "N"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_immunization.routine_immunization_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Routine Immunization Status"
+  },
+  {
+   "path": "sf_adol_vaccine[].vaccine_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 10,
+   "library": "Vaccine"
+  },
+  {
+   "path": "sf_adol_vaccine[].vaccine_other_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "vaccine_code",
+     "op": "eq",
+     "values": [
+      "99"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_vaccine[].vaccination_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Vaccination Status"
+  },
+  {
+   "path": "sf_adol_smr.smr_assessment_status",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_adol_smr.smr_pubic_hair_stage",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "when": [
+    {
+     "field": "smr_assessment_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_smr.smr_breast_stage",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "when": [
+    {
+     "field": "smr_assessment_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    },
+    {
+     "field": "patient_sex",
+     "op": "eq",
+     "values": [
+      "F"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_smr.smr_genital_stage",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "when": [
+    {
+     "field": "smr_assessment_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    },
+    {
+     "field": "patient_sex",
+     "op": "eq",
+     "values": [
+      "M"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_smr.smr_assessment_result",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "SMR Assessment Result",
+   "when": [
+    {
+     "field": "smr_assessment_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_assent_consent_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_education_employment_status",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "HEADSSS Education Employment",
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_relationship_status",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "HEADSSS Relationship Status",
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_living_arrangement",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "HEADSSS Living Arrangement",
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_living_arrangement_other_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "rh_living_arrangement",
+     "op": "eq",
+     "values": [
+      "02"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q01_home_violence",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q02_runaway_thoughts",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q03_bullying",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q04_suicidal_ideation",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q05_smoking",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q06_alcohol",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q07_drug_exposure",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q08_romantic_relationship",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q09_sexual_intercourse",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q10_forced_sex",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q11_pregnancy",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_q12_counseling_request",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "when": [
+    {
+     "field": "rh_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_adol_rapidheadsss.rh_full_headsss_flag",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "manual": "System sets to Y if any of rh_q01 to rh_q12 = Y (Oo)."
+  },
+  {
+   "path": "sf_headsss.headsss_assent_consent_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_headsss.headsss_home_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_home_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_home_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_education_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_education_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_education_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_eating_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_eating_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_eating_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_activities_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_activities_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_activities_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_drugs_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_drugs_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_drugs_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_sexuality_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_sexuality_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_sexuality_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_suicide_depression_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_suicide_depression_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_suicide_depression_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_urgent_referral_flag",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "yesNo": true,
+   "manual": "Required if 'Have you ever thought of hurting yourself or ending your life?' answer is Yes. If Y, proceed to the Urgent Referral Form."
+  },
+  {
+   "path": "sf_headsss.headsss_safety_questions",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "HEADSSS Guide Question",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_safety_answer",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_headsss.headsss_safety_red_flags",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1000,
+   "library": "HEADSSS Red Flag",
+   "when": [
+    {
+     "field": "headsss_assent_consent_status",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "sf_bpmon.bpmon_start_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "sf_bpmon.bpmon_end_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_day_no",
+   "type": "number",
+   "required": "yes",
+   "decimals": 0
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_location",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "BP Measurement Location"
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_after_medication",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_am_systolic",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "manual": "At least one of the AM or PM readings is required per day."
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_am_diastolic",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "manual": "At least one of the AM or PM readings is required per day."
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_pm_systolic",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "manual": "At least one of the AM or PM readings is required per day."
+  },
+  {
+   "path": "sf_bpmon_day[].bpmon_pm_diastolic",
+   "type": "number",
+   "required": "conditional",
+   "decimals": 0,
+   "manual": "At least one of the AM or PM readings is required per day."
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "diagnostic_request": [
+  {
+   "path": "diagrequest[].case_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "T"
+  },
+  {
+   "path": "diagrequest[].soap_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "S"
+  },
+  {
+   "path": "diagrequest[].request_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "D"
+  },
+  {
+   "path": "diagrequest[].diagnostic_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Diagnostic Examination"
+  },
+  {
+   "path": "diagrequest[].doctor_recommendation",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Recommendation Consent"
+  },
+  {
+   "path": "diagrequest[].client_consent",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Recommendation Consent"
+  },
+  {
+   "path": "diagrequest[].not_listed_specify",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "diagnostic_code",
+     "op": "eq",
+     "values": [
+      "99"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "diagnostic_results": [
+  {
+   "path": "diagnosticresult.case_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "T"
+  },
+  {
+   "path": "diagnosticresult.soap_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "S"
+  },
+  {
+   "path": "diagnosticresult.request_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "D"
+  },
+  {
+   "path": "diagresult_item[].result_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "L"
+  },
+  {
+   "path": "diagresult_item[].diagnostic_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Diagnostic Examination"
+  },
+  {
+   "path": "diagresult_item[].test_status",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Diagnostic Test Status"
+  },
+  {
+   "path": "diagresult_item[].test_lab_loc",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 2,
+   "library": "Diagnostic Test Location",
+   "when": [
+    {
+     "field": "test_status",
+     "op": "eq",
+     "values": [
+      "01"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "diagresult_item[].test_exam_date",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "when": [
+    {
+     "field": "test_status",
+     "op": "eq",
+     "values": [
+      "01"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "diagresult_item[].test_remarks",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_hemoglobin_g_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_hemoglobin_g_l"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_hemoglobin_g_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_hemoglobin_g_dl"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_hematocrit",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_mch_pg",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_mchc_g_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_mchc_g_l"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_mchc_g_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_mchc_g_dl"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_mcv_fl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_mcv_um3"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_mcv_um3",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_mcv_fl"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_platelet_count",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_wbc_x10_9_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_wbc_cells_ul"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_wbc_cells_ul",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_wbc_x10_9_l"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_rbc_x10_12_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_rbc_x10_6_ul"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_rbc_x10_6_ul",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "cbc_rbc_x10_12_l"
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_granulocytes",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_neutrophils_band",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_neutrophils_seg",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_lymphocytes",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_monocytes",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_eosinophils",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].cbc.cbc_diff_basophils",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "min": 0,
+   "max": 100,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].pregtest.urine_hcg_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_color",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_appearance",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_specific_gravity",
+   "type": "number",
+   "required": "no",
+   "decimals": 3,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_ph",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_protein_albumin",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_glucose",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_bilirubin",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_blood",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_leukocytes",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_nitrite",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_urobilinogen",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_ketones",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_epithelial_cells",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_mucus_threads",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_bacteria",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_pus_cells",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_red_blood_cells",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].urinalysis.urinalysis_white_blood_cells",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].uacr.uacr_albumin",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].uacr.uacr_creatinine",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].uacr.uacr_ratio",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].uacr.uacr_interp",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].hbsag.hbsag_test_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].hivrdt.hiv_rdt_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].rpr.rpr_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].vdrl.vdrl_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].malariasmear.malaria_smear_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Malaria Smear Result"
+  },
+  {
+   "path": "diagresult_item[].filariasissmear.filariasis_smear_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Microscopy Finding"
+  },
+  {
+   "path": "diagresult_item[].filariasissmear.filariasis_smear_findings_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "filariasis_smear_results",
+     "op": "eq",
+     "values": [
+      "02"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "diagresult_item[].fbs.fbs_results_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "fbs_results_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].fbs.fbs_results_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "fbs_results_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].fbs.fbs_interp",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].hba1c.hba1c_results",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].hba1c.hba1c_interp",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_fasting_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "ogtt_fasting_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_fasting_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "ogtt_fasting_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_1_hour_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "ogtt_1_hour_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_1_hour_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "ogtt_1_hour_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_2_hours_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "ogtt_2_hours_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_2_hours_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "ogtt_2_hours_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].ogtt.ogtt_interp",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_color",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_consistency",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_rbc",
+   "type": "number",
+   "required": "no",
+   "whole": true,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_pus_cells",
+   "type": "number",
+   "required": "no",
+   "whole": true,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_ova_parasite",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_fat_globules",
+   "type": "number",
+   "required": "no",
+   "whole": true,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_bacteria",
+   "type": "number",
+   "required": "no",
+   "whole": true,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].fecalysis.fecalysis_other",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].fecalysiskk.fecalysis_kato_katz_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Kato-Katz Result"
+  },
+  {
+   "path": "diagresult_item[].fecalysiskk.fecalysis_kato_katz_epg_value",
+   "type": "number",
+   "required": "no",
+   "whole": true,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].fecalysiskk.fecalysis_kato_katz_intensity",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Kato-Katz Intensity"
+  },
+  {
+   "path": "diagresult_item[].fobt.gfobt_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_total_chol_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_total_chol_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_total_chol_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_total_chol_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_trig_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_trig_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_trig_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_trig_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_hdl_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_hdl_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_hdl_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_hdl_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_ldl_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_ldl_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_ldl_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_ldl_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_vldl_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_vldl_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].lipidprofile.lipid_vldl_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "lipid_vldl_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].afp.afp_results",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].alt.alt_sgpt_results",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ast.ast_sgot_results",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].creatinine.serum_creatinine_results_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_creatinine_results_umol_l"
+  },
+  {
+   "path": "diagresult_item[].creatinine.serum_creatinine_results_umol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_creatinine_results_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].papsmear.pap_smear_findings",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].via.via_test_results_findings",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].via.via_impression",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Qualitative Test Result"
+  },
+  {
+   "path": "diagresult_item[].via.via_recommendation",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].sputum.sputum_smear_results",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 2,
+   "library": "Microscopy Finding"
+  },
+  {
+   "path": "diagresult_item[].sputum.sputum_smear_findings_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "sputum_smear_results",
+     "op": "eq",
+     "values": [
+      "02"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "diagresult_item[].alp.alp_results_u_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "alp_results_iu_l"
+  },
+  {
+   "path": "diagresult_item[].alp.alp_results_iu_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "alp_results_u_l"
+  },
+  {
+   "path": "diagresult_item[].serumalbumin.serum_albumin_results_g_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_albumin_results_g_l"
+  },
+  {
+   "path": "diagresult_item[].serumalbumin.serum_albumin_results_g_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_albumin_results_g_dl"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_sodium_meq_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_sodium_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_sodium_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_sodium_meq_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_potassium_meq_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_potassium_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_potassium_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_potassium_meq_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_chloride_meq_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_chloride_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_chloride_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_chloride_meq_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_calcium_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_calcium_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_calcium_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_calcium_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_phosphorus_mg_dl",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_phosphorus_mmol_l"
+  },
+  {
+   "path": "diagresult_item[].electrolytes.serum_electrolytes_phosphorus_mmol_l",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true,
+   "notWith": "serum_electrolytes_phosphorus_mg_dl"
+  },
+  {
+   "path": "diagresult_item[].chestxray.chest_xray_impression",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].chestct.ldct_impression",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_atrial_r_min",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_ventricular_r_min",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_pr_interval_sec",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_qrs_interval_sec",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_qtc_sec",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_qta_sec",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "diagresult_item[].ecg.ecg_axis",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "diagresult_item[].colonoscopy.colonoscopy_findings",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].colonoscopy.colonoscopy_recos",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].spirometry.spirometry_findings",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].spirometry.spirometry_interp_recos",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "diagresult_item[].otherdiagexam.other_name_lab_image_exam",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 150,
+   "when": [
+    {
+     "field": "diagnostic_code",
+     "op": "eq",
+     "values": [
+      "99"
+     ]
+    },
+    {
+     "field": "test_status",
+     "op": "eq",
+     "values": [
+      "01"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "diagresult_item[].otherdiagexam.other_findings",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 250
+  },
+  {
+   "path": "physiciansignoff.physician_name",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_designation",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_license_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "physiciansignoff.physician_accre_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "medicine": [
+  {
+   "path": "medicine[].case_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "T"
+  },
+  {
+   "path": "medicine[].soap_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "S"
+  },
+  {
+   "path": "medicine[].meds_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "M"
+  },
+  {
+   "path": "medicine[].drug_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "external": "lib_medicine"
+  },
+  {
+   "path": "medicine[].medicine_category",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20,
+   "external": "lib_medicine category"
+  },
+  {
+   "path": "medicine[].generic_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "external": "lib_medicine_generic"
+  },
+  {
+   "path": "medicine[].salt_code",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20,
+   "external": "lib_medicine_salt"
+  },
+  {
+   "path": "medicine[].strength_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "external": "lib_medicine_strength"
+  },
+  {
+   "path": "medicine[].form_code",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "external": "lib_medicine_form"
+  },
+  {
+   "path": "medicine[].unit_code",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20,
+   "external": "lib_medicine_unit"
+  },
+  {
+   "path": "medicine[].package_code",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20,
+   "external": "lib_medicine_package"
+  },
+  {
+   "path": "medicine[].other_medicine",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "manual": "Required if the medicine is not in the drug library."
+  },
+  {
+   "path": "medicine[].oth_med_drug_grouping",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 20,
+   "library": "Medicine Drug Grouping"
+  },
+  {
+   "path": "medicine[].route",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "library": "Medicine Route"
+  },
+  {
+   "path": "medicine[].instruction_quantity",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 50
+  },
+  {
+   "path": "medicine[].instruction_strength",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 100
+  },
+  {
+   "path": "medicine[].instruction_frequency",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 20,
+   "library": "Instruction Frequency"
+  },
+  {
+   "path": "medicine[].medicine_ext.instruction_duration",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 50
+  },
+  {
+   "path": "medicine[].quantity",
+   "type": "number",
+   "required": "yes"
+  },
+  {
+   "path": "medicine[].prescription_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "medicine[].advice.special_instructions",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 500
+  },
+  {
+   "path": "medicine[].actual_unit_price",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "medicine[].total_amount_price",
+   "type": "number",
+   "required": "no",
+   "decimals": 2,
+   "absentWhenInactive": true
+  },
+  {
+   "path": "medicine[].is_dispensed",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "medicine[].date_dispensed",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "when": [
+    {
+     "field": "is_dispensed",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "medicine[].dispensing_personnel",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 150,
+   "when": [
+    {
+     "field": "is_dispensed",
+     "op": "eq",
+     "values": [
+      "Y"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "medicine[].is_applicable",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "physiciansignoff.physician_name",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_designation",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_license_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "physiciansignoff.physician_accre_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "referral": [
+  {
+   "path": "soap.case_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "T"
+  },
+  {
+   "path": "soap.soap_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "S"
+  },
+  {
+   "path": "soap.patient_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 2,
+   "library": "Patient Type"
+  },
+  {
+   "path": "soap.patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 12,
+   "digits": 12
+  },
+  {
+   "path": "soap.patient_age",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 30
+  },
+  {
+   "path": "guardian.guardian_name",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 150,
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_age",
+   "type": "number",
+   "required": "conditional",
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_sex",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 1,
+   "absentWhenInactive": true,
+   "library": "Sex",
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_birthday",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_contact_no",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 15,
+   "absentWhenInactive": true,
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_relationship",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 100,
+   "absentWhenInactive": true,
+   "library": "Guardian Relationship",
+   "when": [
+    {
+     "field": "patient_type",
+     "op": "eq",
+     "values": [
+      "DD"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "guardian.guardian_pin",
+   "type": "string",
+   "required": "no",
+   "maxBytes": 12
+  },
+  {
+   "path": "soap.method_of_service_delivery",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "library": "Service Delivery Method"
+  },
+  {
+   "path": "soap.pcu_transaction_code",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 20,
+   "manual": "Required if the consultation identified by soap_transaction_no was verified with patient_verification_mode = PCU (Annex B). Annex F does not carry patient_verification_mode or one_time_pin; the consultation's values apply."
+  },
+  {
+   "path": "soap.co_payment_flag",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1,
+   "yesNo": true
+  },
+  {
+   "path": "soap.co_payment_date_payment",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "soap.co_payment",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "soap.co_payment_balance",
+   "type": "number",
+   "required": "no",
+   "absentWhenInactive": true
+  },
+  {
+   "path": "soap.consultation_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "soap.consultation_time",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 5,
+   "dateFormat": "HH:MM"
+  },
+  {
+   "path": "referral.referral_transaction_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 23,
+   "recordPrefix": "R"
+  },
+  {
+   "path": "referral.referral_type",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 1000,
+   "library": "Referral Type"
+  },
+  {
+   "path": "referral.referral_specialist",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "referral_type",
+     "op": "includes",
+     "values": [
+      "01"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "referral.referral_specialist_other_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "referral_specialist",
+     "op": "eq",
+     "values": [
+      "Other Specialist"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "referral.referral_reason",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "when": [
+    {
+     "field": "referral_type",
+     "op": "includes",
+     "values": [
+      "01"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "referral.referral_primary_care_services",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "library": "Referral Primary Care Service",
+   "when": [
+    {
+     "field": "referral_type",
+     "op": "includes",
+     "values": [
+      "02"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "referral.referral_facility_service",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 500,
+   "library": "Referral Facility Service",
+   "when": [
+    {
+     "field": "referral_type",
+     "op": "includes",
+     "values": [
+      "03"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "referral.referral_others_spec",
+   "type": "string",
+   "required": "conditional",
+   "maxBytes": 250,
+   "when": [
+    {
+     "field": "referral_type",
+     "op": "includes",
+     "values": [
+      "99"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "physiciansignoff.physician_name",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_designation",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 150
+  },
+  {
+   "path": "physiciansignoff.physician_license_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "physiciansignoff.physician_accre_no",
+   "type": "string",
+   "required": "yes",
+   "maxBytes": 100
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "token": [
+  {
+   "path": "software_cert_id",
+   "type": "string",
+   "required": "yes"
+  },
+  {
+   "path": "accre_no",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 9,
+   "exactChars": 9
+  },
+  {
+   "path": "secret_key",
+   "type": "string",
+   "required": "yes"
+  }
+ ],
+ "pcu_start": [
+  {
+   "path": "pin",
+   "type": "string",
+   "required": "no",
+   "digits": 12
+  },
+  {
+   "path": "first_name",
+   "type": "string",
+   "required": "yes"
+  },
+  {
+   "path": "middle_name",
+   "type": "string",
+   "required": "no",
+   "mayOmit": true
+  },
+  {
+   "path": "last_name",
+   "type": "string",
+   "required": "yes"
+  },
+  {
+   "path": "suffix",
+   "type": "string",
+   "required": "no",
+   "mayOmit": true
+  },
+  {
+   "path": "birth_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  }
+ ],
+ "pcu_verify": [
+  {
+   "path": "liveness_authorization_id",
+   "type": "string",
+   "required": "yes"
+  }
+ ],
+ "validator": [
+  {
+   "path": "patient_pin",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 12,
+   "digits": 12,
+   "manual": "PhilHealth Identification Number — exactly 12 digits, no separators or spaces. Required if first_name, last_name, and patient_dob are not supplied."
+  },
+  {
+   "path": "eff_year",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "YYYY"
+  },
+  {
+   "path": "first_name",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 30,
+   "manual": "Beneficiary first name. Required if patient_pin is not supplied (name-based lookup, with last_name and patient_dob)."
+  },
+  {
+   "path": "last_name",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 30,
+   "manual": "Beneficiary last name. Required if patient_pin is not supplied (name-based lookup, with first_name and patient_dob)."
+  },
+  {
+   "path": "middle_name",
+   "type": "string",
+   "required": "no",
+   "maxChars": 30
+  },
+  {
+   "path": "patient_dob",
+   "type": "string",
+   "required": "conditional",
+   "dateFormat": "MM/DD/YYYY",
+   "manual": "Beneficiary birth date, format MM/DD/YYYY. Required if patient_pin is not supplied (name-based lookup, with first_name and last_name)."
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "empanelment": [
+  {
+   "path": "patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 12,
+   "digits": 12
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  },
+  {
+   "path": "patient_verification_mode",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 10,
+   "library": "Patient Verification Mode"
+  },
+  {
+   "path": "pcu_transaction_code",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "PCU"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "one_time_pin",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "OTP"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "valid_id_type",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 2,
+   "library": "Valid ID Type",
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "VALID_ID"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "valid_id_image",
+   "type": "string",
+   "required": "conditional",
+   "jpegMaxMb": 2,
+   "manual": "Required on the first request with patient_verification_mode = VALID_ID for the same patient, facility and date; may be sent as an empty string on later requests that day. Base-64 encoded JPEG of the ID, at most 2 MB before encoding."
+  },
+  {
+   "path": "created_by",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 150
+  }
+ ],
+ "selection": [
+  {
+   "path": "patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 12,
+   "digits": 12
+  },
+  {
+   "path": "selection_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  },
+  {
+   "path": "patient_verification_mode",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 10,
+   "library": "Patient Verification Mode"
+  },
+  {
+   "path": "pcu_transaction_code",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "PCU"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "one_time_pin",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 20,
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "OTP"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "valid_id_type",
+   "type": "string",
+   "required": "conditional",
+   "maxChars": 2,
+   "library": "Valid ID Type",
+   "when": [
+    {
+     "field": "patient_verification_mode",
+     "op": "eq",
+     "values": [
+      "VALID_ID"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "valid_id_image",
+   "type": "string",
+   "required": "conditional",
+   "jpegMaxMb": 2,
+   "manual": "Required on the first request with patient_verification_mode = VALID_ID for the same patient, facility and date; may be sent as an empty string on later requests that day. Base-64 encoded JPEG of the ID, at most 2 MB before encoding."
+  }
+ ],
+ "masterlist_individual": [
+  {
+   "path": "patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 12,
+   "digits": 12
+  },
+  {
+   "path": "eff_year",
+   "type": "string",
+   "required": "no",
+   "dateFormat": "YYYY"
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "masterlist_batch": [
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  },
+  {
+   "path": "start_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "end_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  }
+ ],
+ "verification_code": [
+  {
+   "path": "patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 12,
+   "digits": 12
+  },
+  {
+   "path": "one_time_pin",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 20
+  },
+  {
+   "path": "transaction_date",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "MM/DD/YYYY"
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ],
+ "availment_slip": [
+  {
+   "path": "patient_pin",
+   "type": "string",
+   "required": "yes",
+   "maxChars": 12,
+   "digits": 12
+  },
+  {
+   "path": "eff_year",
+   "type": "string",
+   "required": "yes",
+   "dateFormat": "YYYY"
+  },
+  {
+   "path": "consent",
+   "type": "boolean",
+   "required": "yes",
+   "mustBeTrue": true
+  }
+ ]
+}

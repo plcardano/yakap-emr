@@ -1,0 +1,6 @@
+{
+  "patient_pin": "123456789012",
+  "one_time_pin": "<code issued to the patient>",
+  "transaction_date": "10/25/2026",
+  "consent": true
+}

@@ -48,6 +48,8 @@ export const facilities = pgTable("facilities", {
   id: uuid("id").primaryKey().defaultRandom(),
   accreNo: varchar("accre_no", { length: 9 }).notNull().unique(),
   name: varchar("name", { length: 200 }).notNull(),
+  // The PCAPI cipher key for this accreditation number, encrypted at rest.
+  cipherKeyEncrypted: text("cipher_key_encrypted"),
   active: boolean("active").notNull().default(true),
   createdAt: createdAt(),
 });
@@ -182,4 +184,20 @@ export const auditLog = pgTable(
     createdAt: createdAt(),
   },
   (t) => [index("audit_facility_created").on(t.facilityId, t.createdAt)],
+);
+
+// Code lists with no worksheet in the Library Reference: PSGC, ICD-10 and the Konsulta Drug Library.
+export const externalCodes = pgTable(
+  "external_codes",
+  {
+    library: varchar("library", { length: 50 }).notNull(),
+    code: varchar("code", { length: 20 }).notNull(),
+    description: text("description").notNull(),
+    parentCode: varchar("parent_code", { length: 20 }),
+    active: boolean("active").notNull().default(true),
+  },
+  (t) => [
+    primaryKey({ columns: [t.library, t.code] }),
+    index("external_codes_library_parent").on(t.library, t.parentCode),
+  ],
 );

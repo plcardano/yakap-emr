@@ -1,0 +1,64 @@
+{
+  "consent": true,
+  "diagnosticresult": {
+    "case_no": "TH123456782026102300001",
+    "soap_transaction_no": "SH123456782026102300001",
+    "request_transaction_no": "DH123456782026102300001"
+  },
+  "diagresult_item": [
+    {
+      "result_transaction_no": "LH123456782026102400001",
+      "diagnostic_code": "1",
+      "test_status": "01",
+      "test_lab_loc": "01",
+      "test_exam_date": "10/22/2026",
+      "test_remarks": "",
+      "cbc": {
+        "cbc_hemoglobin_g_dl": 13.5,
+        "cbc_hematocrit": 40.2,
+        "cbc_mch_pg": 29.1,
+        "cbc_mchc_g_dl": 33.4,
+        "cbc_mcv_fl": 88,
+        "cbc_platelet_count": 250,
+        "cbc_wbc_x10_9_l": 7.2,
+        "cbc_rbc_x10_12_l": 4.6,
+        "cbc_diff_granulocytes": 60,
+        "cbc_diff_neutrophils_band": 2,
+        "cbc_diff_neutrophils_seg": 58,
+        "cbc_diff_lymphocytes": 30,
+        "cbc_diff_monocytes": 6,
+        "cbc_diff_eosinophils": 3,
+        "cbc_diff_basophils": 1
+      }
+    },
+    {
+      "result_transaction_no": "LH123456782026102400002",
+      "diagnostic_code": "7",
+      "test_status": "01",
+      "test_lab_loc": "01",
+      "test_exam_date": "10/22/2026",
+      "test_remarks": "",
+      "fbs": {
+        "fbs_results_mg_dl": 95,
+        "fbs_interp": "Normal"
+      }
+    },
+    {
+      "result_transaction_no": "LH123456782026102400003",
+      "diagnostic_code": "4",
+      "test_status": "01",
+      "test_lab_loc": "01",
+      "test_exam_date": "10/22/2026",
+      "test_remarks": "",
+      "chestxray": {
+        "chest_xray_impression": "No active lung lesions"
+      }
+    }
+  ],
+  "physiciansignoff": {
+    "physician_name": "MARIA L. SANTOS, MD",
+    "physician_designation": "Attending Physician",
+    "physician_license_no": "0123456",
+    "physician_accre_no": "1234-5678901-2"
+  }
+}

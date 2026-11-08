@@ -1,0 +1,44 @@
+{
+  "consent": true,
+  "medicine": [
+    {
+      "case_no": "TH123456782026102300001",
+      "soap_transaction_no": "SH123456782026102300001",
+      "meds_transaction_no": "MH123456782026102300001",
+      "drug_code": "<drug code>",
+      "medicine_category": "<category code>",
+      "generic_code": "<generic code>",
+      "salt_code": "<salt code>",
+      "strength_code": "<strength code>",
+      "form_code": "<form code>",
+      "unit_code": "<unit code>",
+      "package_code": "<package code>",
+      "other_medicine": "",
+      "oth_med_drug_grouping": "NCD",
+      "route": "PO",
+      "instruction_quantity": "1 tablet",
+      "instruction_strength": "500 mg",
+      "instruction_frequency": "TID",
+      "quantity": 21,
+      "prescription_date": "10/23/2026",
+      "actual_unit_price": 2.5,
+      "total_amount_price": 52.5,
+      "is_dispensed": "Y",
+      "date_dispensed": "10/23/2026",
+      "dispensing_personnel": "ANA P. CRUZ, RPh",
+      "is_applicable": "Y",
+      "medicine_ext": {
+        "instruction_duration": "7 days"
+      },
+      "advice": {
+        "special_instructions": "Take after meals."
+      }
+    }
+  ],
+  "physiciansignoff": {
+    "physician_name": "MARIA L. SANTOS, MD",
+    "physician_designation": "Attending Physician",
+    "physician_license_no": "0123456",
+    "physician_accre_no": "1234-5678901-2"
+  }
+}

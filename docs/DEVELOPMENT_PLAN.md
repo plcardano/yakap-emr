@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 2 (PCAPI core), not started
-**Next action:** Build the Annex C encryption layer and verify it against the guide's test vector
+**Current phase:** Phase 3 (Verification), not started
+**Next action:** Build consent capture and the Primary Care Validator screen
 
 ## 1. What we are building
 
@@ -43,8 +43,8 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 |---|---|---|
 | 0 | Alignment | Done |
 | 1 | Foundation | Done (CI has not run yet; no Git remote) |
-| 2 | PCAPI core | Up next |
-| 3 | Verification | Not started |
+| 2 | PCAPI core | Done (tested against the mock only) |
+| 3 | Verification | Up next |
 | 4 | Selection and FPE | Not started |
 | 5 | Empanelment | Not started |
 | 6 | Clinical uploads | Not started |
@@ -74,21 +74,21 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 - [x] Audit logging that masks PINs, birth dates and secrets (guide 3.5)
 - [x] Home screen layout
 
-### Phase 2: PCAPI core
+### Phase 2: PCAPI core (done)
 
 **Done when:** the Annex C test vector and mock server tests pass.
 
-- [ ] Server-only PCAPI client
-- [ ] Token handling per facility, renewed before the one-hour expiry, re-authenticated on 401
-- [ ] AES-256-CBC envelope with null-byte padding and hash check (Annex C), for JSON and PDF
-- [ ] Response envelope parsing, error mapping by `code` and `errors[].issue`, never by `message`
-- [ ] Retry only on 5xx and network failures, except PCU verification and `internal_error` (never retried automatically)
-- [ ] Request serializer: optional strings as `""`, empty numbers and booleans left out, never `null`, non-applicable groups left out
-- [ ] Atomic 23-character record numbers per facility, prefix and day (T, E, P, S, D, L, M, R)
-- [ ] Code generation: Zod schemas from the 673 validation rules, library tables from the 72 library worksheets
-- [ ] Byte-length size checks (UTF-8, so "ñ" counts as two)
-- [ ] Import step for PSGC, ICD-10 and Konsulta Drug codes, with a placeholder set
-- [ ] Mock PCAPI built from the guide, using real encryption and every documented error
+- [x] Server-only PCAPI client
+- [x] Token handling per facility, renewed before the one-hour expiry, re-authenticated on 401
+- [x] AES-256-CBC envelope with null-byte padding and hash check (Annex C), for JSON and PDF
+- [x] Response envelope parsing, error mapping by `code` and `errors[].issue`, never by `message`
+- [x] Retry only on network failures and 502, 503, 504. Never for `internal_error`, PCU, Selection or Empanelment
+- [x] Request serializer: optional strings as `""`, empty numbers and booleans left out, never `null`, non-applicable groups left out
+- [x] Atomic 23-character record numbers per facility, prefix and day (T, E, P, S, D, L, M, R)
+- [x] Code generation: a rule engine driven by the 673 validation rules, and library tables from the 72 library worksheets. 142 of the 171 conditional fields are checked automatically; the other 29 are form-level work in Phases 3 to 6 (see `manual` in `src/generated/pcapi-rules.json`)
+- [x] Byte-length size checks (UTF-8, so "ñ" counts as two)
+- [x] Import step for PSGC, ICD-10 and Konsulta Drug codes, with a placeholder set
+- [x] Mock PCAPI built from the guide, using real encryption and every documented error
 
 ### Phase 3: Verification
 
@@ -160,6 +160,12 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | The app enforces the conditional fields that the guide's FPE and Consultation samples omit | Project owner: follow the guide, and guide 1.4 says the Data Dictionary prevails |
+| 2026-11-08 | Selection and Empanelment are not retried automatically | A repeat after a lost response would return 409 and look like a failure |
+| 2026-11-08 | The mock PCAPI is a separate Node server on port 4010, using the real encryption and Dictionary checks | The app talks to it exactly as it will to the real API |
+| 2026-11-08 | Cipher keys are stored per facility, encrypted at rest; certificate ID and secret stay in server environment variables | The guide issues one certificate per provider and one cipher key per facility |
+| 2026-11-08 | Validation is one rule engine driven by the generated Dictionary rules, not generated Zod schemas | Conditional rules need cross-field logic, errors must use the guide's JSON paths, and the same engine serves the server and the forms. Zod stays for non-specification forms such as login |
+| 2026-11-08 | Keep the strict check when the guide's samples disagree with the Dictionary | The guide says the Dictionary prevails (1.4) |
 | 2026-11-08 | Use npm 11 for fresh installs (`npx npm@11 install`); `npm ci` works on npm 10 | npm 10.9.2 crashes when resolving the patched Vitest version |
 | 2026-11-08 | Vitest 4.1.12 instead of 5.x | Vitest 5 does not support Node 23, the development machine's version; 4.1.12 has the security fix |
 | 2026-11-08 | Accept the remaining moderate `npm audit` findings for now | They are in development-only tools (drizzle-kit, ESLint config) and have no non-breaking fix; production dependencies report 0 |
@@ -196,6 +202,15 @@ The guide wins in every case.
 | View YES, Print YES, Decline | Not in the guide | Not built |
 
 The guide's own Section 4.6 table lists Consultation with 270 fields; the Dictionary and Annex A list 272. The Dictionary prevails.
+
+### Guide samples that break the Data Dictionary
+
+These request samples set a flag to `Y` but leave out the field the Dictionary then requires. A strict API would reject them. The list is enforced in `tests/fixtures/samples.ts`.
+
+| Sample | Missing conditional fields |
+|---|---|
+| 4.6.1 FPE | `sochist.vape_current_years`, `sochist.vape_former_years`, `gynehist.menopause_age`, `gynehist.gynecological_disease`, `gynehist.gyn_sexually_transmitted_disease` |
+| 4.6.2 Consultation | `sochist.vape_current_years`, `sochist.vape_former_years`, `sochist.substance_current_user_spec`, `sexhist.sti_spec`, `sf_obgyne_menshist.menopause_age`, `sf_obgyne_menshist.gynecological_disease` |
 
 ## 7. Open items
 

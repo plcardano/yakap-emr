@@ -1,0 +1,10 @@
+{
+  "patient_pin": "123456789012",
+  "consent": true,
+  "patient_verification_mode": "PCU",
+  "pcu_transaction_code": "PCU-LOG-TRANS-NO",
+  "one_time_pin": "",
+  "valid_id_type": "",
+  "valid_id_image": "",
+  "created_by": "emr.user01"
+}

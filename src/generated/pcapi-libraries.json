@@ -1,0 +1,3078 @@
+{
+ "Sex": [
+  {
+   "code": "M",
+   "description": "Male"
+  },
+  {
+   "code": "F",
+   "description": "Female"
+  }
+ ],
+ "Gender": [
+  {
+   "code": "W",
+   "description": "Woman"
+  },
+  {
+   "code": "M",
+   "description": "Man"
+  },
+  {
+   "code": "X",
+   "description": "Prefer not to answer"
+  }
+ ],
+ "Patient Type": [
+  {
+   "code": "MM",
+   "description": "Member"
+  },
+  {
+   "code": "DD",
+   "description": "Dependent"
+  }
+ ],
+ "Civil Status": [
+  {
+   "code": "S",
+   "description": "Single"
+  },
+  {
+   "code": "M",
+   "description": "Married"
+  },
+  {
+   "code": "W",
+   "description": "Widowed"
+  },
+  {
+   "code": "P",
+   "description": "Separated"
+  },
+  {
+   "code": "A",
+   "description": "Annulled"
+  }
+ ],
+ "Enlistment Status": [
+  {
+   "code": "1",
+   "description": "Active"
+  },
+  {
+   "code": "2",
+   "description": "Cancelled"
+  },
+  {
+   "code": "3",
+   "description": "Transferred"
+  }
+ ],
+ "Service Delivery Method": [
+  {
+   "code": "F",
+   "description": "Facility-Based (face-to-face consultation)"
+  },
+  {
+   "code": "O",
+   "description": "Out-of-facility (Mobile Health Units, etc.)"
+  },
+  {
+   "code": "S",
+   "description": "Settings-Based (workplace, learning institution, etc.)"
+  }
+ ],
+ "Patient Verification Mode": [
+  {
+   "code": "PCU",
+   "description": "PhilHealth Check Utility Transaction Code"
+  },
+  {
+   "code": "OTP",
+   "description": "YAKAP Patient Verification Code (One-Time PIN)"
+  },
+  {
+   "code": "VALID_ID",
+   "description": "Valid government-issued ID presented (see Library Reference: Valid ID Type)"
+  }
+ ],
+ "FPE Classification": [
+  {
+   "code": "1",
+   "description": "New FPE (First Primary Care Provider Registration)"
+  },
+  {
+   "code": "2",
+   "description": "Repeat FPE"
+  }
+ ],
+ "Facilitator Type": [
+  {
+   "code": "P",
+   "description": "Physician"
+  },
+  {
+   "code": "H",
+   "description": "Healthcare Professional (Nurse, Midwife, BHW, etc.)"
+  }
+ ],
+ "Medical Disease": [
+  {
+   "code": "001",
+   "description": "Allergies"
+  },
+  {
+   "code": "002",
+   "description": "Bronchial asthma"
+  },
+  {
+   "code": "003",
+   "description": "Cancer"
+  },
+  {
+   "code": "004",
+   "description": "Stroke"
+  },
+  {
+   "code": "006",
+   "description": "Diabetes Mellitus"
+  },
+  {
+   "code": "008",
+   "description": "Epilepsy/Seizure Disorder"
+  },
+  {
+   "code": "009",
+   "description": "Hepatitis"
+  },
+  {
+   "code": "010",
+   "description": "Hyperlipidemia"
+  },
+  {
+   "code": "011",
+   "description": "Hypertension"
+  },
+  {
+   "code": "012",
+   "description": "Peptic Ulcer"
+  },
+  {
+   "code": "013",
+   "description": "Pneumonia"
+  },
+  {
+   "code": "014",
+   "description": "Thyroid Disease"
+  },
+  {
+   "code": "015",
+   "description": "Tuberculosis (pulmonary)"
+  },
+  {
+   "code": "017",
+   "description": "Urinary Tract Infection"
+  },
+  {
+   "code": "018",
+   "description": "Mental, Neurological, and Substance abuse condition"
+  },
+  {
+   "code": "019",
+   "description": "Vision Problems"
+  },
+  {
+   "code": "020",
+   "description": "Hearing Problems"
+  },
+  {
+   "code": "021",
+   "description": "Skin Diseases"
+  },
+  {
+   "code": "022",
+   "description": "Bleeding Disorders"
+  },
+  {
+   "code": "023",
+   "description": "Autoimmune Disorders"
+  },
+  {
+   "code": "024",
+   "description": "Liver Diseases"
+  },
+  {
+   "code": "025",
+   "description": "Kidney Disorders"
+  },
+  {
+   "code": "026",
+   "description": "Congenital Disorders"
+  },
+  {
+   "code": "027",
+   "description": "Sexually Transmitted Infections"
+  },
+  {
+   "code": "028",
+   "description": "Substance Abuse Disorder"
+  },
+  {
+   "code": "029",
+   "description": "Heart disease"
+  },
+  {
+   "code": "030",
+   "description": "COPD/emphysema/bronchitis"
+  },
+  {
+   "code": "998",
+   "description": "Others"
+  },
+  {
+   "code": "999",
+   "description": "None"
+  }
+ ],
+ "Immunization History": [
+  {
+   "code": "01",
+   "description": "None"
+  },
+  {
+   "code": "02",
+   "description": "Unrecalled Immunization history"
+  },
+  {
+   "code": "03",
+   "description": "Complete Immunization with Booster (based on DOH-EPI recommendation)"
+  },
+  {
+   "code": "04",
+   "description": "Incomplete Immunization History and/or Booster during childhood"
+  }
+ ],
+ "Smoking Status": [
+  {
+   "code": "Y",
+   "description": "Yes - current tobacco user"
+  },
+  {
+   "code": "N",
+   "description": "No - never used tobacco or vape"
+  },
+  {
+   "code": "X",
+   "description": "Quit - former tobacco user (stopped more than 1 year)"
+  }
+ ],
+ "Secondhand Smoke Exposure": [
+  {
+   "code": "P",
+   "description": "Personal exposure (home)"
+  },
+  {
+   "code": "W",
+   "description": "Work-related smoke exposure"
+  }
+ ],
+ "Alcohol Use Status": [
+  {
+   "code": "Y",
+   "description": "Yes - current alcohol beverage drinker"
+  },
+  {
+   "code": "N",
+   "description": "No - never consumed"
+  },
+  {
+   "code": "X",
+   "description": "Quit - former drinker (no consumption for more than 1 year)"
+  }
+ ],
+ "Alcohol Drinker Type": [
+  {
+   "code": "O",
+   "description": "Occasional or light drinker (12 drinks or fewer per year)"
+  },
+  {
+   "code": "B",
+   "description": "Binge drinker (male more than 5, female more than 4 standard drinks per occasion in the past 30 days)"
+  },
+  {
+   "code": "F",
+   "description": "Former drinker"
+  }
+ ],
+ "Alcohol Type": [
+  {
+   "code": "1",
+   "description": "Whiskey/Whisky"
+  },
+  {
+   "code": "2",
+   "description": "Vodka"
+  },
+  {
+   "code": "3",
+   "description": "Gin"
+  },
+  {
+   "code": "4",
+   "description": "Rum"
+  },
+  {
+   "code": "5",
+   "description": "Tequila/Mezcal"
+  },
+  {
+   "code": "6",
+   "description": "Brandy"
+  },
+  {
+   "code": "7",
+   "description": "Table Wine"
+  },
+  {
+   "code": "8",
+   "description": "Sparkling Wine (e.g. Champagne)"
+  },
+  {
+   "code": "9",
+   "description": "Fortified Wine (e.g. Port, Sherry)"
+  },
+  {
+   "code": "10",
+   "description": "Beer"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "Dietary Intake": [
+  {
+   "code": "W",
+   "description": "Well-balanced diet (pinggang pinoy)"
+  },
+  {
+   "code": "S",
+   "description": "High sugar intake"
+  },
+  {
+   "code": "F",
+   "description": "High fat or high salt intake"
+  },
+  {
+   "code": "L",
+   "description": "Low fiber diet"
+  }
+ ],
+ "Breastfeeding Status": [
+  {
+   "code": "N",
+   "description": "No, on milk formula feeding"
+  },
+  {
+   "code": "E",
+   "description": "Yes, exclusive breastfeeding"
+  },
+  {
+   "code": "M",
+   "description": "Yes, mixed feeding"
+  }
+ ],
+ "Dental Check-up Status": [
+  {
+   "code": "N",
+   "description": "None"
+  },
+  {
+   "code": "U",
+   "description": "Unrecalled"
+  },
+  {
+   "code": "Y",
+   "description": "Yes (send the year in dental_checkup_year)"
+  }
+ ],
+ "Mental Health Event": [
+  {
+   "code": "01",
+   "description": "None"
+  },
+  {
+   "code": "02",
+   "description": "Intimate partner or gender-based violence"
+  },
+  {
+   "code": "03",
+   "description": "Maltreatment or Neglect"
+  },
+  {
+   "code": "04",
+   "description": "Bullying"
+  },
+  {
+   "code": "05",
+   "description": "Depression"
+  },
+  {
+   "code": "06",
+   "description": "Anxiety"
+  },
+  {
+   "code": "07",
+   "description": "History of Suicide Attempt or Self-Harm"
+  },
+  {
+   "code": "99",
+   "description": "Others (specify in other_mental_health_event)"
+  }
+ ],
+ "Sexual History Consent": [
+  {
+   "code": "01",
+   "description": "Applicable, with consent"
+  },
+  {
+   "code": "02",
+   "description": "Applicable, did not consent"
+  },
+  {
+   "code": "03",
+   "description": "Not applicable"
+  }
+ ],
+ "Sexual Risk Behavior": [
+  {
+   "code": "01",
+   "description": "Has multiple sexual partners"
+  },
+  {
+   "code": "02",
+   "description": "Has used injected drugs using shared needles"
+  },
+  {
+   "code": "03",
+   "description": "Has had sex under the influence of drugs"
+  },
+  {
+   "code": "04",
+   "description": "Has received a blood transfusion"
+  },
+  {
+   "code": "05",
+   "description": "Has a potential exposure due to sexual assault"
+  },
+  {
+   "code": "06",
+   "description": "Has a potential exposure due to occupation"
+  },
+  {
+   "code": "99",
+   "description": "Other concerns (specify in sexual_risk_other_concerns_spec)"
+  }
+ ],
+ "Contraceptive Use Status": [
+  {
+   "code": "01",
+   "description": "Not applicable"
+  },
+  {
+   "code": "02",
+   "description": "Without contraceptive use"
+  },
+  {
+   "code": "03",
+   "description": "Without contraceptive use and wants to start"
+  },
+  {
+   "code": "04",
+   "description": "With contraceptive use"
+  }
+ ],
+ "Contraceptive Method": [
+  {
+   "code": "01",
+   "description": "Condoms"
+  },
+  {
+   "code": "02",
+   "description": "Implants"
+  },
+  {
+   "code": "03",
+   "description": "Injectables"
+  },
+  {
+   "code": "04",
+   "description": "Pills - Combined Oral Contraceptive (COC)"
+  },
+  {
+   "code": "05",
+   "description": "Pills - Progestogen-only (POP)"
+  },
+  {
+   "code": "06",
+   "description": "Intrauterine Device (IUD) - Interval"
+  },
+  {
+   "code": "07",
+   "description": "Intrauterine Device (IUD) - Post-partum"
+  },
+  {
+   "code": "08",
+   "description": "Sterilization - Male Sterilization (MSTR) or No-Scalpel Vasectomy (NSV)"
+  },
+  {
+   "code": "09",
+   "description": "Sterilization - Female Sterilization (FSTR) or Bilateral Tubal Ligation (BTL)"
+  },
+  {
+   "code": "10",
+   "description": "Natural Family Planning - Basal Body Temperature (BBT)"
+  },
+  {
+   "code": "11",
+   "description": "Natural Family Planning - Cervical Mucus Methods (CMM)"
+  },
+  {
+   "code": "12",
+   "description": "Natural Family Planning - Lactational Amenorrhea Method (LAM)"
+  },
+  {
+   "code": "13",
+   "description": "Natural Family Planning - Standard Days Method (SDM)"
+  },
+  {
+   "code": "14",
+   "description": "Natural Family Planning - Symptothermal Method (STM)"
+  }
+ ],
+ "Prenatal Check-up Count": [
+  {
+   "code": "A",
+   "description": "Less than 8 visits"
+  },
+  {
+   "code": "B",
+   "description": "8 or more visits"
+  }
+ ],
+ "Signs and Symptoms": [
+  {
+   "code": "01",
+   "description": "ALTERED MENTAL SENSORIUM"
+  },
+  {
+   "code": "02",
+   "description": "ABDOMINAL CRAMP/PAIN"
+  },
+  {
+   "code": "03",
+   "description": "ANOREXIA"
+  },
+  {
+   "code": "04",
+   "description": "BLEEDING GUMS"
+  },
+  {
+   "code": "05",
+   "description": "BODY WEAKNESS"
+  },
+  {
+   "code": "06",
+   "description": "BLURRING OF VISION"
+  },
+  {
+   "code": "07",
+   "description": "CONSTIPATION"
+  },
+  {
+   "code": "08",
+   "description": "CHEST PAIN/DISCOMFORT"
+  },
+  {
+   "code": "09",
+   "description": "COUGH"
+  },
+  {
+   "code": "10",
+   "description": "DIARRHEA"
+  },
+  {
+   "code": "11",
+   "description": "DIZZINESS"
+  },
+  {
+   "code": "12",
+   "description": "DYSPHAGIA"
+  },
+  {
+   "code": "13",
+   "description": "DYSPNEA"
+  },
+  {
+   "code": "14",
+   "description": "DYSURIA"
+  },
+  {
+   "code": "15",
+   "description": "EPISTAXIS"
+  },
+  {
+   "code": "17",
+   "description": "FREQUENCY OF URINATION"
+  },
+  {
+   "code": "18",
+   "description": "HEADACHE"
+  },
+  {
+   "code": "19",
+   "description": "HEMATEMESIS"
+  },
+  {
+   "code": "20",
+   "description": "HEMATURIA"
+  },
+  {
+   "code": "21",
+   "description": "HEMOPTYSIS"
+  },
+  {
+   "code": "22",
+   "description": "IRRITABILITY"
+  },
+  {
+   "code": "23",
+   "description": "JAUNDICE"
+  },
+  {
+   "code": "25",
+   "description": "LOWER EXTREMITY EDEMA"
+  },
+  {
+   "code": "26",
+   "description": "MYALGIA"
+  },
+  {
+   "code": "27",
+   "description": "ORTHOPNEA"
+  },
+  {
+   "code": "28",
+   "description": "PALPITATIONS"
+  },
+  {
+   "code": "29",
+   "description": "SKIN RASHES"
+  },
+  {
+   "code": "30",
+   "description": "STOOL, BLOODY/BLACK TARRY/MUCOID"
+  },
+  {
+   "code": "32",
+   "description": "SWEATING"
+  },
+  {
+   "code": "33",
+   "description": "SEIZURES"
+  },
+  {
+   "code": "34",
+   "description": "URGENCY"
+  },
+  {
+   "code": "35",
+   "description": "VOMITING/NAUSEA"
+  },
+  {
+   "code": "36",
+   "description": "WEIGHT LOSS"
+  },
+  {
+   "code": "37",
+   "description": "FEVER"
+  },
+  {
+   "code": "38",
+   "description": "PAIN"
+  },
+  {
+   "code": "X",
+   "description": "OTHERS"
+  },
+  {
+   "code": "39",
+   "description": "CHILLS"
+  },
+  {
+   "code": "40",
+   "description": "EASY BRUISABILITY/BLEEDING"
+  },
+  {
+   "code": "41",
+   "description": "ENLARGED LYMPH NODES/MASS"
+  },
+  {
+   "code": "42",
+   "description": "ITCHING"
+  },
+  {
+   "code": "43",
+   "description": "CHANGE IN SKIN COLOR"
+  },
+  {
+   "code": "44",
+   "description": "CHANGES IN HAIR/NAILS/SKIN"
+  },
+  {
+   "code": "45",
+   "description": "SKIN DRYNESS"
+  },
+  {
+   "code": "46",
+   "description": "EYE ITCHINESS"
+  },
+  {
+   "code": "47",
+   "description": "HEARING CHANGES"
+  },
+  {
+   "code": "48",
+   "description": "TOOTHACHE"
+  },
+  {
+   "code": "49",
+   "description": "FLOATERS/GLARE"
+  },
+  {
+   "code": "50",
+   "description": "SORE THROAT"
+  },
+  {
+   "code": "51",
+   "description": "TEARING/EYE DISCHARGE"
+  },
+  {
+   "code": "52",
+   "description": "NASAL DISCHARGE"
+  },
+  {
+   "code": "53",
+   "description": "EYE REDNESS/PAIN"
+  },
+  {
+   "code": "54",
+   "description": "EAR DISCHARGE OR PAIN"
+  },
+  {
+   "code": "55",
+   "description": "HOARSENESS"
+  },
+  {
+   "code": "56",
+   "description": "WHEEZING"
+  },
+  {
+   "code": "57",
+   "description": "ABDOMINAL ENLARGEMENT"
+  },
+  {
+   "code": "58",
+   "description": "POLYPHAGIA"
+  },
+  {
+   "code": "59",
+   "description": "POLYDIPSIA"
+  },
+  {
+   "code": "60",
+   "description": "URINARY INCONTINENCE"
+  },
+  {
+   "code": "61",
+   "description": "DECREASED URINE STREAM"
+  },
+  {
+   "code": "62",
+   "description": "PASSING OF URINARY STONES"
+  },
+  {
+   "code": "63",
+   "description": "VAGINAL/PENILE DISCHARGE"
+  },
+  {
+   "code": "64",
+   "description": "VAGINAL/PENILE BLEEDING"
+  },
+  {
+   "code": "65",
+   "description": "JOINT STIFFNESS"
+  },
+  {
+   "code": "66",
+   "description": "JOINT PAIN"
+  },
+  {
+   "code": "67",
+   "description": "CHANGES/DIFFICULTY IN MOTION"
+  },
+  {
+   "code": "68",
+   "description": "BONE PAIN"
+  },
+  {
+   "code": "69",
+   "description": "DIFFICULTY IN COMMUNICATING"
+  },
+  {
+   "code": "70",
+   "description": "NUMBNESS"
+  },
+  {
+   "code": "71",
+   "description": "FAINTING EPISODES"
+  },
+  {
+   "code": "72",
+   "description": "PROBLEMS IN CONCENTRATION"
+  },
+  {
+   "code": "73",
+   "description": "DIFFICULTY KEEPING UP WITH PEERS/DAILY ACTIVITIES"
+  },
+  {
+   "code": "74",
+   "description": "EASILY DISTRACTED"
+  },
+  {
+   "code": "75",
+   "description": "EXCESSIVE OVERACTIVITY"
+  },
+  {
+   "code": "76",
+   "description": "EXTREME CHANGES IN EATING HABITS"
+  },
+  {
+   "code": "77",
+   "description": "EXTREME MOOD CHANGES"
+  },
+  {
+   "code": "78",
+   "description": "EXCESSIVE FEARS/GUILT/SADNESS/ANGER"
+  },
+  {
+   "code": "79",
+   "description": "DIFFICULTY IN SOCIAL INTERACTIONS"
+  },
+  {
+   "code": "80",
+   "description": "SLEEP DIFFICULTIES"
+  },
+  {
+   "code": "81",
+   "description": "HALLUCINATIONS"
+  },
+  {
+   "code": "82",
+   "description": "DISRUPTIVE/FREQUENT RULE BREAKING"
+  },
+  {
+   "code": "83",
+   "description": "IMPULSIVITY"
+  },
+  {
+   "code": "84",
+   "description": "FREQUENT OR SEVERE TANTRUMS"
+  },
+  {
+   "code": "85",
+   "description": "PHYSICAL AGGRESSION"
+  },
+  {
+   "code": "86",
+   "description": "SUICIDAL THOUGHTS"
+  },
+  {
+   "code": "00",
+   "description": "NONE"
+  },
+  {
+   "code": "87",
+   "description": "POLYURIA"
+  },
+  {
+   "code": "88",
+   "description": "NOCTURIA"
+  }
+ ],
+ "General Survey": [
+  {
+   "code": "1",
+   "description": "Awake and Alert"
+  },
+  {
+   "code": "3",
+   "description": "Conscious"
+  },
+  {
+   "code": "4",
+   "description": "Coherent"
+  },
+  {
+   "code": "5",
+   "description": "Not in cardiorespiratory distress"
+  },
+  {
+   "code": "6",
+   "description": "Oriented to date, place, time"
+  },
+  {
+   "code": "7",
+   "description": "Others (specify in gen_survey_rem)"
+  }
+ ],
+ "Consultation Reason": [
+  {
+   "code": "01",
+   "description": "General Check-up or Well-consult (health screenings, annual medical exams, family planning counseling, smoking cessation, etc.)"
+  },
+  {
+   "code": "02",
+   "description": "Follow-up Consultation"
+  },
+  {
+   "code": "03",
+   "description": "Antenatal, Gynecological or Post-Natal Consultation"
+  },
+  {
+   "code": "04",
+   "description": "For Consultation (with specific health concern)"
+  }
+ ],
+ "Visual Acuity Chart": [
+  {
+   "code": "01",
+   "description": "Snellen Chart"
+  },
+  {
+   "code": "02",
+   "description": "Near Vision Chart (Jaeger Chart)"
+  }
+ ],
+ "Specific Diagnosis": [
+  {
+   "code": "01",
+   "description": "Hypertension"
+  },
+  {
+   "code": "02",
+   "description": "Diabetes Mellitus"
+  },
+  {
+   "code": "03",
+   "description": "Pulmonary Tuberculosis"
+  }
+ ],
+ "PE HEENT": [
+  {
+   "code": "11",
+   "description": "Essentially Normal"
+  },
+  {
+   "code": "12",
+   "description": "Abnormal pupillary reaction"
+  },
+  {
+   "code": "13",
+   "description": "Cervical lymphadenopathy"
+  },
+  {
+   "code": "14",
+   "description": "Dry mucous membrane"
+  },
+  {
+   "code": "15",
+   "description": "Icteric sclerae"
+  },
+  {
+   "code": "16",
+   "description": "Pale conjunctivae"
+  },
+  {
+   "code": "17",
+   "description": "Sunken eyeballs"
+  },
+  {
+   "code": "18",
+   "description": "Sunken fontanelle"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "PE Chest Breast Lungs": [
+  {
+   "code": "3",
+   "description": "Retractions"
+  },
+  {
+   "code": "4",
+   "description": "Crackles/rales"
+  },
+  {
+   "code": "5",
+   "description": "Wheezes"
+  },
+  {
+   "code": "6",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "7",
+   "description": "Asymmetrical chest expansion"
+  },
+  {
+   "code": "8",
+   "description": "Decreased breath sounds"
+  },
+  {
+   "code": "10",
+   "description": "Lumps over breast(s)"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  },
+  {
+   "code": "11",
+   "description": "Breast mass"
+  },
+  {
+   "code": "12",
+   "description": "Breast or nipple pain"
+  },
+  {
+   "code": "13",
+   "description": "Nipple discharge"
+  },
+  {
+   "code": "14",
+   "description": "Changes in size, shape, or appearance of breasts"
+  },
+  {
+   "code": "15",
+   "description": "Lumps or swelling in the armpit/axilla or near collarbone"
+  }
+ ],
+ "PE Heart": [
+  {
+   "code": "3",
+   "description": "Heaves/thrills"
+  },
+  {
+   "code": "4",
+   "description": "Murmurs"
+  },
+  {
+   "code": "5",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "6",
+   "description": "Displaced apex beat"
+  },
+  {
+   "code": "7",
+   "description": "Irregular rhythm"
+  },
+  {
+   "code": "8",
+   "description": "Muffled heart sounds"
+  },
+  {
+   "code": "9",
+   "description": "Pericardial bulge"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "PE Abdomen": [
+  {
+   "code": "7",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "8",
+   "description": "Abdominal rigidity"
+  },
+  {
+   "code": "9",
+   "description": "Abdominal tenderness"
+  },
+  {
+   "code": "10",
+   "description": "Hyperactive bowel sounds"
+  },
+  {
+   "code": "11",
+   "description": "Palpable mass(es)"
+  },
+  {
+   "code": "12",
+   "description": "Tympanitic/dull abdomen"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "PE Skin Extremities": [
+  {
+   "code": "1",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "2",
+   "description": "Clubbing"
+  },
+  {
+   "code": "3",
+   "description": "Cold clammy skin"
+  },
+  {
+   "code": "4",
+   "description": "Cyanosis/mottled skin"
+  },
+  {
+   "code": "5",
+   "description": "Edema/swelling"
+  },
+  {
+   "code": "6",
+   "description": "Decreased mobility"
+  },
+  {
+   "code": "7",
+   "description": "Pale nailbeds"
+  },
+  {
+   "code": "8",
+   "description": "Poor skin turgor"
+  },
+  {
+   "code": "9",
+   "description": "Rashes/Petechiae"
+  },
+  {
+   "code": "10",
+   "description": "Weak pulses"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "PE Genitourinary": [
+  {
+   "code": "1",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "2",
+   "description": "Blood stained in exam finger"
+  },
+  {
+   "code": "4",
+   "description": "Presence of abnormal discharge"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  },
+  {
+   "code": "3",
+   "description": "Cervical dilatation"
+  },
+  {
+   "code": "5",
+   "description": "Pelvic Examination (see remarks)"
+  }
+ ],
+ "PE Digital Rectal Exam": [
+  {
+   "code": "1",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "PE Neurological": [
+  {
+   "code": "6",
+   "description": "Essentially normal"
+  },
+  {
+   "code": "7",
+   "description": "Abnormal gait"
+  },
+  {
+   "code": "8",
+   "description": "Abnormal position sense"
+  },
+  {
+   "code": "9",
+   "description": "Abnormal sensation"
+  },
+  {
+   "code": "10",
+   "description": "Abnormal reflex(es)"
+  },
+  {
+   "code": "11",
+   "description": "Poor/altered memory"
+  },
+  {
+   "code": "12",
+   "description": "Poor muscle tone/strength"
+  },
+  {
+   "code": "13",
+   "description": "Poor coordination"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  }
+ ],
+ "Counseling Health Education": [
+  {
+   "code": "5",
+   "description": "Healthy Diet and Proper Nutrition Counselling"
+  },
+  {
+   "code": "6",
+   "description": "Weight Management Counselling"
+  },
+  {
+   "code": "7",
+   "description": "Physical Activity and Exercise Counselling"
+  },
+  {
+   "code": "8",
+   "description": "Healthy Sleep Habits Counselling"
+  },
+  {
+   "code": "9",
+   "description": "Alcohol/Tobacco/Vaping/Illicit Substance Cessation Counselling"
+  },
+  {
+   "code": "10",
+   "description": "Screen Time Reduction Counselling"
+  },
+  {
+   "code": "11",
+   "description": "Injury Prevention Counselling"
+  },
+  {
+   "code": "12",
+   "description": "Safe Sexual Practices and Reproductive Health Counselling"
+  },
+  {
+   "code": "13",
+   "description": "Self-Care and Mental Health Advice"
+  },
+  {
+   "code": "14",
+   "description": "Appropriate Health-Seeking Behavior Counselling"
+  },
+  {
+   "code": "15",
+   "description": "Medication Adherence Counselling"
+  },
+  {
+   "code": "16",
+   "description": "Routine Vaccination Counselling/Education"
+  },
+  {
+   "code": "17",
+   "description": "Personal hygiene and dental care"
+  }
+ ],
+ "Diagnostic Examination": [
+  {
+   "code": "1",
+   "description": "CBC with platelet count only"
+  },
+  {
+   "code": "2",
+   "description": "Urinalysis"
+  },
+  {
+   "code": "3",
+   "description": "Fecalysis"
+  },
+  {
+   "code": "4",
+   "description": "Chest X-Ray"
+  },
+  {
+   "code": "5",
+   "description": "Sputum Smear Microscopy"
+  },
+  {
+   "code": "6",
+   "description": "Lipid Profile"
+  },
+  {
+   "code": "7",
+   "description": "Fasting Blood Sugar (FBS)"
+  },
+  {
+   "code": "8",
+   "description": "Serum Creatinine"
+  },
+  {
+   "code": "9",
+   "description": "12-Lead ECG"
+  },
+  {
+   "code": "13",
+   "description": "Pap Smear Cytology (Cervical)"
+  },
+  {
+   "code": "14",
+   "description": "Oral Glucose Tolerance Test (OGTT)"
+  },
+  {
+   "code": "15",
+   "description": "Fecal Occult Blood Test (FOBT)"
+  },
+  {
+   "code": "18",
+   "description": "HbA1C"
+  },
+  {
+   "code": "24",
+   "description": "HIV Rapid Diagnostic Test"
+  },
+  {
+   "code": "25",
+   "description": "Hepatitis B Surface Antigen (HBsAg) Test"
+  },
+  {
+   "code": "28",
+   "description": "Rapid Blood Test using Filariasis Test Strip"
+  },
+  {
+   "code": "30",
+   "description": "Urine HCG Pregnancy Test"
+  },
+  {
+   "code": "31",
+   "description": "Visual Inspection with Acetic Acid (VIA)"
+  },
+  {
+   "code": "35",
+   "description": "Colonoscopy"
+  },
+  {
+   "code": "39",
+   "description": "Alpha Fetoprotein (AFP)"
+  },
+  {
+   "code": "42",
+   "description": "Urinary Albumin and Urinary Creatinine"
+  },
+  {
+   "code": "43",
+   "description": "Rapid Plasma Reagin (RPR)"
+  },
+  {
+   "code": "44",
+   "description": "VDRL (Venereal Disease Research Laboratory)"
+  },
+  {
+   "code": "45",
+   "description": "Blood Smear Microscopy for Malaria"
+  },
+  {
+   "code": "46",
+   "description": "Blood Smear Microscopy for Filariasis"
+  },
+  {
+   "code": "47",
+   "description": "Fecalysis using Kato-Katz Technique"
+  },
+  {
+   "code": "48",
+   "description": "Alanine Aminotransferase (ALT)/SGPT"
+  },
+  {
+   "code": "49",
+   "description": "Aspartate Aminotransferase (AST)/SGOT"
+  },
+  {
+   "code": "50",
+   "description": "Low Dose Chest CT Scan"
+  },
+  {
+   "code": "52",
+   "description": "Spirometry"
+  },
+  {
+   "code": "53",
+   "description": "Alkaline Phosphatase (ALP)"
+  },
+  {
+   "code": "54",
+   "description": "Serum Albumin"
+  },
+  {
+   "code": "55",
+   "description": "Serum Electrolytes (Sodium, Potassium, Chloride, Calcium, Phosphorus)"
+  },
+  {
+   "code": "99",
+   "description": "Others"
+  },
+  {
+   "code": "0",
+   "description": "Not Applicable"
+  }
+ ],
+ "Diagnostic Services Option": [
+  {
+   "code": "N",
+   "description": "No"
+  },
+  {
+   "code": "Y",
+   "description": "Yes (proceed to the Diagnostic Request Form, Annex C)"
+  },
+  {
+   "code": "R",
+   "description": "Yes, with diagnostic results (proceed to the Diagnostic Results Form, Annex D)"
+  }
+ ],
+ "Routine Immunization Status": [
+  {
+   "code": "01",
+   "description": "Complete for Age"
+  },
+  {
+   "code": "02",
+   "description": "Incomplete vaccination"
+  },
+  {
+   "code": "03",
+   "description": "Needs catch-up for vaccination"
+  },
+  {
+   "code": "04",
+   "description": "Unrecalled vaccination"
+  }
+ ],
+ "Vaccine": [
+  {
+   "code": "01",
+   "description": "BCG"
+  },
+  {
+   "code": "02",
+   "description": "Hepatitis B Vaccine"
+  },
+  {
+   "code": "03",
+   "description": "Pentavalent vaccine (DPT-HiB-Hep B)"
+  },
+  {
+   "code": "04",
+   "description": "Inactivated Polio Vaccine"
+  },
+  {
+   "code": "05",
+   "description": "Oral Polio Vaccine"
+  },
+  {
+   "code": "06",
+   "description": "Measles Mumps Rubella Vaccine (MMR)"
+  },
+  {
+   "code": "07",
+   "description": "Pneumococcal Conjugate Vaccine (PCV)"
+  },
+  {
+   "code": "08",
+   "description": "Rotavirus"
+  },
+  {
+   "code": "09",
+   "description": "Inactivated Influenza Vaccine"
+  },
+  {
+   "code": "10",
+   "description": "Hepatitis A Vaccine"
+  },
+  {
+   "code": "11",
+   "description": "Varicella"
+  },
+  {
+   "code": "12",
+   "description": "Typhoid"
+  },
+  {
+   "code": "13",
+   "description": "Japanese Encephalitis"
+  },
+  {
+   "code": "14",
+   "description": "Meningococcal"
+  },
+  {
+   "code": "15",
+   "description": "Measles-Rubella and Tetanus diphtheria (Mr-Td) or Measles only"
+  },
+  {
+   "code": "16",
+   "description": "Human Papillomavirus (HPV)"
+  },
+  {
+   "code": "17",
+   "description": "COVID-19 vaccine"
+  },
+  {
+   "code": "99",
+   "description": "Others (specify in vaccine_other_spec)"
+  }
+ ],
+ "Vaccination Status": [
+  {
+   "code": "01",
+   "description": "Complete"
+  },
+  {
+   "code": "02",
+   "description": "Incomplete"
+  },
+  {
+   "code": "03",
+   "description": "Not Given"
+  },
+  {
+   "code": "04",
+   "description": "Unrecalled"
+  }
+ ],
+ "Milestone Visit Age": [
+  {
+   "code": "01",
+   "description": "4-month"
+  },
+  {
+   "code": "02",
+   "description": "6-month"
+  },
+  {
+   "code": "03",
+   "description": "9-month"
+  },
+  {
+   "code": "04",
+   "description": "12-month"
+  },
+  {
+   "code": "05",
+   "description": "15-month"
+  },
+  {
+   "code": "06",
+   "description": "18-month"
+  },
+  {
+   "code": "07",
+   "description": "2-year"
+  },
+  {
+   "code": "08",
+   "description": "2.5-year"
+  },
+  {
+   "code": "09",
+   "description": "Yearly visit (up to 5 years old)"
+  }
+ ],
+ "Developmental Danger Sign": [
+  {
+   "code": "GM01",
+   "description": "6-month: Does not pull up to sit"
+  },
+  {
+   "code": "GM02",
+   "description": "6-month: Does not roll over"
+  },
+  {
+   "code": "GM03",
+   "description": "9-month: Does not sit without support"
+  },
+  {
+   "code": "GM04",
+   "description": "12-month: Does not stand while holding on"
+  },
+  {
+   "code": "GM05",
+   "description": "15-month: Not walking"
+  },
+  {
+   "code": "GM06",
+   "description": "2-year: Not climbing up or down the stairs"
+  },
+  {
+   "code": "GM07",
+   "description": "2.5-year: Not jumping with both feet"
+  },
+  {
+   "code": "GM08",
+   "description": "Yearly (3 years): Unable to stand on one foot momentarily"
+  },
+  {
+   "code": "GM09",
+   "description": "Yearly (4 years): Not hopping"
+  },
+  {
+   "code": "FM01",
+   "description": "4-month: Persistence of grasp reflex"
+  },
+  {
+   "code": "FM02",
+   "description": "6-month: Unable to hold a rattle"
+  },
+  {
+   "code": "FM03",
+   "description": "9-month: Unable to hold an object in each hand"
+  },
+  {
+   "code": "FM04",
+   "description": "12-month: Absence of pincer grasp"
+  },
+  {
+   "code": "FM05",
+   "description": "15-month: Unable to put in or take out"
+  },
+  {
+   "code": "FM06",
+   "description": "2-year: Unable to remove socks or gloves alone"
+  },
+  {
+   "code": "FM07",
+   "description": "2-year: Unable to stack five blocks, not scribbling"
+  },
+  {
+   "code": "FM08",
+   "description": "2.5-year: Not turning a single page of a book"
+  },
+  {
+   "code": "FM09",
+   "description": "Yearly (3 years): Unable to stack eight blocks or draw a straight line"
+  },
+  {
+   "code": "FM10",
+   "description": "Yearly (4 years): Unable to stack ten blocks or copy a circle"
+  },
+  {
+   "code": "FM11",
+   "description": "Yearly (4.5 years): Unable to copy a square"
+  },
+  {
+   "code": "LG01",
+   "description": "6-month: Not babbling"
+  },
+  {
+   "code": "LG02",
+   "description": "9-month: Not saying \"da\" or \"ba\""
+  },
+  {
+   "code": "LG03",
+   "description": "12-month: Not saying \"dada\" or \"baba\""
+  },
+  {
+   "code": "LG04",
+   "description": "18-month: Has less than three words with meaning"
+  },
+  {
+   "code": "LG05",
+   "description": "18-month: Unable to achieve shared attention"
+  },
+  {
+   "code": "LG06",
+   "description": "2-year: No two-word phrases or repetition of phrases"
+  },
+  {
+   "code": "LG07",
+   "description": "2.5-year: Not using at least one personal pronoun"
+  },
+  {
+   "code": "LG08",
+   "description": "Yearly (3 years): Speech only half understandable"
+  },
+  {
+   "code": "LG09",
+   "description": "Yearly (4 years): Does not understand prepositions"
+  },
+  {
+   "code": "CG01",
+   "description": "4-month: Not alert to mother with special interest"
+  },
+  {
+   "code": "CG02",
+   "description": "6-month: Not searching for dropped object"
+  },
+  {
+   "code": "CG03",
+   "description": "9-month: No interest in peek-a-boo"
+  },
+  {
+   "code": "CG04",
+   "description": "12-month: Does not search for hidden objects"
+  },
+  {
+   "code": "CG05",
+   "description": "15-month: No interest in cause-and-effect games"
+  },
+  {
+   "code": "CG06",
+   "description": "2-year: Does not categorize similarities"
+  },
+  {
+   "code": "CG07",
+   "description": "Yearly (3 years): Does not know own full name"
+  },
+  {
+   "code": "CG08",
+   "description": "Yearly (4 years): Cannot pick shorter or longer of two lines"
+  },
+  {
+   "code": "CG09",
+   "description": "Yearly (4.5 years): Cannot count sequentially"
+  },
+  {
+   "code": "PS01",
+   "description": "4-month: Not smiling"
+  },
+  {
+   "code": "PS02",
+   "description": "6-month: Not laughing in playful situations"
+  },
+  {
+   "code": "PS03",
+   "description": "12-month: Hard to console, stiffens when approached"
+  },
+  {
+   "code": "PS04",
+   "description": "2-year: Kicks, bites, and screams easily and without provocation"
+  },
+  {
+   "code": "PS05",
+   "description": "2-year: Rocks back and forth in crib"
+  },
+  {
+   "code": "PS06",
+   "description": "2-year: No eye contact or engagement with other children"
+  },
+  {
+   "code": "PS07",
+   "description": "Yearly: In constant motion"
+  },
+  {
+   "code": "PS08",
+   "description": "Yearly: Resists discipline"
+  },
+  {
+   "code": "PS09",
+   "description": "Yearly: Does not play with other children"
+  }
+ ],
+ "SMR Assessment Result": [
+  {
+   "code": "01",
+   "description": "At par with age"
+  },
+  {
+   "code": "02",
+   "description": "Delayed puberty (more than 12 years old)"
+  },
+  {
+   "code": "03",
+   "description": "Early puberty"
+  }
+ ],
+ "HEADSSS Education Employment": [
+  {
+   "code": "01",
+   "description": "Estudyante o nag-aaral (student)"
+  },
+  {
+   "code": "02",
+   "description": "Nagtratrabaho (working)"
+  },
+  {
+   "code": "03",
+   "description": "Hindi nag-aaral o hindi nagtratrabaho (not studying and not working)"
+  }
+ ],
+ "HEADSSS Relationship Status": [
+  {
+   "code": "01",
+   "description": "Walang asawa, walang karelasyon (no spouse, no partner)"
+  },
+  {
+   "code": "02",
+   "description": "May kinakasama o live-in (living with a partner)"
+  },
+  {
+   "code": "03",
+   "description": "May asawa o kasal (married)"
+  }
+ ],
+ "HEADSSS Living Arrangement": [
+  {
+   "code": "01",
+   "description": "Naninirahan kasama ang mga magulang (living with parents)"
+  },
+  {
+   "code": "02",
+   "description": "Iba pang kasamahan sa bahay bukod sa magulang (other household members aside from parents; specify in rh_living_arrangement_other_spec)"
+  },
+  {
+   "code": "03",
+   "description": "Naninirahan mag-isa (living alone)"
+  }
+ ],
+ "HEADSSS Guide Question": [
+  {
+   "code": "HM01",
+   "description": "With whom do you live? Describe your home situation."
+  },
+  {
+   "code": "HM02",
+   "description": "Are there any problems within your family that directly or indirectly concerns you?"
+  },
+  {
+   "code": "ED01",
+   "description": "How are things for you at school/work? Are you having failures or problems?"
+  },
+  {
+   "code": "ED02",
+   "description": "How is your relationship with teachers, fellow classmates or employees?"
+  },
+  {
+   "code": "ET01",
+   "description": "On a normal day, how many meals do you have? What do you eat?"
+  },
+  {
+   "code": "ET02",
+   "description": "Has somebody pointed out that you have gained weight or lost weight?"
+  },
+  {
+   "code": "AC01",
+   "description": "What do you do in your free time? Whom do you spend your time with?"
+  },
+  {
+   "code": "AC02",
+   "description": "Do you participate in sports activities in school or community or exercise regularly?"
+  },
+  {
+   "code": "DR01",
+   "description": "Have you ever used tobacco/vape? Alcohol? Other substances?"
+  },
+  {
+   "code": "DR02",
+   "description": "If YES, are you using them currently? How much? How heavily?"
+  },
+  {
+   "code": "SX01",
+   "description": "Have you ever had sex, if yes, are you sexually active now?"
+  },
+  {
+   "code": "SX02",
+   "description": "Do you protect yourself from infection or becoming pregnant or getting someone pregnant? Were you forced to have sex?"
+  },
+  {
+   "code": "SD01",
+   "description": "Are you stressed? Sad or depressed in any way? Feeling anxious"
+  },
+  {
+   "code": "SD02",
+   "description": "Have you ever thought of hurting yourself or ending your life?"
+  },
+  {
+   "code": "SF01",
+   "description": "Do you feel safe at home? At work? At school? In your neighborhood?"
+  },
+  {
+   "code": "SF02",
+   "description": "Do you wear a seatbelt when riding a car? A helmet when riding a motorbike?"
+  }
+ ],
+ "HEADSSS Red Flag": [
+  {
+   "code": "HM00",
+   "description": "None"
+  },
+  {
+   "code": "HM01",
+   "description": "Conflicted/negative relationship with parent(s)/guardian"
+  },
+  {
+   "code": "HM02",
+   "description": "Absent or excessive rules or supervision"
+  },
+  {
+   "code": "HM03",
+   "description": "Poor communication"
+  },
+  {
+   "code": "HM04",
+   "description": "Caring adults cannot be identified"
+  },
+  {
+   "code": "HM05",
+   "description": "Uncomfortable asking parent(s)/guardian(s) for help"
+  },
+  {
+   "code": "HM06",
+   "description": "No access to potable water and/or no comfort room"
+  },
+  {
+   "code": "HM07",
+   "description": "Exposure to hazardous chemicals or wastes"
+  },
+  {
+   "code": "HM08",
+   "description": "Exposure to dangerous weapons"
+  },
+  {
+   "code": "ED00",
+   "description": "None"
+  },
+  {
+   "code": "ED01",
+   "description": "Belief that school is boring, useless, and/or unsafe"
+  },
+  {
+   "code": "ED02",
+   "description": "Isolated, disengaged, or discriminated in school"
+  },
+  {
+   "code": "ED03",
+   "description": "Belief that teachers and school mistreat him/her"
+  },
+  {
+   "code": "ED04",
+   "description": "Low or extremely high academic expectations from parent(s)/guardian(s)"
+  },
+  {
+   "code": "ED05",
+   "description": "Poor school performance/attendance/grades"
+  },
+  {
+   "code": "ED06",
+   "description": "Education is not seen as part of her/his future life"
+  },
+  {
+   "code": "ED07",
+   "description": "20 hours or more per week of work"
+  },
+  {
+   "code": "ET00",
+   "description": "None"
+  },
+  {
+   "code": "ET01",
+   "description": "Extreme dissatisfaction with appearance or weight"
+  },
+  {
+   "code": "ET02",
+   "description": "Inadequate nutrition (High Sugar, High Fat/high salt, and/or Low fiber)"
+  },
+  {
+   "code": "ET03",
+   "description": "Inadequate sleep"
+  },
+  {
+   "code": "ET04",
+   "description": "Excessive preoccupation with diet"
+  },
+  {
+   "code": "AC00",
+   "description": "None"
+  },
+  {
+   "code": "AC01",
+   "description": "Sedentary (does not achieve at least 30 min/day for 5 days a week (2.5 hours per week))"
+  },
+  {
+   "code": "AC02",
+   "description": "Lack of supervision in school or after school"
+  },
+  {
+   "code": "AC03",
+   "description": "Engaged in risky and/or harmful behaviors"
+  },
+  {
+   "code": "AC04",
+   "description": "Isolated or disconnected from peers/community/family"
+  },
+  {
+   "code": "AC05",
+   "description": "Overscheduled and without down time"
+  },
+  {
+   "code": "AC06",
+   "description": "Inadequate sleep"
+  },
+  {
+   "code": "DR00",
+   "description": "None"
+  },
+  {
+   "code": "DR01",
+   "description": "Substance use by peers"
+  },
+  {
+   "code": "DR02",
+   "description": "Substance use by parent(s)/family member(s)/guardian(s)"
+  },
+  {
+   "code": "DR03",
+   "description": "Early, intense, and/or consistent substance involvement"
+  },
+  {
+   "code": "DR04",
+   "description": "History of recreational drug intake"
+  },
+  {
+   "code": "DR05",
+   "description": "Current recreational drug user"
+  },
+  {
+   "code": "DR06",
+   "description": "Current smoker and/or Vape user"
+  },
+  {
+   "code": "DR07",
+   "description": "Alcohol Binge Drinker"
+  },
+  {
+   "code": "SX00",
+   "description": "None"
+  },
+  {
+   "code": "SX01",
+   "description": "Early coitarche or sexual activity"
+  },
+  {
+   "code": "SX02",
+   "description": "History of pregnancy/gotten someone pregnant"
+  },
+  {
+   "code": "SX03",
+   "description": "History of STDs"
+  },
+  {
+   "code": "SX04",
+   "description": "History of sexual assault or abuse"
+  },
+  {
+   "code": "SX05",
+   "description": "Sex and/or mouth-to-genital contact w/o condom"
+  },
+  {
+   "code": "SX06",
+   "description": "Having anal sex or a partner who does"
+  },
+  {
+   "code": "SX07",
+   "description": "Multiple sexual partner"
+  },
+  {
+   "code": "SX08",
+   "description": "High-risk sexual partner (injects drugs, among others)"
+  },
+  {
+   "code": "SX09",
+   "description": "Sex worker or job w/ high risk for STDS"
+  },
+  {
+   "code": "SD00",
+   "description": "None"
+  },
+  {
+   "code": "SD01",
+   "description": "Current depression/isolation/disengagement"
+  },
+  {
+   "code": "SD02",
+   "description": "Current suicidal ideation"
+  },
+  {
+   "code": "SD03",
+   "description": "History of suicide attempt and/or major trauma"
+  },
+  {
+   "code": "SD04",
+   "description": "Family member who committed suicide"
+  },
+  {
+   "code": "SD05",
+   "description": "Unreasonable expectations from self/others"
+  },
+  {
+   "code": "SD06",
+   "description": "Intimate partner or gender-based violence"
+  },
+  {
+   "code": "SD07",
+   "description": "Maltreatment or Neglect"
+  },
+  {
+   "code": "SD08",
+   "description": "Symptoms of Depression"
+  },
+  {
+   "code": "SD09",
+   "description": "Symptoms of Anxiety"
+  },
+  {
+   "code": "SF00",
+   "description": "None"
+  },
+  {
+   "code": "SF01",
+   "description": "No consistent seat belt and protective gear usage"
+  },
+  {
+   "code": "SF02",
+   "description": "Easy access to weapons or carrying weapons"
+  },
+  {
+   "code": "SF03",
+   "description": "Victimization through family, intimate partner, gang"
+  },
+  {
+   "code": "SF04",
+   "description": "Victimization through school violence/bullying"
+  },
+  {
+   "code": "SF05",
+   "description": "Violence present at workplace, not feeling safe at workplace"
+  },
+  {
+   "code": "SF06",
+   "description": "Violence present at the neighborhood, not feeling safe in the neighborhood"
+  }
+ ],
+ "BP Measurement Location": [
+  {
+   "code": "01",
+   "description": "Clinic-based Measurement"
+  },
+  {
+   "code": "02",
+   "description": "Home-based Measurement"
+  }
+ ],
+ "Recommendation Consent": [
+  {
+   "code": "Y",
+   "description": "Yes"
+  },
+  {
+   "code": "N",
+   "description": "No"
+  },
+  {
+   "code": "R",
+   "description": "Refused"
+  }
+ ],
+ "Diagnostic Test Status": [
+  {
+   "code": "01",
+   "description": "Done"
+  },
+  {
+   "code": "02",
+   "description": "Not yet done"
+  },
+  {
+   "code": "03",
+   "description": "Deferred"
+  },
+  {
+   "code": "04",
+   "description": "Waived"
+  }
+ ],
+ "Diagnostic Test Location": [
+  {
+   "code": "01",
+   "description": "Done within the facility"
+  },
+  {
+   "code": "02",
+   "description": "Done outside the facility"
+  }
+ ],
+ "Qualitative Test Result": [
+  {
+   "code": "01",
+   "description": "Negative or Non-Reactive"
+  },
+  {
+   "code": "02",
+   "description": "Positive or Reactive"
+  },
+  {
+   "code": "03",
+   "description": "Invalid or indeterminate"
+  }
+ ],
+ "Microscopy Finding": [
+  {
+   "code": "01",
+   "description": "Negative or Not Detected"
+  },
+  {
+   "code": "02",
+   "description": "With Findings (specify in the findings field)"
+  }
+ ],
+ "Malaria Smear Result": [
+  {
+   "code": "01",
+   "description": "No malarial parasites detected"
+  },
+  {
+   "code": "02",
+   "description": "Positive for Plasmodium falciparum parasites"
+  },
+  {
+   "code": "03",
+   "description": "Positive for Plasmodium vivax parasites"
+  },
+  {
+   "code": "04",
+   "description": "Positive for other Plasmodium sp. parasites"
+  }
+ ],
+ "Kato-Katz Result": [
+  {
+   "code": "01",
+   "description": "Normal test result or no parasites seen"
+  },
+  {
+   "code": "02",
+   "description": "Ascaris lumbricoides (EPG)"
+  },
+  {
+   "code": "03",
+   "description": "Schistosoma mansoni (EPG)"
+  },
+  {
+   "code": "04",
+   "description": "Hookworm (EPG)"
+  },
+  {
+   "code": "05",
+   "description": "Trichuris trichiura (EPG)"
+  }
+ ],
+ "Kato-Katz Intensity": [
+  {
+   "code": "01",
+   "description": "Light"
+  },
+  {
+   "code": "02",
+   "description": "Moderate"
+  },
+  {
+   "code": "03",
+   "description": "Heavy"
+  },
+  {
+   "code": "04",
+   "description": "Not Applicable"
+  }
+ ],
+ "Medicine Drug Grouping": [
+  {
+   "code": "NCD",
+   "description": "Non-communicable disease medicine"
+  },
+  {
+   "code": "ANTIBIOTIC",
+   "description": "Antibiotic"
+  },
+  {
+   "code": "OTHERS",
+   "description": "Others"
+  }
+ ],
+ "Referral Type": [
+  {
+   "code": "01",
+   "description": "Refer to specialist"
+  },
+  {
+   "code": "02",
+   "description": "Refer to other primary care services"
+  },
+  {
+   "code": "03",
+   "description": "Refer to facility or service"
+  },
+  {
+   "code": "04",
+   "description": "Refer to Drug Abuse Treatment and Rehabilitation Center (DATRC)"
+  },
+  {
+   "code": "05",
+   "description": "Refer to Mental Health Gap Action Programme (mhGAP)-trained personnel"
+  },
+  {
+   "code": "06",
+   "description": "Refer to Developmental Pediatrician (for pediatric patients)"
+  },
+  {
+   "code": "07",
+   "description": "Refer to SPED or Special Needs Education (for pediatric school-age patients)"
+  },
+  {
+   "code": "08",
+   "description": "Refer to VAWC desk"
+  },
+  {
+   "code": "99",
+   "description": "Others (specify in referral_others_spec)"
+  }
+ ],
+ "Referral Primary Care Service": [
+  {
+   "code": "01",
+   "description": "Cancer Screening"
+  },
+  {
+   "code": "02",
+   "description": "Optometry Services"
+  },
+  {
+   "code": "03",
+   "description": "Dental Services"
+  }
+ ],
+ "Referral Facility Service": [
+  {
+   "code": "01",
+   "description": "Emergency Care or Services"
+  },
+  {
+   "code": "02",
+   "description": "TB DOTS Center"
+  },
+  {
+   "code": "03",
+   "description": "Animal Bite Center"
+  },
+  {
+   "code": "04",
+   "description": "Severe Acute Malnutrition Treatment Facility"
+  },
+  {
+   "code": "05",
+   "description": "Mental Health Facility"
+  },
+  {
+   "code": "06",
+   "description": "Physical Therapy and Rehabilitation Centers"
+  }
+ ],
+ "Religion": [
+  {
+   "code": "0",
+   "description": "None"
+  },
+  {
+   "code": "1",
+   "description": "Aglipay"
+  },
+  {
+   "code": "2",
+   "description": "Alliance of Bible Christian Communities of the Philippines"
+  },
+  {
+   "code": "3",
+   "description": "Assemblies of God"
+  },
+  {
+   "code": "4",
+   "description": "Association of Baptist Churches in Luzon, Visayas, and Mindanao"
+  },
+  {
+   "code": "5",
+   "description": "Association of Fundamental Baptist Churches in the Philippines"
+  },
+  {
+   "code": "6",
+   "description": "Baptist Conference of the Philippines"
+  },
+  {
+   "code": "7",
+   "description": "Bible Baptist Church"
+  },
+  {
+   "code": "8",
+   "description": "Bread of Life Ministries"
+  },
+  {
+   "code": "9",
+   "description": "Buddhist"
+  },
+  {
+   "code": "10",
+   "description": "Cathedral of Praise, Incorporated"
+  },
+  {
+   "code": "11",
+   "description": "Charismatic Full Gospel Ministries"
+  },
+  {
+   "code": "12",
+   "description": "Christ the Living Stone Fellowship"
+  },
+  {
+   "code": "13",
+   "description": "Christian and Missionary Alliance Church of the Philippines"
+  },
+  {
+   "code": "14",
+   "description": "Christian Missions in the Philippines"
+  },
+  {
+   "code": "15",
+   "description": "Church of Christ"
+  },
+  {
+   "code": "16",
+   "description": "Church of God World Mission in the Philippines"
+  },
+  {
+   "code": "17",
+   "description": "Church of Jesus Christ of the Latter Day Saints"
+  },
+  {
+   "code": "18",
+   "description": "Church of the Nazarene"
+  },
+  {
+   "code": "19",
+   "description": "Christian Reformed Church in the Philippines, Incorporated"
+  },
+  {
+   "code": "20",
+   "description": "Conservative of the Philippine Baptist Church"
+  },
+  {
+   "code": "21",
+   "description": "Convention of the Philippine Baptist Church"
+  },
+  {
+   "code": "22",
+   "description": "Crusaders of the Divine Church of Christ, Incorporated"
+  },
+  {
+   "code": "23",
+   "description": "Door of Faith"
+  },
+  {
+   "code": "24",
+   "description": "Evangelical Christian Outreach Foundation"
+  },
+  {
+   "code": "25",
+   "description": "Evangelical Free Church of the Philippines"
+  },
+  {
+   "code": "26",
+   "description": "Evangelical Presbyterian Church"
+  },
+  {
+   "code": "27",
+   "description": "Faith Tabernacle Church (Living Rock Ministries)"
+  },
+  {
+   "code": "28",
+   "description": "Filipino Assemblies of the First Born, Incorporated"
+  },
+  {
+   "code": "29",
+   "description": "Foursquare Gospel Church in the Philippines"
+  },
+  {
+   "code": "30",
+   "description": "Free Believers in Christ Fellowship"
+  },
+  {
+   "code": "31",
+   "description": "Free Methodist Church"
+  },
+  {
+   "code": "32",
+   "description": "Free Mission in the Philippines, Incorporated"
+  },
+  {
+   "code": "33",
+   "description": "General Baptist Churches of the Philippines"
+  },
+  {
+   "code": "34",
+   "description": "Good News Christian Churches"
+  },
+  {
+   "code": "35",
+   "description": "Higher Ground Baptist Mission"
+  },
+  {
+   "code": "36",
+   "description": "IEMELIF Reform Movement"
+  },
+  {
+   "code": "37",
+   "description": "Iglesia Evangelica Unida de Cristo"
+  },
+  {
+   "code": "38",
+   "description": "Iglesia Evangelista Methodista en Las Islas Filipinas (IEMELIF)"
+  },
+  {
+   "code": "39",
+   "description": "Iglesia Filipina Independiente"
+  },
+  {
+   "code": "40",
+   "description": "Iglesia ni Cristo"
+  },
+  {
+   "code": "41",
+   "description": "Iglesia sa Dios Espiritu Santo, Incorporated"
+  },
+  {
+   "code": "42",
+   "description": "Independent Baptist Churches of the Philippines"
+  },
+  {
+   "code": "43",
+   "description": "Independent Baptist Missionary Fellowship"
+  },
+  {
+   "code": "44",
+   "description": "International One Way Outreach"
+  },
+  {
+   "code": "45",
+   "description": "Islam"
+  },
+  {
+   "code": "46",
+   "description": "Jehovah's Witness"
+  },
+  {
+   "code": "47",
+   "description": "Jesus Christ Saves Global Outreach"
+  },
+  {
+   "code": "48",
+   "description": "Jesus is Alive Community, Incorporated"
+  },
+  {
+   "code": "49",
+   "description": "Jesus is Lord Church"
+  },
+  {
+   "code": "50",
+   "description": "Jesus Reigns Ministries"
+  },
+  {
+   "code": "51",
+   "description": "Love of Christ International Ministries"
+  },
+  {
+   "code": "52",
+   "description": "Lutheran Church of the Philippines"
+  },
+  {
+   "code": "53",
+   "description": "Miracle Life Fellowship International"
+  },
+  {
+   "code": "54",
+   "description": "Miracle Revival Church of the Philippines"
+  },
+  {
+   "code": "55",
+   "description": "Missionary Baptist Churches of the Philippines"
+  },
+  {
+   "code": "56",
+   "description": "Pentecostal Church of God Asia Mission"
+  },
+  {
+   "code": "57",
+   "description": "Philippine Benevolent Missionaries Association"
+  },
+  {
+   "code": "58",
+   "description": "Philippine Ecumenical Christian Church"
+  },
+  {
+   "code": "59",
+   "description": "Philippine Episcopal Church"
+  },
+  {
+   "code": "60",
+   "description": "Philippine Evangelical Mission"
+  },
+  {
+   "code": "61",
+   "description": "Philippine General Council of the Assemblies of God"
+  },
+  {
+   "code": "62",
+   "description": "Philippine Good News Ministries"
+  },
+  {
+   "code": "63",
+   "description": "Philippine Grace Gospel"
+  },
+  {
+   "code": "64",
+   "description": "Philippine Independent Catholic Church"
+  },
+  {
+   "code": "65",
+   "description": "Philippine Missionary Fellowship"
+  },
+  {
+   "code": "66",
+   "description": "Philippine Pentecostal Holiness Church"
+  },
+  {
+   "code": "67",
+   "description": "Potter's House Christian Center"
+  },
+  {
+   "code": "68",
+   "description": "Presbyterian Church in the Philippines"
+  },
+  {
+   "code": "69",
+   "description": "Roman Catholic, including Catholic Charismatic"
+  },
+  {
+   "code": "70",
+   "description": "Salvation Army, Philippines"
+  },
+  {
+   "code": "71",
+   "description": "Seventh Day Adventist"
+  },
+  {
+   "code": "72",
+   "description": "Southern Baptist Church"
+  },
+  {
+   "code": "73",
+   "description": "Take the Nation for Jesus Global Ministries (Corpus Christi)"
+  },
+  {
+   "code": "74",
+   "description": "Things to Come"
+  },
+  {
+   "code": "75",
+   "description": "UNIDA Evangelical Church"
+  },
+  {
+   "code": "76",
+   "description": "United Church of Christ in the Philippines"
+  },
+  {
+   "code": "77",
+   "description": "United Evangelical Church of the Philippines (Chinese)"
+  },
+  {
+   "code": "78",
+   "description": "Union Espiritista Cristiana de Filipinas, Incorporated"
+  },
+  {
+   "code": "79",
+   "description": "United Methodists Church"
+  },
+  {
+   "code": "80",
+   "description": "United Pentecostal Church (Philippines), Incorporated"
+  },
+  {
+   "code": "81",
+   "description": "Universal Pentecostal Church"
+  },
+  {
+   "code": "82",
+   "description": "Victory Chapel Christian Fellowship"
+  },
+  {
+   "code": "83",
+   "description": "Watch Tower Bible and Tract Society of the Philippines, Incorporated (Jehovah's Witnesses)"
+  },
+  {
+   "code": "84",
+   "description": "Way of Salvation"
+  },
+  {
+   "code": "85",
+   "description": "Way of Salvation Church Incorporated, The"
+  },
+  {
+   "code": "86",
+   "description": "Wesleyan Church, The"
+  },
+  {
+   "code": "87",
+   "description": "Word for the World"
+  },
+  {
+   "code": "88",
+   "description": "Word International Ministries, Incorporated"
+  },
+  {
+   "code": "89",
+   "description": "World Missionary Evangelism"
+  },
+  {
+   "code": "90",
+   "description": "Worldwide Church of God"
+  },
+  {
+   "code": "91",
+   "description": "Zion Christian Community Church"
+  },
+  {
+   "code": "92",
+   "description": "Other Baptists"
+  },
+  {
+   "code": "93",
+   "description": "Other Evangelical Churches"
+  },
+  {
+   "code": "94",
+   "description": "Other Methodists"
+  },
+  {
+   "code": "95",
+   "description": "Other Protestants"
+  },
+  {
+   "code": "96",
+   "description": "Tribal religions"
+  }
+ ],
+ "Guardian Relationship": [
+  {
+   "code": "MTH",
+   "description": "Mother"
+  },
+  {
+   "code": "FTH",
+   "description": "Father"
+  },
+  {
+   "code": "PAR",
+   "description": "Parent"
+  },
+  {
+   "code": "GRP",
+   "description": "Grandparent"
+  },
+  {
+   "code": "SIB",
+   "description": "Sibling"
+  },
+  {
+   "code": "BRO",
+   "description": "Brother"
+  },
+  {
+   "code": "SIS",
+   "description": "Sister"
+  },
+  {
+   "code": "EXF",
+   "description": "Extended family"
+  },
+  {
+   "code": "SPO",
+   "description": "Spouse"
+  },
+  {
+   "code": "DOM",
+   "description": "Life partner"
+  },
+  {
+   "code": "GRD",
+   "description": "Guardian"
+  },
+  {
+   "code": "CGV",
+   "description": "Care giver"
+  },
+  {
+   "code": "OAD",
+   "description": "Other adult"
+  }
+ ],
+ "Medicine Route": [
+  {
+   "code": "PO",
+   "description": "Oral"
+  },
+  {
+   "code": "SL",
+   "description": "Sublingual"
+  },
+  {
+   "code": "TOP",
+   "description": "Topical"
+  },
+  {
+   "code": "INH",
+   "description": "Inhalation"
+  },
+  {
+   "code": "IV",
+   "description": "Intravenous"
+  },
+  {
+   "code": "IM",
+   "description": "Intramuscular"
+  },
+  {
+   "code": "PR",
+   "description": "Rectal"
+  },
+  {
+   "code": "OPH",
+   "description": "Ophthalmic"
+  },
+  {
+   "code": "OT",
+   "description": "Otic"
+  }
+ ],
+ "Instruction Frequency": [
+  {
+   "code": "OD",
+   "description": "Once daily"
+  },
+  {
+   "code": "BID",
+   "description": "Twice daily"
+  },
+  {
+   "code": "TID",
+   "description": "Three times daily"
+  },
+  {
+   "code": "QID",
+   "description": "Four times daily"
+  },
+  {
+   "code": "Q8H",
+   "description": "Every 8 hours"
+  },
+  {
+   "code": "PRN",
+   "description": "As needed"
+  },
+  {
+   "code": "Q4H",
+   "description": "Every 4 hours"
+  },
+  {
+   "code": "Q6H",
+   "description": "Every 6 hours"
+  },
+  {
+   "code": "Q12H",
+   "description": "Every 12 hours"
+  },
+  {
+   "code": "HS",
+   "description": "At bedtime"
+  },
+  {
+   "code": "STAT",
+   "description": "Immediately, once"
+  }
+ ],
+ "PCU Verification Status": [
+  {
+   "code": "VERIFIED",
+   "description": "The patient successfully completed PhilSys and PhilHealth verification through PCU."
+  },
+  {
+   "code": "UNVERIFIED",
+   "description": "No PCU verification record or attempt was found for the patient."
+  },
+  {
+   "code": "FAILED",
+   "description": "The patient attempted PCU verification but has not successfully completed it."
+  }
+ ],
+ "Verification Code Status": [
+  {
+   "code": "VALID",
+   "description": "The submitted verification code is valid and has passed validation."
+  },
+  {
+   "code": "INVALID",
+   "description": "The submitted verification code is incorrect or does not match the expected code."
+  },
+  {
+   "code": "EXPIRED",
+   "description": "The verification code has exceeded its validity period."
+  },
+  {
+   "code": "USED",
+   "description": "The verification code has already been used."
+  }
+ ],
+ "Valid ID Type": [
+  {
+   "code": "01",
+   "description": "PhilSys National ID (PhilID card, ePhilID or Digital National ID)"
+  },
+  {
+   "code": "02",
+   "description": "Philippine Passport or ePassport"
+  },
+  {
+   "code": "03",
+   "description": "Driver's License or Student Permit (including eDL)"
+  },
+  {
+   "code": "04",
+   "description": "Unified Multi-Purpose ID (UMID)"
+  },
+  {
+   "code": "05",
+   "description": "SSS ID"
+  },
+  {
+   "code": "06",
+   "description": "GSIS eCard or GSIS Digital ID"
+  },
+  {
+   "code": "07",
+   "description": "PRC Professional Identification Card"
+  },
+  {
+   "code": "08",
+   "description": "Postal ID"
+  },
+  {
+   "code": "09",
+   "description": "Voter's ID"
+  },
+  {
+   "code": "10",
+   "description": "Taxpayer Identification Number (TIN) ID (including Digital TIN ID)"
+  },
+  {
+   "code": "11",
+   "description": "PhilHealth ID"
+  },
+  {
+   "code": "12",
+   "description": "Senior Citizen ID"
+  },
+  {
+   "code": "13",
+   "description": "Person with Disability (PWD) ID"
+  },
+  {
+   "code": "14",
+   "description": "OWWA E-Card"
+  },
+  {
+   "code": "15",
+   "description": "Seafarer's Identity Document or Seafarer's Record Book"
+  },
+  {
+   "code": "16",
+   "description": "Integrated Bar of the Philippines (IBP) ID"
+  },
+  {
+   "code": "17",
+   "description": "Solo Parent ID"
+  },
+  {
+   "code": "18",
+   "description": "Pantawid Pamilyang Pilipino Program (4Ps) ID"
+  },
+  {
+   "code": "19",
+   "description": "PVAO Pensioner's ID"
+  },
+  {
+   "code": "20",
+   "description": "NBI Clearance"
+  },
+  {
+   "code": "21",
+   "description": "Police Clearance"
+  },
+  {
+   "code": "22",
+   "description": "Certificate of Indigenous Peoples Membership (CIPM) or Tribal ID"
+  },
+  {
+   "code": "23",
+   "description": "City or Municipal ID"
+  },
+  {
+   "code": "24",
+   "description": "Barangay ID"
+  },
+  {
+   "code": "25",
+   "description": "School ID"
+  },
+  {
+   "code": "26",
+   "description": "Government Employee ID"
+  }
+ ]
+}

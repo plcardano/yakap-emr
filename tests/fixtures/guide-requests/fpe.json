@@ -1,0 +1,181 @@
+{
+  "consent": true,
+  "enlistment": {
+    "case_no": "TH123456782026102300001",
+    "enlist_transaction_no": "EH123456782026102300001",
+    "accre_no": "H12345678",
+    "assignment_status": "1",
+    "patient_type": "MM",
+    "patient_pin": "123456789012",
+    "patient_fname": "MARIA",
+    "patient_mname": "SANTOS",
+    "patient_lname": "DELA CRUZ",
+    "patient_extname": "",
+    "patient_sex": "F",
+    "patient_dob": "07/04/1990",
+    "patient_mobile_no": "09171234567",
+    "patient_alt_mobile_no": "09181234567",
+    "patient_landline_no": "0281234567",
+    "assignment_date": "10/23/2026",
+    "created_by": "emr.user01",
+    "gender": "W",
+    "permanent_address_province_code": "0402100000",
+    "permanent_address_municipality_code": "0402103000",
+    "permanent_address_barangay_code": "0402103012",
+    "permanent_address_other_details": "Blk 5 Lot 12, Mabini St., Purok 3",
+    "religion": "1",
+    "civil_status": "S",
+    "current_address_province_code": "0402100000",
+    "current_address_municipality_code": "0402103000",
+    "current_address_barangay_code": "0402103012",
+    "current_address_other_details": "Blk 5 Lot 12, Mabini St., Purok 3",
+    "occupation": "Teacher",
+    "email_address": "maria.delacruz@example.com",
+    "pwd_id_no": ""
+  },
+  "profile": {
+    "method_of_service_delivery": "F",
+    "patient_verification_mode": "PCU",
+    "pcu_transaction_code": "PCU-LOG-TRANS-NO",
+    "one_time_pin": "",
+    "valid_id_type": "",
+    "valid_id_image": "",
+    "mca_flag": "Y",
+    "co_payment_flag": "Y",
+    "co_payment_date_payment": "10/23/2026",
+    "co_payment": 300,
+    "co_payment_balance": 600,
+    "fpe_classification_type": "1",
+    "profile_transaction_no": "PH123456782026102300001",
+    "fpe_date": "10/23/2026",
+    "fpe_time": "09:30",
+    "patient_age": "36 YR(S), 3 MO(S), 19 DAY(S)"
+  },
+  "medhist": [
+    {
+      "mdisease_code": "001",
+      "mhspecific": {
+        "is_on_dialysis": "Y",
+        "dialysis_type": "Hemodialysis",
+        "dialysis_year_started": "2024",
+        "specific_desc": "Diagnosed 2019, maintained on medication"
+      }
+    }
+  ],
+  "hosphist": [
+    {
+      "previous_hospitalization": "Dengue fever, admitted 4 days",
+      "date_previous_hospitalization": "10/23/2026"
+    }
+  ],
+  "accidenthist": [
+    {
+      "previous_accident_injury": "Fractured left wrist (fall)",
+      "date_previous_accident_injury": "10/23/2026"
+    }
+  ],
+  "surghist": [
+    {
+      "surg_desc": "Appendectomy",
+      "surg_date": "10/23/2026"
+    }
+  ],
+  "allergy": {
+    "food_allergy": "Y - Shrimp",
+    "medication_allergy": "N",
+    "allergy_others": "Dust mites"
+  },
+  "currentmed": {
+    "current_medications": "Y",
+    "current_medication_pndf": "Amlodipine",
+    "current_medication_non_pndf": ""
+  },
+  "immunizationhist": [
+    {
+      "immunization_code": "02"
+    }
+  ],
+  "famhist": [
+    {
+      "mdisease_code": "001"
+    }
+  ],
+  "fhspecific": [
+    {
+      "mdisease_code": "001",
+      "specific_desc": "Diagnosed 2019, maintained on medication"
+    }
+  ],
+  "sochist": {
+    "is_smoker": "Y",
+    "no_cigpk": 2.5,
+    "is_adrinker": "Y",
+    "no_glasses": 2,
+    "ill_drug_user": "Y",
+    "secondhand_smoke_exposure": "P",
+    "cigarette_sticks_per_day": 10,
+    "smoking_years": 5,
+    "vape_current_user": "Y",
+    "vape_former_user": "Y",
+    "alcohol_drinker_subtype": "O",
+    "alcohol_types": "1,2",
+    "alcohol_intake_years": 3,
+    "alcohol_frequency_per_week": 1,
+    "substance_abuse_family_member": "",
+    "dietary_intake_type": "W",
+    "breastfeeding_status": "N",
+    "physical_activity_status": "Y",
+    "fluoride_toothpaste_use": "Y",
+    "dental_checkup_status": "U",
+    "dental_checkup_year": "2025",
+    "neighborhood_communicable_disease": "None",
+    "mental_health_event_code": "02",
+    "other_mental_health_event": ""
+  },
+  "gynehist": {
+    "menarche_flag": "Y",
+    "menarche_period": 12,
+    "last_mens_period_flag": "Y",
+    "last_mens_period": "10/23/2026",
+    "contraceptive_use_status": "02",
+    "contraceptive_method_desired": "01,02",
+    "birth_ctrl_method": "01",
+    "is_menopause": "Y",
+    "gynecological_disease_flag": "Y",
+    "gynecological_disease": "",
+    "gyn_sexually_transmitted_flag": "Y",
+    "gyn_sexually_transmitted_disease": ""
+  },
+  "preghist": {
+    "is_currently_pregnant": "Y",
+    "prenatal_checkup_count": "A",
+    "age_of_gestation": "",
+    "expected_date_of_delivery": "",
+    "is_applicable": "Y",
+    "preg_cnt": 2,
+    "delivery_cnt": 2,
+    "full_term_cnt": 2,
+    "premature_cnt": 0,
+    "abortion_cnt": 0,
+    "liv_children_cnt": 2
+  },
+  "pegensurvey": {
+    "gen_survey_id": "1",
+    "gen_survey_rem": ""
+  },
+  "pepert": {
+    "systolic": 120,
+    "diastolic": 80,
+    "heart_rate": 78,
+    "respiratory_rate": 18,
+    "temperature": 36.6,
+    "height": 160,
+    "weight": 60.5,
+    "bmi": 23.63,
+    "mid_upper_arm_circ": 27
+  },
+  "facilitator": {
+    "facilitator_type": "P",
+    "facilitator_name": "JUAN P. REYES, RN"
+  }
+}
