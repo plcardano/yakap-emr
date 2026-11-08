@@ -279,6 +279,98 @@ describe.runIf(process.env.DATABASE_URL)("Selection and FPE", () => {
     });
   });
 
+  describe("Empanelment", () => {
+    let empanelment: typeof import("@/server/empanelment/service");
+    beforeAll(async () => {
+      empanelment = await import("@/server/empanelment/service");
+    });
+
+    const lookup = (patient_pin: string) => ({
+      patient_pin,
+      eff_year: "",
+      first_name: "",
+      last_name: "",
+      middle_name: "",
+      patient_dob: "",
+      consent: true,
+    });
+    const record = (patient_pin: string, overrides = {}) =>
+      empanelment.recordEmpanelment(actor, {
+        patient_pin,
+        mode: "OTP",
+        consent: true,
+        ...overrides,
+      });
+    const tracker = async (pin: string) => {
+      const result = await empanelment.loadTracker(actor, lookup(pin));
+      if (!result.ok) throw new Error(result.title);
+      return result.data;
+    };
+
+    it("needs consent and a mode", async () => {
+      expect(await record(newPin(), { consent: false, mode: "" })).toMatchObject({
+        ok: false,
+        fieldErrors: { consent: expect.any(String), mode: expect.any(String) },
+      });
+    });
+
+    it("needs verification from today", async () => {
+      expect(await record(newPin())).toMatchObject({
+        ok: false,
+        fieldErrors: { mode: "This verification was not completed today." },
+      });
+    });
+
+    it("is refused without an active selection", async () => {
+      const pin = newPin();
+      await verify(pin);
+      expect(await record(pin)).toMatchObject({
+        ok: false,
+        title: "No active Selection at your clinic",
+      });
+    });
+
+    it("waits for an accepted FPE, then records and reads the status back", async () => {
+      const pin = await assignedPatient();
+      expect(await record(pin)).toMatchObject({ ok: false, title: "No accepted FPE at your clinic" });
+
+      const id = await submitted(pin);
+      expect((await tracker(pin)).fpeUpload).toBe("queued");
+      await settle(id);
+      expect((await tracker(pin)).validator.fpe.status).toBe("Y");
+
+      const result = await record(pin);
+      expect(result).toMatchObject({
+        ok: true,
+        data: {
+          referenceNo: expect.stringMatching(/^MCA/),
+          validator: { empanelment: { status: "Y" } },
+        },
+      });
+
+      expect(await record(pin)).toMatchObject({
+        ok: false,
+        title: "The agreement is already recorded",
+      });
+    });
+
+    it("shows a rejected FPE upload", async () => {
+      const pin = await assignedPatient();
+      await settle(
+        await submitted(pin, (values) => {
+          values.enlistment.patient_lname = "REJECT";
+        }),
+      );
+      expect((await tracker(pin)).fpeUpload).toBe("rejected");
+    });
+
+    it("shows which verification modes are available today", async () => {
+      const pin = newPin();
+      await verify(pin);
+      expect((await tracker(pin)).evidence).toEqual(["OTP"]);
+    });
+  });
+
   it("backs off as the guide says", () => {
     expect([0, 1, 2, 5, 6, 20].map(poller.pollDelaySeconds)).toEqual([2, 4, 8, 60, 60, 60]);
   });

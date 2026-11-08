@@ -40,6 +40,10 @@ export const ISSUE_COPY: Record<string, Copy> = {
   pcu_pin_mismatch: { title: "The PIN differs from the PhilHealth Check", body: "Confirm the patient's identity and run a new check." },
   pcu_result_not_accepted: { title: "This PhilHealth Check did not verify the patient", body: "Run a new PhilHealth Check or use another verification mode." },
   pcu_not_same_day: { title: "The PhilHealth Check was not done today", body: "Run a new PhilHealth Check." },
+  empanelment_already_exists: { title: "The agreement is already recorded", body: "This member already has an agreement with your clinic this year." },
+  no_active_selection: { title: "No active Selection at your clinic", body: "Complete the Selection first." },
+  no_accepted_fpe: { title: "No accepted FPE at your clinic", body: "Upload the FPE and wait until it is accepted." },
+  facility_not_found: { title: "This facility is not a YAKAP Clinic", body: "Contact your administrator." },
   // Uploads and Masterlist
   transaction_already_exists: { title: "This record already exists with different content", body: "It cannot be changed while it is queued or accepted." },
   assignment_not_found: { title: "Not assigned to your clinic", body: "Complete the Selection for this beneficiary first." },

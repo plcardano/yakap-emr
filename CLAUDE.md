@@ -9,6 +9,7 @@ Update `docs/DEVELOPMENT_PLAN.md` in the same piece of work whenever:
 - a task is finished: tick its checkbox, and update the Progress table, **Current phase** and **Next action**
 - a decision is made: add a dated row at the top of the Decision log
 - an open item appears or is resolved: update the Open items table
+- something is assumed because the real API cannot be reached: add it to section 8, "When the real API is available"
 
 Always update **Last updated**.
 

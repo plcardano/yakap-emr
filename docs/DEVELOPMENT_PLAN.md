@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 5 (Empanelment), not started
-**Next action:** Build the Empanelment tracker and submission
+**Current phase:** Phase 6 (Clinical uploads), not started
+**Next action:** Build Consultation on the Dictionary-driven form engine
 
 ## 1. What we are building
 
@@ -46,8 +46,8 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 | 2 | PCAPI core | Done (tested against the mock only) |
 | 3 | Verification | Done (tested against the mock only) |
 | 4 | Selection and FPE | Done (tested against the mock only) |
-| 5 | Empanelment | Up next |
-| 6 | Clinical uploads | Not started |
+| 5 | Empanelment | Done (tested against the mock only) |
+| 6 | Clinical uploads | Up next |
 | 7 | Clinic records | Not started |
 | 8 | Certification and go-live | Not started |
 
@@ -112,14 +112,14 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 - [x] Field errors mapped back to the right wizard step, for both 400 responses and rejected uploads
 - [x] Correct and resubmit a rejected record with the same number
 
-### Phase 5: Empanelment
+### Phase 5: Empanelment (done)
 
 **Done when:** an MCA is recorded and the duplicate and missing-FPE cases are handled.
 
-- [ ] Status tracker per beneficiary (Figma Iteration 3 layout)
-- [ ] Empanelment enabled only with an active Selection and an `accepted` FPE
-- [ ] Same-day verification checks
-- [ ] Result screen showing `yes_reference_no` and Validator status
+- [x] Status tracker per beneficiary (Figma Iteration 3 layout)
+- [x] Empanelment enabled only with an active Selection and an `accepted` FPE
+- [x] Same-day verification checks
+- [x] Result screen showing `yes_reference_no` and Validator status
 
 ### Phase 6: Clinical uploads
 
@@ -160,6 +160,7 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | The Empanelment tracker has four steps, adding Selection to Figma's three, and name search shows one record | The guide requires an active Selection, and returns `multiple_matches` instead of a list |
 | 2026-11-08 | Medical, immunization and family history always need an entry; a patient with no history picks "None" (`999` for disease, `01` for immunization) | Guide 4.6.1 Payload structure marks these groups Required, and the Library Reference defines the None codes |
 | 2026-11-08 | Keep the current month-end age calculation and adjust later if the API differs | Project owner is not yet sure how the API computes it |
 | 2026-11-08 | Patient age counts days from the last whole month, clamped to that month's length (01/31 to 03/01 is 1 month, 1 day) | The guide requires the backend's value but does not define month-end cases. Confirm against the API |
@@ -233,3 +234,50 @@ These request samples set a flag to `Y` but leave out the field the Dictionary t
 | Real PSGC, ICD-10 and Konsulta Drug data | Phase 4 (placeholders until then) | Project owner |
 | Reachable PCAPI staging host | Phase 8 at the latest | Project owner |
 | PhilHealth software certificate and cipher keys for staging | Phase 8 at the latest; stored only in a local environment file | Project owner |
+
+## 8. When the real API is available
+
+Everything so far has been tested only against the mock in `mock/pcapi/`, which was built from the guide. Work through this list the first time the app can reach PCAPI, and add to it whenever a mock-only assumption is made.
+
+### Connect
+
+- [ ] Set `PCAPI_BASE_URL` (including `/primary-care`), `PCAPI_SOFTWARE_CERT_ID` and `PCAPI_SECRET_KEY` in the server environment
+- [ ] Store each facility's real accreditation number and cipher key (`facilities.cipher_key_encrypted`; today only `npm run db:seed` writes these)
+- [ ] Confirm TLS works from the server; if PCAPI uses a private certificate authority, set `NODE_EXTRA_CA_CERTS`
+- [ ] Get a token, then confirm one encrypted call and its response decrypt with the real cipher key
+- [ ] Confirm token expiry and revocation recover without staff noticing
+
+### Confirm or adjust
+
+| # | What the app assumes today | Where it lives | If the API differs |
+|---|---|---|---|
+| 1 | Age at month-end counts from the last whole month, clamped: 01/31 to 03/01 is 1 month, 1 day | `src/lib/fpe/derived.ts` | Change `ageOn`; the API rejects a mismatch |
+| 2 | BMI uses height, or length when height is empty, rounded to 2 decimals | `src/lib/fpe/derived.ts`, `src/lib/fpe/form.ts` | Change `computeBmi` or which measure is used |
+| 3 | Conditional fields the guide's own FPE and Consultation samples leave out are enforced | Rule engine; section 6 lists them | Relax the rule, or correct the guide samples |
+| 4 | A conditional value whose rule does not apply is sent as `""` or left out, even if the guide's samples send a value | `serialize` in `src/lib/pcapi-spec/engine.ts` | Keep the value when sending |
+| 5 | `request_id` is always a UUID | `uuid` columns in `src/server/db/schema.ts` | Change the columns to text, or inserts will fail |
+| 6 | `expires_at`, `received_at` and `processed_at` are Philippine time with no offset | `src/lib/liveness-return.ts`, `src/server/uploads/poller.ts` | Adjust the parsing |
+| 7 | The real LIVENESS SDK defines `window.eKYC()` with `redirect(...)`, and returns in the same tab with the fragment in the guide | `pcu-check.tsx`; the mock's SDK is a stand-in | Adjust the browser flow. Also test the camera, HTTPS, and whether return URLs must be registered |
+| 8 | `liveness_authorization_id` fits in 100 characters | `patient_verifications` | Widen the column |
+| 9 | Sending the Valid ID image on every request that day is accepted, though only the first requires it | `src/server/verification/evidence.ts` | Send it only on the first request and track that |
+| 10 | Field paths in `errors[].field` match the JSON paths and can be mapped to wizard steps | `stepIndexForField` in `src/lib/fpe/form.ts` | Map the real paths |
+| 11 | No issue codes exist beyond the guide's tables | `src/lib/pcapi-messages.ts` | Add wording; unknown codes show a generic message |
+| 12 | A child upload waits while its parent is queued, and is rejected with its parent | Mock `processQueue` | Adjust the ordering or status handling |
+| 13 | Only network failures and 502, 503, 504 are retried, with a 30-second timeout | `src/server/pcapi/client.ts` | Tune the timeout and retries |
+| 14 | The worker keeps polling an upload that keeps failing, every 60 seconds | `src/server/uploads/poller.ts` | Decide when to stop, for example on `upload_not_found` |
+| 15 | Masterlist values copy straight into the FPE and are read-only | `createFpeDraft` in `src/server/fpe/service.ts` | Make fields editable where the API allows corrections |
+| 16 | An assigned beneficiary is detected by the identity fields being present | `validator-result.tsx`, `tracker-row.tsx` | Adjust the check |
+| 17 | Multi-select codes are sent comma-separated with no spaces | `CheckboxList` in `spec-form.tsx` | Adjust the format |
+
+### Replace mock and placeholder data
+
+- [ ] Import the real PSGC, ICD-10 and Konsulta Drug codes with `npm run codes:import`, and deactivate the `[Placeholder]` rows
+- [ ] Validate submitted PSGC, ICD-10 and drug codes against the imported lists; they are not checked locally today
+- [ ] Stop running `npm run mock`, and remove the mock defaults from each server's environment
+- [ ] Remove the test facility and accounts created by `npm run db:seed` from any shared environment
+
+### Test against the API
+
+- [ ] Run the whole journey: verification, Selection, FPE, Empanelment, Consultation and its child records, Masterlist, Availment Slip
+- [ ] Run the failure paths listed in Phase 8
+- [ ] Compare the mock with the API's real behavior, and fix the mock wherever it differs so tests stay meaningful

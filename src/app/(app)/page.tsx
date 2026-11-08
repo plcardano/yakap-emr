@@ -1,4 +1,4 @@
-import { Button, ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button";
 import { requireUser } from "@/server/auth/session";
 import { BeneficiaryLookup } from "./validator/beneficiary-lookup";
 
@@ -38,9 +38,9 @@ export default async function HomePage() {
           <p className="flex-1 text-sm text-muted">
             Record the Mutual Care Agreement after an accepted FPE.
           </p>
-          <Button variant="outline" disabledReason="Not available yet.">
+          <ButtonLink variant="outline" href="/empanelment">
             Open Empanelment
-          </Button>
+          </ButtonLink>
         </article>
       </section>
     </div>
