@@ -1,7 +1,7 @@
 // A local stand-in for PCAPI, built from Implementation Guide rev20261026.
 // It uses the real Annex C encryption and the Data Dictionary checks.
 
-import { createHash, randomBytes, randomUUID } from "node:crypto";
+import { createHash, randomBytes, randomInt, randomUUID } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import type { AddressInfo } from "node:net";
 import { libraries, validateRequest, type SpecId, type UploadForm } from "../../src/lib/pcapi-spec";
@@ -28,9 +28,30 @@ type Json = Record<string, any>; // eslint-disable-line @typescript-eslint/no-ex
 type Issue = { field: string; issue: string };
 
 const BASE = "/primary-care/api/v1";
-const PDF = Buffer.from(
-  "%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj\n2 0 obj<</Type/Pages/Count 0/Kids[]>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF",
-);
+
+function buildSamplePdf() {
+  const content = "BT /F1 18 Tf 72 720 Td (Mock YAKAP Availment Slip) Tj ET";
+  const objects = [
+    "<</Type/Catalog/Pages 2 0 R>>",
+    "<</Type/Pages/Count 1/Kids[3 0 R]>>",
+    "<</Type/Page/Parent 2 0 R/MediaBox[0 0 612 792]/Contents 4 0 R/Resources<</Font<</F1 5 0 R>>>>>>",
+    `<</Length ${content.length}>>stream\n${content}\nendstream`,
+    "<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>",
+  ];
+  let pdf = "%PDF-1.4\n";
+  const offsets = objects.map((body, index) => {
+    const offset = pdf.length;
+    pdf += `${index + 1} 0 obj\n${body}\nendobj\n`;
+    return offset;
+  });
+  const xref = pdf.length;
+  pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
+  pdf += offsets.map((offset) => `${String(offset).padStart(10, "0")} 00000 n \n`).join("");
+  pdf += `trailer<</Size ${objects.length + 1}/Root 1 0 R>>\nstartxref\n${xref}\n%%EOF`;
+  return Buffer.from(pdf);
+}
+
+const PDF = buildSamplePdf();
 const LIVENESS_TTL_MS = 5 * 60 * 1000;
 
 class Reject extends Error {
@@ -188,9 +209,12 @@ export function createMockPcapi({ processDelayMs = 1500 }: MockOptions = {}) {
   const uploads: Upload[] = [];
   const counters = new Map<string, number>();
 
+  // Starts at a random point so numbers do not repeat when the mock restarts.
+  const seriesStart = randomInt(1, 90000);
+
   function nextSeries(accreNo: string, prefix: string) {
     const key = `${accreNo}:${prefix}:${pst().slice(0, 10)}`;
-    const value = (counters.get(key) ?? 0) + 1;
+    const value = (counters.get(key) ?? seriesStart) + 1;
     counters.set(key, value);
     return compact(accreNo, prefix, value);
   }

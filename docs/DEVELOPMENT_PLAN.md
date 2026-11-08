@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 7 (Clinic records), not started
-**Next action:** Build the Masterlist lookup and batch download
+**Current phase:** Phase 8 (Certification and go-live), not started
+**Next action:** Complete the work that does not need the API: security checklist, failure-path tests, accessibility review and the admin screen
 
 ## 1. What we are building
 
@@ -48,8 +48,8 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 | 4 | Selection and FPE | Done (tested against the mock only) |
 | 5 | Empanelment | Done (tested against the mock only) |
 | 6 | Clinical uploads | Done (tested against the mock only) |
-| 7 | Clinic records | Up next |
-| 8 | Certification and go-live | Not started |
+| 7 | Clinic records | Done (tested against the mock only) |
+| 8 | Certification and go-live | Up next |
 
 ## 4. Phases
 
@@ -133,14 +133,14 @@ Figma has no screens for these; they extend the Figma style.
 - [x] Drugs and Medicines
 - [x] Referral Request
 
-### Phase 7: Clinic records
+### Phase 7: Clinic records (done)
 
 **Done when:** staff can download, print, and fix rejected uploads.
 
-- [ ] Masterlist individual lookup
-- [ ] Masterlist batch download, range of at most 7 days
-- [ ] Availment Slip PDF: decrypt as bytes, check hash, view and print
-- [ ] Upload monitoring screen with rejected records
+- [x] Masterlist individual lookup
+- [x] Masterlist batch download, range of at most 7 days
+- [x] Availment Slip PDF: decrypt as bytes, check hash, view and print
+- [x] Upload monitoring screen with rejected records
 
 ### Phase 8: Certification and go-live
 
@@ -160,6 +160,8 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | The Masterlist can be exported as CSV in the browser; cells that a spreadsheet would read as a formula are neutralized | Staff need to download the list, and the data comes from an external source |
+| 2026-11-08 | The batch Masterlist consent tick covers the beneficiaries in the list as a group | The guide requires `consent: true` on the batch call, which has no single patient |
 | 2026-11-08 | Medicine `quantity` and `total_amount_price` are computed when the entries can be read (leading number x doses per day x days); PRN and unreadable entries are typed by staff | Guide 4.6.5 says the EMR computes them, but quantity and duration are free text |
 | 2026-11-08 | `drug_code`, `generic_code`, `strength_code` and `form_code` are required unless `other_medicine` is filled | The Dictionary marks them Yes, but guide 4.6.5 sends them as "" for a medicine not in the library |
 | 2026-11-08 | One shared wizard, draft and submit service serves all six upload forms, each described by a form definition | Keeps the rules for every form in one pattern |
@@ -276,6 +278,8 @@ Everything so far has been tested only against the mock in `mock/pcapi/`, which 
 | 19 | `sochist.substance_former_user_spec` and `sf_headsss.headsss_urgent_referral_flag` are not enforced locally, because their rules name a form question with no field to check | Consultation definition | Add the rule once the API's behavior is known |
 | 20 | `diagnostic_services_flag` values Y and R both allow a Diagnostic Request | `listUploads` in `src/server/uploads/service.ts` | Limit the Request to Y if R means results only |
 | 21 | Referral `patient_age` repeats the age computed from the Masterlist birth date | `createChildDraft` in `src/server/uploads/clinical.ts` | Use the API's value |
+| 22 | Browser printing of the Availment Slip works from the embedded PDF viewer | `slip-form.tsx`; checked only that the file loads as a valid PDF | Open the PDF in a new tab to print |
+| 23 | The batch Masterlist accepts one consent attestation for the whole list | `downloadBatch` in `src/server/records/service.ts` | Adjust the consent wording or flow |
 
 ### Replace mock and placeholder data
 

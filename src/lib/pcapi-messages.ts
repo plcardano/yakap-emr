@@ -46,6 +46,8 @@ export const ISSUE_COPY: Record<string, Copy> = {
   facility_not_found: { title: "This facility is not a YAKAP Clinic", body: "Contact your administrator." },
   // Uploads and Masterlist
   transaction_already_exists: { title: "This record already exists with different content", body: "It cannot be changed while it is queued or accepted." },
+  availment_not_found: { title: "No Availment Slip is available", body: "There is no YAKAP availment for this PIN at your clinic for that year." },
+  upload_not_found: { title: "This upload was not found" },
   assignment_not_found: { title: "Not assigned to your clinic", body: "Complete the Selection for this beneficiary first." },
   // Verification code
   code_invalid: { title: "The verification code is not valid", body: "Ask the patient for the current code. Do not retry the same code." },

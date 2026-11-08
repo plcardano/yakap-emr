@@ -411,7 +411,11 @@ export async function submitDraft(
         })
         .onConflictDoUpdate({
           target: submissions.uploadTransactionNo,
-          set: { processingStatus: data.processing_status },
+          // An identical resend reports the original upload's current status (guide 4.6).
+          set: {
+            processingStatus: data.processing_status,
+            nextPollAt: ["queued", "processing"].includes(data.processing_status) ? new Date() : null,
+          },
         })
         .returning({ id: submissions.id });
       if (content.correctsSubmissionId) {
@@ -487,6 +491,8 @@ export type UploadItem = {
   patient: string;
   status: "draft" | ProcessingStatus;
   uploadNo?: string;
+  processedAt?: string;
+  requestId?: string;
   errors?: { field: string; issue: string }[];
   parentId?: string | null;
   flags?: { diagnostics: boolean; medicine: boolean; referral: boolean };
@@ -536,6 +542,8 @@ export async function listUploads(actor: Actor, forms: UploadForm[]): Promise<Up
         patient: describe(row.form, values),
         status: row.processingStatus,
         uploadNo: row.uploadTransactionNo ?? undefined,
+        processedAt: row.processedAt?.toISOString(),
+        requestId: row.requestId ?? undefined,
         errors: row.errors as UploadItem["errors"],
         parentId: row.parentSubmissionId,
         ...(row.form === "consultation" && {

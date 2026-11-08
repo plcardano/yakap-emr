@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Items without an href are built in later phases.
 const ITEMS: { label: string; href?: string }[] = [
   { label: "Home", href: "/" },
   { label: "Primary Care Validator", href: "/validator" },
@@ -12,9 +11,9 @@ const ITEMS: { label: string; href?: string }[] = [
   { label: "First Patient Encounter", href: "/fpe" },
   { label: "Empanelment", href: "/empanelment" },
   { label: "Clinical uploads", href: "/clinical" },
-  { label: "Upload status" },
-  { label: "Selection masterlist" },
-  { label: "Availment slip" },
+  { label: "Upload status", href: "/uploads" },
+  { label: "Selection masterlist", href: "/masterlist" },
+  { label: "Availment slip", href: "/availment-slip" },
 ];
 
 function isCurrent(pathname: string, href: string) {

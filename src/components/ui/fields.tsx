@@ -159,10 +159,12 @@ export function ConsentField({
   checked,
   onChange,
   error,
+  text = "The patient gave explicit consent to process their personal and health information under the Data Privacy Act of 2012.",
 }: {
   checked: boolean;
   onChange: (checked: boolean) => void;
   error?: string;
+  text?: string;
 }) {
   return (
     <div className="flex flex-col gap-1">
@@ -173,10 +175,7 @@ export function ConsentField({
           checked={checked}
           onChange={(event) => onChange(event.target.checked)}
         />
-        <span>
-          The patient gave explicit consent to process their personal and health information
-          under the Data Privacy Act of 2012.
-        </span>
+        <span>{text}</span>
       </label>
       {error && <p className="text-xs text-danger">{error}</p>}
     </div>
