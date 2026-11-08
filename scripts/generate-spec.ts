@@ -75,6 +75,13 @@ function parseWhen(source: string): Condition[] | null {
   return conditions.every(Boolean) ? (conditions as Condition[]) : null;
 }
 
+const LIBRARY_ONLY_MEDICINE_FIELDS = [
+  "medicine[].drug_code",
+  "medicine[].generic_code",
+  "medicine[].strength_code",
+  "medicine[].form_code",
+];
+
 function parseRule(row: Record<string, string>): FieldRule {
   const checks = row["CHECKS"];
   const constraint = row["RULE (CONSTRAINT)"];
@@ -142,6 +149,12 @@ function parseRule(row: Record<string, string>): FieldRule {
     const when = parseWhen(source);
     if (when) rule.when = when;
     else rule.manual = (constraint || sentence).slice(0, 300);
+  }
+
+  // Guide 4.6.5: for a medicine not in the library these are sent as "".
+  if (LIBRARY_ONLY_MEDICINE_FIELDS.includes(rule.path)) {
+    rule.required = "conditional";
+    rule.when = [{ field: "other_medicine", op: "blank", values: [] }];
   }
 
   return Object.fromEntries(
@@ -230,6 +243,19 @@ function firstSentence(text: string) {
   return text;
 }
 
+async function generateResultGroups() {
+  const book = new ExcelJS.Workbook();
+  await book.xlsx.readFile(DICTIONARY);
+  const rows = rowsOf(book.getWorksheet("Diagnostic Result Applicability")!);
+  const headerIndex = rows.findIndex((row) => row[0] === "CODE");
+  const group = rows[headerIndex].indexOf("RESULT GROUP");
+  const groups: Record<string, string> = {};
+  for (const row of rows.slice(headerIndex + 1)) {
+    if (/^\d+$/.test(row[0]) && /^[a-z0-9]+$/.test(row[group] ?? "")) groups[row[0]] = row[group];
+  }
+  writeFileSync(`${OUT}/pcapi-result-groups.json`, `${JSON.stringify(groups, null, 1)}\n`);
+}
+
 async function generateLabels() {
   const book = new ExcelJS.Workbook();
   await book.xlsx.readFile(DICTIONARY);
@@ -286,6 +312,7 @@ async function main() {
   const { total, specs } = await generateRules();
   const libraries = await generateLibraries();
   await generateLabels();
+  await generateResultGroups();
 
   const all = Object.values(specs).flat();
   const conditional = all.filter((rule) => rule.required === "conditional");

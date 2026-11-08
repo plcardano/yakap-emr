@@ -66,6 +66,8 @@ export const REASON_COPY: Record<string, string> = {
   bad_date_format: "Enter a valid date.",
   unknown_library_code: "Choose a value from the list.",
   must_be_true: "This must be confirmed.",
+  duplicate_test: "Each test can be requested only once.",
+  not_sent_together: "Enter this result in one unit only.",
   not_jpeg: "Upload a JPEG image.",
   image_too_large: "The image must be 2 MB or smaller.",
 };

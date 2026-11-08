@@ -274,7 +274,21 @@ export function createMockPcapi({ processDelayMs = 1500 }: MockOptions = {}) {
       medicine: "medicine[0].soap_transaction_no",
       referral: "soap.soap_transaction_no",
     }[form];
-    return find("consultation", "soap_transaction_no", echo.soap_transaction_no, path);
+    const parent = find("consultation", "soap_transaction_no", echo.soap_transaction_no, path);
+    if (parent !== "ok" || form === "diagnostic_request") return parent;
+
+    // Guide 4.6.5 and 4.6.6: the consultation must announce the prescription or referral.
+    const consultation = uploads.find(
+      (u) =>
+        u.form === "consultation" &&
+        u.accreNo === upload.accreNo &&
+        u.echo.soap_transaction_no === echo.soap_transaction_no &&
+        u.status === "accepted",
+    );
+    const flag = form === "medicine" ? "medication_prescription_flag" : "referral_flag";
+    return consultation?.body.management[flag] === "Y"
+      ? "ok"
+      : { field: path, issue: "validation_error" };
   }
 
   function hasRejectName(body: Json) {

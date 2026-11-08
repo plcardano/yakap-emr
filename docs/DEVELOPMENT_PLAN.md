@@ -3,8 +3,8 @@
 This is the living plan for the project. Update it whenever work is finished or a decision is made (see `CLAUDE.md`).
 
 **Last updated:** 2026-11-08
-**Current phase:** Phase 6 (Clinical uploads), not started
-**Next action:** Build Consultation on the Dictionary-driven form engine
+**Current phase:** Phase 7 (Clinic records), not started
+**Next action:** Build the Masterlist lookup and batch download
 
 ## 1. What we are building
 
@@ -47,8 +47,8 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 | 3 | Verification | Done (tested against the mock only) |
 | 4 | Selection and FPE | Done (tested against the mock only) |
 | 5 | Empanelment | Done (tested against the mock only) |
-| 6 | Clinical uploads | Up next |
-| 7 | Clinic records | Not started |
+| 6 | Clinical uploads | Done (tested against the mock only) |
+| 7 | Clinic records | Up next |
 | 8 | Certification and go-live | Not started |
 
 ## 4. Phases
@@ -121,17 +121,17 @@ Why Next.js and not React alone: the guide forbids exposing certificates, cipher
 - [x] Same-day verification checks
 - [x] Result screen showing `yes_reference_no` and Validator status
 
-### Phase 6: Clinical uploads
+### Phase 6: Clinical uploads (done)
 
 **Done when:** all five forms are accepted, with parent and child ordering handled.
 
 Figma has no screens for these; they extend the Figma style.
 
-- [ ] Consultation (272 fields), including OB-Gyn, Pediatric, Adolescent, Full HEADSSS and BP Monitoring forms
-- [ ] Diagnostic Request
-- [ ] Diagnostic Results (137 fields), using the Diagnostic Result Applicability sheet
-- [ ] Drugs and Medicines
-- [ ] Referral Request
+- [x] Consultation (272 fields), including OB-Gyn, Pediatric, Adolescent, Full HEADSSS and BP Monitoring forms
+- [x] Diagnostic Request
+- [x] Diagnostic Results (137 fields), using the Diagnostic Result Applicability sheet
+- [x] Drugs and Medicines
+- [x] Referral Request
 
 ### Phase 7: Clinic records
 
@@ -160,6 +160,10 @@ Newest first. Add a row for every decision.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-08 | Medicine `quantity` and `total_amount_price` are computed when the entries can be read (leading number x doses per day x days); PRN and unreadable entries are typed by staff | Guide 4.6.5 says the EMR computes them, but quantity and duration are free text |
+| 2026-11-08 | `drug_code`, `generic_code`, `strength_code` and `form_code` are required unless `other_medicine` is filled | The Dictionary marks them Yes, but guide 4.6.5 sends them as "" for a medicine not in the library |
+| 2026-11-08 | One shared wizard, draft and submit service serves all six upload forms, each described by a form definition | Keeps the rules for every form in one pattern |
+| 2026-11-08 | Child records start from their accepted parent on the Clinical uploads page, and the consultation's plan flags decide which are offered | Guide 4.6.3 to 4.6.6 |
 | 2026-11-08 | The Empanelment tracker has four steps, adding Selection to Figma's three, and name search shows one record | The guide requires an active Selection, and returns `multiple_matches` instead of a list |
 | 2026-11-08 | Medical, immunization and family history always need an entry; a patient with no history picks "None" (`999` for disease, `01` for immunization) | Guide 4.6.1 Payload structure marks these groups Required, and the Library Reference defines the None codes |
 | 2026-11-08 | Keep the current month-end age calculation and adjust later if the API differs | Project owner is not yet sure how the API computes it |
@@ -268,6 +272,10 @@ Everything so far has been tested only against the mock in `mock/pcapi/`, which 
 | 15 | Masterlist values copy straight into the FPE and are read-only | `createFpeDraft` in `src/server/fpe/service.ts` | Make fields editable where the API allows corrections |
 | 16 | An assigned beneficiary is detected by the identity fields being present | `validator-result.tsx`, `tracker-row.tsx` | Adjust the check |
 | 17 | Multi-select codes are sent comma-separated with no spaces | `CheckboxList` in `spec-form.tsx` | Adjust the format |
+| 18 | Medicine quantity reads the leading number of the free-text intake and duration, with doses per day inferred from the frequency code | `computeQuantity` in `src/lib/upload-forms/children.ts` | Change the calculation |
+| 19 | `sochist.substance_former_user_spec` and `sf_headsss.headsss_urgent_referral_flag` are not enforced locally, because their rules name a form question with no field to check | Consultation definition | Add the rule once the API's behavior is known |
+| 20 | `diagnostic_services_flag` values Y and R both allow a Diagnostic Request | `listUploads` in `src/server/uploads/service.ts` | Limit the Request to Y if R means results only |
+| 21 | Referral `patient_age` repeats the age computed from the Masterlist birth date | `createChildDraft` in `src/server/uploads/clinical.ts` | Use the API's value |
 
 ### Replace mock and placeholder data
 

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { labelsFor, librariesFor, rulesFor } from "@/lib/pcapi-spec";
 import { requireUser } from "@/server/auth/session";
 import { draftEvidence, loadFpeDraft } from "@/server/fpe/service";
-import { FpeWizard } from "./fpe-wizard";
+import { UploadWizard } from "@/components/spec-form/upload-wizard";
 
 export default async function FpeDraftPage({ params }: PageProps<"/fpe/[id]">) {
   const user = await requireUser();
@@ -11,7 +11,9 @@ export default async function FpeDraftPage({ params }: PageProps<"/fpe/[id]">) {
   if (!draft) notFound();
 
   return (
-    <FpeWizard
+    <UploadWizard
+      form="fpe"
+      exitHref="/fpe"
       draftId={id}
       initialValues={draft.values}
       initialStep={draft.step}

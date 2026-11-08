@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { StatusChip, type Tone } from "@/components/ui/status-chip";
 import type { FpeListItem } from "@/server/fpe/service";
-import { correctSubmissionAction } from "./actions";
+import { correctSubmissionAction } from "../uploads/actions";
 
 const STATUS: Record<FpeListItem["status"], { tone: Tone; text: string }> = {
   draft: { tone: "neutral", text: "Draft" },

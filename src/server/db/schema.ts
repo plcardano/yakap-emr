@@ -187,6 +187,8 @@ export const submissions = pgTable(
     recordNumbers: jsonb("record_numbers").notNull(),
     payloadEncrypted: text("payload_encrypted").notNull(),
     errors: jsonb("errors").notNull().default([]),
+    /** The consultation or Diagnostic Request this record belongs to. */
+    parentSubmissionId: uuid("parent_submission_id"),
     /** The primary record number, which stays the same across corrections. */
     recordKey: varchar("record_key", { length: 200 }).notNull(),
     /** Set when a corrected resubmission replaces this rejected one. */

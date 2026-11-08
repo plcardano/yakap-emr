@@ -1,6 +1,6 @@
 export type Condition = {
   field: string;
-  op: "eq" | "includes";
+  op: "eq" | "includes" | "blank";
   values: string[];
 };
 

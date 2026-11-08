@@ -4913,9 +4913,16 @@
   {
    "path": "medicine[].drug_code",
    "type": "string",
-   "required": "yes",
+   "required": "conditional",
    "maxBytes": 20,
-   "external": "lib_medicine"
+   "external": "lib_medicine",
+   "when": [
+    {
+     "field": "other_medicine",
+     "op": "blank",
+     "values": []
+    }
+   ]
   },
   {
    "path": "medicine[].medicine_category",
@@ -4927,9 +4934,16 @@
   {
    "path": "medicine[].generic_code",
    "type": "string",
-   "required": "yes",
+   "required": "conditional",
    "maxBytes": 20,
-   "external": "lib_medicine_generic"
+   "external": "lib_medicine_generic",
+   "when": [
+    {
+     "field": "other_medicine",
+     "op": "blank",
+     "values": []
+    }
+   ]
   },
   {
    "path": "medicine[].salt_code",
@@ -4941,16 +4955,30 @@
   {
    "path": "medicine[].strength_code",
    "type": "string",
-   "required": "yes",
+   "required": "conditional",
    "maxBytes": 20,
-   "external": "lib_medicine_strength"
+   "external": "lib_medicine_strength",
+   "when": [
+    {
+     "field": "other_medicine",
+     "op": "blank",
+     "values": []
+    }
+   ]
   },
   {
    "path": "medicine[].form_code",
    "type": "string",
-   "required": "yes",
+   "required": "conditional",
    "maxBytes": 20,
-   "external": "lib_medicine_form"
+   "external": "lib_medicine_form",
+   "when": [
+    {
+     "field": "other_medicine",
+     "op": "blank",
+     "values": []
+    }
+   ]
   },
   {
    "path": "medicine[].unit_code",

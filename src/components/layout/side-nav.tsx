@@ -11,7 +11,7 @@ const ITEMS: { label: string; href?: string }[] = [
   { label: "Selection", href: "/selection" },
   { label: "First Patient Encounter", href: "/fpe" },
   { label: "Empanelment", href: "/empanelment" },
-  { label: "Clinical uploads" },
+  { label: "Clinical uploads", href: "/clinical" },
   { label: "Upload status" },
   { label: "Selection masterlist" },
   { label: "Availment slip" },

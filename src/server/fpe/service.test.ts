@@ -371,6 +371,133 @@ describe.runIf(process.env.DATABASE_URL)("Selection and FPE", () => {
     });
   });
 
+  describe("Clinical uploads", () => {
+    let clinical: typeof import("@/server/uploads/clinical");
+    let uploads: typeof import("@/server/uploads/service");
+
+    beforeAll(async () => {
+      clinical = await import("@/server/uploads/clinical");
+      uploads = await import("@/server/uploads/service");
+    });
+
+    async function draftValues(id: string) {
+      return (await uploads.loadDraft(actor, id))!.content.values;
+    }
+
+    async function send(draftId: string, values: Values) {
+      const result = await uploads.submitDraft(actor, { draftId, values, consent: true });
+      if (!result.ok) throw new Error(`${result.title} ${JSON.stringify(result.fieldErrors)}`);
+      return settle(result.data.submissionId);
+    }
+
+    async function acceptedConsultation(pin: string) {
+      await settle(await submitted(pin));
+      const created = await clinical.createConsultationDraft(actor, { patient_pin: pin, consent: true });
+      if (!created.ok) throw new Error(created.title);
+      const prefilled = await draftValues(created.data.draftId);
+      const sample = validSample("consultation");
+      const values = {
+        ...sample,
+        __patient: prefilled.__patient,
+        soap: {
+          ...sample.soap,
+          ...prefilled.soap,
+          patient_verification_mode: "OTP",
+        },
+        management: { ...sample.management, diagnostic_services_flag: "Y" },
+      };
+      return send(created.data.draftId, values);
+    }
+
+    it("needs an FPE before a consultation", async () => {
+      const pin = await assignedPatient();
+      expect(
+        await clinical.createConsultationDraft(actor, { patient_pin: pin, consent: true }),
+      ).toMatchObject({ ok: false, title: "This patient has no FPE at your clinic" });
+    });
+
+    it("runs a consultation and all of its child records", async () => {
+      const pin = await assignedPatient();
+      const consultation = await acceptedConsultation(pin);
+      expect(consultation.processingStatus).toBe("accepted");
+      const parentNumbers = consultation.recordNumbers as Record<string, string>;
+
+      const listed = (await uploads.listUploads(actor, ["consultation"])).find(
+        (item) => item.id === consultation.id,
+      );
+      expect(listed?.flags).toEqual({ diagnostics: true, medicine: true, referral: true });
+
+      // Diagnostic Request
+      const requestDraft = (await clinical.createChildDraft(actor, consultation.id, "diagnostic_request"))!;
+      const requestSample = validSample("diagnostic_request");
+      const request = await send(requestDraft, {
+        ...(await draftValues(requestDraft)),
+        diagrequest: requestSample.diagrequest,
+      });
+      expect(request.processingStatus).toBe("accepted");
+      expect((request.recordNumbers as Record<string, string>).soap_transaction_no).toBe(
+        parentNumbers.soap_transaction_no,
+      );
+
+      // Diagnostic Results start with one row per requested test
+      const resultsDraft = (await clinical.createChildDraft(actor, request.id, "diagnostic_results"))!;
+      const resultValues = await draftValues(resultsDraft);
+      expect(resultValues.diagresult_item.map((row: Values) => row.diagnostic_code)).toEqual(
+        requestSample.diagrequest.map((row: Values) => row.diagnostic_code),
+      );
+      const resultsSample = validSample("diagnostic_results");
+      const results = await send(resultsDraft, {
+        ...resultValues,
+        diagresult_item: resultsSample.diagresult_item,
+      });
+      expect(results.processingStatus).toBe("accepted");
+
+      // Medicine prefills from the consultation
+      const medicineDraft = (await clinical.createChildDraft(actor, consultation.id, "medicine"))!;
+      const medicineValues = await draftValues(medicineDraft);
+      expect(medicineValues.physiciansignoff.physician_name).toBeTruthy();
+      expect(
+        (await send(medicineDraft, { ...medicineValues, medicine: validSample("medicine").medicine }))
+          .processingStatus,
+      ).toBe("accepted");
+
+      // Referral repeats the consultation's header
+      const referralDraft = (await clinical.createChildDraft(actor, consultation.id, "referral"))!;
+      const referralValues = await draftValues(referralDraft);
+      expect(referralValues.soap.patient_pin).toBe(pin);
+      expect(referralValues.soap.patient_age).toMatch(/YR\(S\)/);
+      const referral = await send(referralDraft, {
+        ...referralValues,
+        referral: validSample("referral").referral,
+      });
+      expect(referral.processingStatus).toBe("accepted");
+      expect(referral.parentSubmissionId).toBe(consultation.id);
+
+      // One consultation may raise several referrals.
+      const second = (await clinical.createChildDraft(actor, consultation.id, "referral"))!;
+      expect(
+        (
+          await send(second, {
+            ...(await draftValues(second)),
+            referral: validSample("referral").referral,
+          })
+        ).recordKey,
+      ).not.toBe(referral.recordKey);
+    });
+
+    it("will not start a child record from a parent that is not accepted", async () => {
+      const id = await submitted(await assignedPatient());
+      expect(await clinical.createChildDraft(actor, id, "medicine")).toBeNull();
+    });
+
+    it("cannot correct an accepted consultation", async () => {
+      const pin = await assignedPatient();
+      const first = await acceptedConsultation(pin);
+      expect(first.processingStatus).toBe("accepted");
+      expect(await uploads.correctSubmission(actor, first.id)).toBeNull();
+    });
+  });
+
   it("backs off as the guide says", () => {
     expect([0, 1, 2, 5, 6, 20].map(poller.pollDelaySeconds)).toEqual([2, 4, 8, 60, 60, 60]);
   });

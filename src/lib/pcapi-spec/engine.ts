@@ -56,6 +56,7 @@ function lookup(field: string, scopes: Json[]) {
 
 function holds(condition: Condition, scopes: Json[]) {
   const value = lookup(condition.field, scopes);
+  if (condition.op === "blank") return value === undefined || value === null || value === "";
   if (value === undefined || value === null) return false;
   if (condition.op === "eq") return condition.values.includes(String(value));
   const selected = String(value).split(",").map((code) => code.trim());

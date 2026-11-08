@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   AutoField,
@@ -27,6 +27,10 @@ export type SpecFormConfig = {
   hidden: Set<string>;
   /** Fields shown but not editable, with a note about where the value comes from. */
   readOnly: Map<string, string>;
+  /** Whether a nested group applies to its row, for example a test's result group. */
+  showNested?: (path: Path, row: Json) => boolean;
+  /** Repeating groups whose rows cannot be added or removed. */
+  fixedRows?: Set<string>;
   /** Fields required by a rule outside the Dictionary's structured conditions. */
   alsoRequired: Set<string>;
   errors: Record<string, string>;
@@ -107,6 +111,62 @@ function PsgcField({
         }
       }}
     />
+  );
+}
+
+const EXTERNAL_LIBRARY: Record<string, string> = {
+  "ICD-10": "icd10",
+  lib_medicine: "lib_medicine",
+};
+
+/** A free-text code with suggestions from the imported list. */
+function ExternalCodeField({
+  library,
+  label,
+  required,
+  value,
+  error,
+  config,
+  onChange,
+}: {
+  library: string;
+  label: string;
+  required: boolean;
+  value: string;
+  error?: string;
+  config: SpecFormConfig;
+  onChange: (value: string) => void;
+}) {
+  const [options, setOptions] = useState<CodeOption[]>([]);
+  const listId = useId();
+  const { loadCodes } = config;
+
+  useEffect(() => {
+    let current = true;
+    void loadCodes(library).then((codes) => {
+      if (current) setOptions(codes);
+    });
+    return () => {
+      current = false;
+    };
+  }, [library, loadCodes]);
+
+  return (
+    <div>
+      <TextField
+        {...{ label, required, value, error }}
+        optional={!required}
+        list={listId}
+        onChange={(event) => onChange(event.target.value)}
+      />
+      <datalist id={listId}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </datalist>
+    </div>
   );
 }
 
@@ -277,6 +337,15 @@ function Field({
       />
     );
   }
+  if (rule.external && EXTERNAL_LIBRARY[rule.external]) {
+    return (
+      <ExternalCodeField
+        library={EXTERNAL_LIBRARY[rule.external]}
+        {...{ label, required, value, error, config }}
+        onChange={set}
+      />
+    );
+  }
   if (rule.dateFormat === "MM/DD/YYYY") {
     return (
       <DateField
@@ -336,6 +405,7 @@ function Fields({
             />
           );
         }
+        if (config.showNested && !config.showNested(childPath, value)) return null;
         const nested = (value[name] ?? {}) as Json;
         return (
           <div key={name} className="md:col-span-2">
@@ -393,6 +463,7 @@ export function SpecGroup({
               scopes={[values, row]}
               config={config}
             />
+            {!config.fixedRows?.has(group) && (
             <div className="mt-2 text-right">
               <Button
                 variant="link"
@@ -406,13 +477,16 @@ export function SpecGroup({
                 Remove
               </Button>
             </div>
+            )}
           </div>
         ))}
-        <div>
-          <Button variant="outline" onClick={() => config.onChange([group], [...rows, {}])}>
-            Add entry
-          </Button>
-        </div>
+        {!config.fixedRows?.has(group) && (
+          <div>
+            <Button variant="outline" onClick={() => config.onChange([group], [...rows, {}])}>
+              Add entry
+            </Button>
+          </div>
+        )}
       </div>
     );
   }, [node, group, values, config]);
